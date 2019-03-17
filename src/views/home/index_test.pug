@@ -1,0 +1,16 @@
+extends ../_layout
+include ../mixins/movie_box.pug
+include ../mixins/worst_movie_icon.pug
+include ../mixins/best_movie_icon.pug
+
+block styles
+  link(rel="stylesheet" href="/stylesheets/style.css")
+
+block content
+  nav.navbar.sticky-top.navbar-expand-lg.navbar-dark.bg-dark
+    a.navbar-brand(href="#") &#127909; Fantasy Movie League
+      
+  div.main: div.row: div.container
+    div(style={"padding":"2.2em 0"}): h2 Testing
+block scripts
+  script(src='/javascripts/index.js')

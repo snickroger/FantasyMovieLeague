@@ -1,0 +1,23 @@
+mixin new_movie_box(movie)
+  div.col-lg-6.my-3
+    div.card
+      img.card-img-top(src=`/images/${(movie.imdb || '').replace('https://www.imdb.com/title/','')}.jpg` alt=movie.name)
+      div.card-body
+        div.card-body_wrapper
+          h3: a(href=movie.imdb target='_blank' rel="noopener")= movie.name
+          p.card-description!= movie.plot
+          div
+            p
+              strong Director
+              | : #{movie.director}
+            p
+              strong Starring
+              | : #{movie.actors}
+            p
+              strong Release Date
+              | : #{movie.releaseDateShort}
+          div
+            hr
+            div(style="float:right;")
+              label(for=`movie_${movie.id}`) Shares:&nbsp;
+              input.shares(type="number" value=0 min=0 max=100 id=`movie_${movie.id}` name=`movie_${movie.id}` style={width:'60px'})

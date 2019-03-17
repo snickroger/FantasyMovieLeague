@@ -1,0 +1,51 @@
+{
+  "name": "fantasymovieleague",
+  "version": "2.1.0",
+  "description": "Fantasy Movie League",
+  "license": "MIT",
+  "author": {
+    "name": "Nick Rogers",
+    "email": "nick@nickroge.rs",
+    "url": "http://nickroge.rs"
+  },
+  "private": true,
+  "scripts": {
+    "start": "node ./dist/server.js",
+    "watch": "tsc -w",
+    "debug": "nodemon --legacy-watch --watch ./dist --inspect=0.0.0.0:9229 --nolazy ./dist/server.js",
+    "docker-debug": "docker-compose -f \"docker-compose.dev.yml\" up --build",
+    "build": "grunt dev-build",
+    "lint-fix": "tslint -p . --fix",
+    "test": "mocha -r ts-node/register test/*.ts",
+    "test-debug": "mocha --inspect-brk -r ts-node/register test/*.ts",
+    "add-season": "node ./scripts/addSeason.js",
+    "add-team": "node ./scripts/addTeam.js",
+    "add-movies": "node ./scripts/addMovies.js",
+    "add-url": "node ./scripts/addUrl.js",
+    "remove-player": "node ./scripts/removePlayer.js"
+  },
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "express": "^4.16.4",
+    "pg": "^7.9.0",
+    "pug": "^2.0.3",
+    "reflect-metadata": "^0.1.13",
+    "serve-favicon": "^2.5.0",
+    "typeorm": "^0.2.15"
+  },
+  "devDependencies": {
+    "@types/body-parser": "^1.17.0",
+    "@types/express": "^4.16.1",
+    "@types/pg": "^7.4.13",
+    "@types/serve-favicon": "^2.2.30",
+    "assert": "^1.4.1",
+    "grunt": "^1.0.3",
+    "grunt-contrib-copy": "^1.0.0",
+    "grunt-ts": "^6.0.0-beta.22",
+    "grunt-tslint": "^5.0.2",
+    "nodemon": "^1.18.10",
+    "ts-node": "^8.0.3",
+    "tslint": "^5.14.0",
+    "typescript": "^3.3.3333"
+  }
+}

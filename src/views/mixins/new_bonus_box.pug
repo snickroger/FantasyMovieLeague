@@ -1,0 +1,15 @@
+mixin new_bonus_box(i, bonusAmount, movies)
+  div.col-lg-12.my-3
+    div.card
+      img.card-img-top(src=`/images/bonus.jpg` alt='Bonus')
+      div.card-body
+        div.card-body_wrapper
+          h3= `Bonus ${i}: +${bonusAmount}`
+          p Which movie will be the 
+            strong= `${i == 1 ? 'highest' : 'lowest'} ` 
+            | rated on 
+            a(href="https://www.metacritic.com" target="_blank" rel="noopener") Metacritic
+            | ?
+          select(name=`bonus${i}`)
+            each movie in movies
+              option(value=movie.id)= movie.name

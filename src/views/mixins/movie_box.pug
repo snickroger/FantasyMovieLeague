@@ -1,0 +1,26 @@
+include worst_movie_icon.pug
+include best_movie_icon.pug
+
+mixin movie_box(movie, teamId)
+  div.col-lg-4.my-3.movie-box(data-title=movie.name data-release-date=movie.releaseDateInt data-shares=movie.shares data-gross=movie.gross data-rating=movie.rating data-value=movie.value)
+    div.card
+      a(href=`/movies/${movie.id}?team=${teamId}`): img.card-img-top(src=movie.posterUrl alt=movie.name)
+      div.card-body
+        div.card-body_wrapper
+          h4: a(href=`/movies/${movie.id}?team=${teamId}`)= movie.name
+          p= `Release Date: ${movie.releaseDate}`
+
+          if movie.gross > 0
+            p: strong= movie.grossDisp
+          
+          if movie.valueDispShort != ""
+            p: em= `${movie.shares} shares, $${movie.valueDispShort}/ share`
+          else
+            p: em= `${movie.shares} shares`
+          
+          if movie.rating !== null
+            p= `Rating: ${movie.rating}% `
+              if movie.isBestMovie
+                +best_movie_icon()
+              if movie.isWorstMovie
+                +worst_movie_icon()

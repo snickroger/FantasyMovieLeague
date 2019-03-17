@@ -1,0 +1,71 @@
+extends ../_layout
+include ../mixins/movie_box.pug
+include ../mixins/worst_movie_icon.pug
+include ../mixins/best_movie_icon.pug
+include ../mixins/entered_money_pool.pug
+
+block styles
+  link(rel="stylesheet" href="/stylesheets/style.css")
+
+block content
+  nav.navbar.sticky-top.navbar-expand-lg.navbar-dark.bg-dark
+    a.navbar-brand(href="#") &#127909; Fantasy Movie League
+    div.team-type.form-inline
+      label Team: &nbsp;
+        select.form-control#selected-team(onchange=`changeTeam(event, '${selectedSeason.slug}');`)
+          each team in teams
+            option(value= team.id selected= team.id === selectedTeam.slug)= team.name
+    div.season-selector.form-inline
+      label Season: &nbsp;
+        select.form-control#selected-season(onchange="changeSeason(event)")
+          each season in seasons
+            option(value=season.slug selected= selectedSeason.slug === season.slug)= season.name
+      
+  div.main: div.row
+    div.col-sm-4: div.container: div.row
+      table#rankings.table.table-striped.table-hover
+        thead.table-dark
+          th(onclick="return rankingSort(0);") Rank
+          th
+          th(onclick="return rankingSort(2);") Name
+          th(onclick="return rankingSort(3);") % Used
+          th(onclick="return rankingSort(4);") $/Share
+          th(onclick="return rankingSort(5);") Total
+        tbody
+          each player in standings
+            tr
+              td(data-sort=player.rank): span= player.rank
+              td.bonuses
+                if player.enteredMoneyPool && selectedTeam.moneyPool !== null
+                  +entered_money_pool()
+                if player.bonus1
+                  +best_movie_icon()
+                if player.bonus2
+                  +worst_movie_icon()
+              td(data-sort=player.name) 
+                span: a(href=`/players/${player.id}?team=${selectedTeam.id}`)= player.name
+              td(data-sort=player.sharesUsed style={'text-align':'right'}): span= player.sharesUsed
+              td(data-sort=player.perShare style={'text-align':'right'}): span= player.perShareDisp
+              td(data-sort=player.total style={'text-align':'right'}): span= player.totalDisp
+    div.col-sm-8: div.container 
+      div.row
+        div.col-sm-9
+          div.dropdown
+            button#sort.btn.btn-secondary.dropdown-toggle(type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false") Sort
+            div.dropdown-menu
+              a.dropdown-item(href="#" onclick="return sort(SORT.defaults.releaseDate)") Release Date
+              a.dropdown-item(href="#" onclick="return sort(SORT.defaults.title)") Title
+              a.dropdown-item(href="#" onclick="return sort(SORT.defaults.shares)") Shares
+              a.dropdown-item(href="#" onclick="return sort(SORT.defaults.gross)") Gross
+              a.dropdown-item(href="#" onclick="return sort(SORT.defaults.rating)") Rating
+              a.dropdown-item(href="#" onclick="return sort(SORT.defaults.value)") Value
+        div.col-sm-3
+          h5#end-date
+      div.row#movies
+        each movie in earnings
+          +movie_box(movie, selectedTeam.id)
+block scripts
+  script=`var endDate = '${endDate}';`
+  script(src='https://cdnjs.cloudflare.com/ajax/libs/jquery.countdown/2.2.0/jquery.countdown.js', integrity='sha256-2HAs3lxuJSrA/bAbF2bgaV55gSuX8vVsj2pCcWYqmY4=', crossorigin='anonymous')
+  script(src="https://cdnjs.cloudflare.com/ajax/libs/tinysort/2.3.6/tinysort.min.js" integrity="sha256-5pgZzUdW0Qg53WkB5zljVnjT+jcQZY0dLUfoQZFxACo=" crossorigin="anonymous")
+  script(src='/javascripts/index.js')
