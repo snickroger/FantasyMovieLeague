@@ -1,7 +1,7 @@
 import { Column, Entity, JoinColumn, OneToOne, PrimaryGeneratedColumn } from "typeorm";
 import { Movie } from "./movie";
 
-@Entity()
+@Entity({ name: "players"})
 export class Player {
   @PrimaryGeneratedColumn()
   public id!: number;

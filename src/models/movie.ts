@@ -1,6 +1,7 @@
-import { Column, Entity, PrimaryGeneratedColumn } from "typeorm";
+import { Column, Entity, ManyToOne, PrimaryGeneratedColumn } from "typeorm";
+import { Season } from "./season";
 
-@Entity()
+@Entity({ name: "movies" })
 export class Movie {
   @PrimaryGeneratedColumn()
   public id!: number;
@@ -35,11 +36,11 @@ export class Movie {
   @Column()
   public limited!: boolean;
 
-  @Column()
+  @Column("int")
   public percentLimit?: number;
 
-  @Column()
-  public seasonId!: number;
+  @ManyToOne(() => Season, (season) => season.movies)
+  public season!: Season;
 
   @Column()
   public metacriticUrl?: string;

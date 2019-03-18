@@ -1,0 +1,20 @@
+# To restore database backup: Get-Content db\movie.bak | docker exec -i movie-ts_db_1 psql movie -U movie
+version: '3'
+services:
+  app:
+    build:
+      context: .
+      args:
+        - NODE_ENV=production
+    command: npm run start
+    env_file: variables.env
+    environment:
+      - NODE_ENV=production
+    restart: unless-stopped
+  db:
+    image: postgres:9.6.12
+    volumes:
+      - postgres:/var/lib/postgresql/data
+    env_file: variables.env
+volumes:
+  postgres:
