@@ -5,11 +5,15 @@ import "reflect-metadata";
 import favicon from "serve-favicon";
 import { createConnection } from "typeorm";
 import { HomeController } from "./controllers/homeController";
+import { Earning } from "./models/earning";
 import { Movie } from "./models/movie";
 import { Player } from "./models/player";
 import { Season } from "./models/season";
+import { Share } from "./models/share";
 import { Team } from "./models/team";
 import { Url } from "./models/url";
+import { ITeamRepository } from "./repositories/team/iteamRepository";
+import { TeamRepository } from "./repositories/team/teamRepository";
 
 // database setup
 createConnection({
@@ -20,13 +24,15 @@ createConnection({
   password: "J8Vvs85tJ6exKw88",
   database: "movie",
   logging: ["query", "error"],
-  entities: [Movie, Player, Season, Team, Url],
+  entities: [Earning, Movie, Player, Season, Share, Team, Url],
 }).then((conn) => {
   const defaultParser = bodyParser.urlencoded({ extended: true });
   const server = express();
 
+  const teamDb: ITeamRepository = new TeamRepository();
+
   // controller declarations
-  const homeController = new HomeController();
+  const homeController = new HomeController(teamDb);
 
   // server setup
   server.use(defaultParser);

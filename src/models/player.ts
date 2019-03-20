@@ -1,5 +1,8 @@
-import { Column, Entity, JoinColumn, OneToOne, PrimaryGeneratedColumn } from "typeorm";
+import { Column, CreateDateColumn, Entity, JoinColumn, JoinTable,
+  ManyToMany, OneToMany, OneToOne, PrimaryGeneratedColumn, UpdateDateColumn } from "typeorm";
 import { Movie } from "./movie";
+import { Share } from "./share";
+import { Team } from "./team";
 
 @Entity({ name: "players"})
 export class Player {
@@ -9,10 +12,10 @@ export class Player {
   @Column()
   public name!: string;
 
-  @Column()
+  @CreateDateColumn()
   public createdAt!: Date;
 
-  @Column()
+  @UpdateDateColumn()
   public updatedAt!: Date;
 
   @OneToOne(() => Movie)
@@ -23,6 +26,13 @@ export class Player {
   @JoinColumn()
   public bonus2?: Movie;
 
+  @OneToMany(() => Share, (share) => share.movie, { cascade: ["remove"], nullable: false })
+  @JoinTable()
+  public shares!: Share[];
+
   @Column()
   public enteredMoneyPool!: boolean;
+
+  @ManyToMany(() => Team, (team) => team.players)
+  public teams!: Team[];
 }

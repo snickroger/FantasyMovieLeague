@@ -1,4 +1,5 @@
-import { Column, Entity, ManyToOne, PrimaryGeneratedColumn } from "typeorm";
+import { Column, Entity, JoinTable, ManyToMany, ManyToOne, PrimaryGeneratedColumn } from "typeorm";
+import { Player } from "./player";
 import { Season } from "./season";
 
 @Entity({ name: "teams"})
@@ -14,4 +15,8 @@ export class Team {
 
   @ManyToOne(() => Season, (season) => season.teams)
   public season!: Season;
+
+  @ManyToMany(() => Player, (player) => player.teams)
+  @JoinTable({ name: "player_teams" })
+  public players!: Player[];
 }

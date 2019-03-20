@@ -1,5 +1,7 @@
-import { Column, Entity, ManyToOne, PrimaryGeneratedColumn } from "typeorm";
+import { Column, Entity, JoinTable, ManyToOne, OneToMany, PrimaryGeneratedColumn } from "typeorm";
+import { Earning } from "./earning";
 import { Season } from "./season";
+import { Share } from "./share";
 
 @Entity({ name: "movies" })
 export class Movie {
@@ -41,6 +43,14 @@ export class Movie {
 
   @ManyToOne(() => Season, (season) => season.movies)
   public season!: Season;
+
+  @OneToMany(() => Earning, (earning) => earning.movie, { cascade: ["remove"], nullable: false })
+  @JoinTable()
+  public earnings!: Earning[];
+
+  @OneToMany(() => Share, (share) => share.movie, { cascade: ["remove"], nullable: false })
+  @JoinTable()
+  public shares!: Share[];
 
   @Column()
   public metacriticUrl?: string;

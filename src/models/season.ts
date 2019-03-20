@@ -23,15 +23,15 @@ export class Season {
   @Column()
   public newHeaderContent?: string;
 
-  @OneToMany(() => Url, (url) => url.season, { cascade: true })
+  @OneToMany(() => Url, (url) => url.season, { cascade: ["remove"], nullable: false })
   @JoinTable()
   public urls!: Url[];
 
-  @OneToMany(() => Movie, (movie) => movie.season, { cascade: true })
+  @OneToMany(() => Movie, (movie) => movie.season, { cascade: ["remove"], nullable: false })
   @JoinTable()
   public movies!: Movie[];
 
-  @OneToMany(() => Team, (team) => team.season, { cascade: true })
+  @OneToMany(() => Team, (team) => team.season, { cascade: ["remove"], nullable: false })
   @JoinTable()
   public teams!: Movie[];
 }
