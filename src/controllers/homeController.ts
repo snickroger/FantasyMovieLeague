@@ -1,18 +1,18 @@
 import { Request, Response } from "express";
-import { ITeamRepository } from "../repositories/team/iteamRepository";
+import { IHomeRepository } from "../repositories/home/ihomeRepository";
 
 export class HomeController {
-  private readonly teamDb: ITeamRepository;
+  private readonly homeDb: IHomeRepository;
 
-  constructor(teamDb: ITeamRepository) {
-    this.teamDb = teamDb;
+  constructor(homeDb: IHomeRepository) {
+    this.homeDb = homeDb;
   }
 
   public async index(req: Request, res: Response, next: any) {
     try {
-      const team = await this.teamDb.getTeamBySeasonIdAndSlug(10, "friends");
+      const seasons = await this.homeDb.getAllSeasonsForDropdown();
 
-      res.render("home/index_test", { title: "Testing" });
+      res.render("home/index_test", { title: "Testing", seasons: seasons });
     } catch (e) {
       next(e);
     }

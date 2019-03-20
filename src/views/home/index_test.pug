@@ -9,7 +9,11 @@ block styles
 block content
   nav.navbar.sticky-top.navbar-expand-lg.navbar-dark.bg-dark
     a.navbar-brand(href="#") &#127909; Fantasy Movie League
-      
+    div.season-selector.form-inline
+      label Season: &nbsp;
+        select.form-control#selected-season(onchange="changeSeason(event)")
+          each season in seasons
+            option(value=season.slug)= season.name
   div.main: div.row: div.container
     div(style={"padding":"2.2em 0"}): h2 Testing
 block scripts
