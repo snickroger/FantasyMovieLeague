@@ -1,5 +1,5 @@
 
-export class SeasonDropdownItem {
+export class SeasonMenuItem {
   public readonly name: string;
   public readonly slug: string;
 

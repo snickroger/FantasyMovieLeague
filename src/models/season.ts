@@ -33,5 +33,19 @@ export class Season {
 
   @OneToMany(() => Team, (team) => team.season, { cascade: ["remove"], nullable: false })
   @JoinTable()
-  public teams!: Movie[];
+  public teams!: Team[];
+
+  public getStartDate(): Date {
+    return this.movies.sort(this.compareStartDate)[0].releaseDate;
+  }
+
+  private compareStartDate(a: Movie, b: Movie): number {
+    if (a.releaseDate < b.releaseDate) {
+      return -1;
+    }
+    if (a.releaseDate > b.releaseDate) {
+      return 1;
+    }
+    return 0;
+  }
 }

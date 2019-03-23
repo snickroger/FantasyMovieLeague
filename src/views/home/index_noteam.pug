@@ -11,7 +11,7 @@ block content
     a.navbar-brand(href="#") &#127909; Fantasy Movie League
     div.team-type.form-inline
       label Team: &nbsp;
-        select.form-control#selected-team(onchange=`changeTeam(event, '${selectedSeason.slug}');`)
+        select.form-control#selected-team(onchange=`changeTeam(event, '${slug}');`)
           option
           each team in teams
             option(value= team.id)= team.name
@@ -19,7 +19,7 @@ block content
       label Season: &nbsp;
         select.form-control#selected-season(onchange="changeSeason(event)")
           each season in seasons
-            option(value=season.slug selected= selectedSeason.slug === season.slug)= season.name
+            option(value=season.slug selected= slug === season.slug)= season.name
       
   div.main: div.row: div.container
     div(style={"padding":"2.2em 0"}): h2 Please select a team above!

@@ -1,0 +1,38 @@
+.team-type, .season-selector {
+  color:#efefef;
+}
+.season-selector {
+  padding-left:8px;
+}
+.best-movie-icon {
+  color: #080;
+}
+.worst-movie-icon {
+  color: #B00;
+}
+.card {
+  flex-direction: row;
+  height: 100%;
+}
+.card-img-top {
+  width: auto;
+  height: 300px;
+}
+.card-body_wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+}
+.card-description {
+  flex-grow: 1;
+}
+.card-body_wrapper hr {
+  width: 100%;
+}
+table#rankings {
+  font-size:85%;
+}
+table#rankings td.bonuses {
+  font-size:110%;
+}

@@ -4,6 +4,7 @@ import path from "path";
 import "reflect-metadata";
 import favicon from "serve-favicon";
 import { createConnection } from "typeorm";
+import { HomeController } from "./controllers/homeController";
 import { Earning } from "./models/earning";
 import { Movie } from "./models/movie";
 import { Player } from "./models/player";
@@ -11,9 +12,8 @@ import { Season } from "./models/season";
 import { Share } from "./models/share";
 import { Team } from "./models/team";
 import { Url } from "./models/url";
-import { IHomeRepository } from "./repositories/home/ihomeRepository";
-import { HomeRepository } from "./repositories/home/homeRepository";
-import { HomeController } from "./controllers/homeController";
+import { ISeasonRepository } from "./repositories/season/iseasonRepository";
+import { SeasonRepository } from "./repositories/season/seasonRepository";
 
 // database setup
 createConnection({
@@ -29,10 +29,10 @@ createConnection({
   const defaultParser = bodyParser.urlencoded({ extended: true });
   const server = express();
 
-  const homeDb: IHomeRepository = new HomeRepository();
+  const seasonDb: ISeasonRepository = new SeasonRepository();
 
   // controller declarations
-  const homeController = new HomeController(homeDb);
+  const homeController = new HomeController(seasonDb);
 
   // server setup
   server.use(defaultParser);
