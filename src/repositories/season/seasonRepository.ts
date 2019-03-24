@@ -13,20 +13,24 @@ export class SeasonRepository implements ISeasonRepository {
   }
 
   public async getSelectedSeason(seasonSlug: string | undefined): Promise<Season | undefined> {
-    let season: Season | undefined;
-    if (seasonSlug !== undefined) {
-      season = await getManager().getRepository(Season).createQueryBuilder("season")
-        .leftJoinAndSelect("season.teams", "teams")
-        .leftJoinAndSelect("season.movies", "movies")
-        .where("season.slug LIKE :slug", { slug: seasonSlug })
+    
+    let slug: string;
+    if (seasonSlug === undefined) {
+      let maxSeason = await getManager().getRepository(Season).createQueryBuilder("season")
+        .orderBy("id", "DESC")
         .getOne();
+      slug = maxSeason!.slug;
     } else {
-      season = await getManager().getRepository(Season).createQueryBuilder("season")
-        .leftJoinAndSelect("season.teams", "teams")
-        .leftJoinAndSelect("season.movies", "movies")
-        .orderBy("season.id", "DESC")
-        .getOne();
+      slug = seasonSlug;
     }
+
+    const season = await getManager().getRepository(Season).createQueryBuilder("season")
+      .innerJoinAndSelect("season.teams", "teams")
+      .innerJoinAndSelect("season.movies", "movies")
+      .innerJoinAndSelect("movies.earnings", "earnings")
+      .innerJoinAndSelect("movies.shares", "shares")
+      .where("season.slug LIKE :slug", { slug })
+      .getOne();
 
     return season;
   }

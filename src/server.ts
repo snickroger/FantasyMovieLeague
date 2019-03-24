@@ -14,6 +14,8 @@ import { Team } from "./models/team";
 import { Url } from "./models/url";
 import { ISeasonRepository } from "./repositories/season/iseasonRepository";
 import { SeasonRepository } from "./repositories/season/seasonRepository";
+import { ITeamRepository } from "./repositories/team/iteamRepository";
+import { TeamRepository } from "./repositories/team/teamRepository";
 
 // database setup
 createConnection({
@@ -30,9 +32,10 @@ createConnection({
   const server = express();
 
   const seasonDb: ISeasonRepository = new SeasonRepository();
+  const teamDb: ITeamRepository = new TeamRepository();
 
   // controller declarations
-  const homeController = new HomeController(seasonDb);
+  const homeController = new HomeController(seasonDb, teamDb);
 
   // server setup
   server.use(defaultParser);
@@ -44,6 +47,7 @@ createConnection({
 
   // route declarations
   server.get("/", homeController.index.bind(homeController));
+  server.get("/:teamId", homeController.indexTeam.bind(homeController));
 
   server.listen(3000);
 }).catch((error) => {

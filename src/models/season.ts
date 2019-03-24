@@ -1,3 +1,4 @@
+import moment = require("moment");
 import { Column, Entity, JoinTable, OneToMany, PrimaryGeneratedColumn } from "typeorm";
 import { Movie } from "./movie";
 import { Team } from "./team";
@@ -36,10 +37,15 @@ export class Season {
   public teams!: Team[];
 
   public getStartDate(): Date {
-    return this.movies.sort(this.compareStartDate)[0].releaseDate;
+    return this.movies.sort(this.compareDate)[0].releaseDate;
   }
 
-  private compareStartDate(a: Movie, b: Movie): number {
+  public getEndDate(): Date {
+    const endDate = moment(this.movies.sort((a, b) => -this.compareDate(a, b))[0].releaseDate).add(4, "weeks");
+    return endDate.toDate();
+  }
+
+  private compareDate(a: Movie, b: Movie): number {
     if (a.releaseDate < b.releaseDate) {
       return -1;
     }

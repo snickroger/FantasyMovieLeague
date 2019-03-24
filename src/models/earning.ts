@@ -6,6 +6,9 @@ export class Earning {
   @PrimaryGeneratedColumn()
   public id!: number;
 
+  @Column()
+  public gross!: number;
+
   @CreateDateColumn()
   public createdAt!: Date;
 
@@ -14,7 +17,4 @@ export class Earning {
 
   @ManyToOne(() => Movie, (movie) => movie.earnings)
   public movie!: Movie;
-
-  @Column()
-  public enteredMoneyPool!: boolean;
 }

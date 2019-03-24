@@ -10,12 +10,13 @@ export class Share {
   @Column("int", { name: "num_shares" })
   public numShares!: number;
 
+  @Column()
+  public playerId!: number;
+
   @ManyToOne(() => Player, (player) => player.shares)
-  @JoinTable()
   public player!: Player;
 
   @ManyToOne(() => Movie, (movie) => movie.shares)
-  @JoinTable()
   public movie!: Movie;
 
 }

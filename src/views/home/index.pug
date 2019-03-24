@@ -12,14 +12,14 @@ block content
     a.navbar-brand(href="#") &#127909; Fantasy Movie League
     div.team-type.form-inline
       label Team: &nbsp;
-        select.form-control#selected-team(onchange=`changeTeam(event, '${selectedSeason.slug}');`)
+        select.form-control#selected-team(onchange=`changeTeam(event, '${seasonSlug}');`)
           each team in teams
-            option(value= team.id selected= team.id === selectedTeam.slug)= team.name
+            option(value= team.id selected= team.id === teamSlug)= team.name
     div.season-selector.form-inline
       label Season: &nbsp;
         select.form-control#selected-season(onchange="changeSeason(event)")
           each season in seasons
-            option(value=season.slug selected= selectedSeason.slug === season.slug)= season.name
+            option(value=season.slug selected= seasonSlug === season.slug)= season.name
       
   div.main: div.row
     div.col-sm-4: div.container: div.row
@@ -36,14 +36,14 @@ block content
             tr
               td(data-sort=player.rank): span= player.rank
               td.bonuses
-                if player.enteredMoneyPool && selectedTeam.moneyPool !== null
+                if player.enteredMoneyPool && usingMoneyPool
                   +entered_money_pool()
                 if player.bonus1
                   +best_movie_icon()
                 if player.bonus2
                   +worst_movie_icon()
               td(data-sort=player.name) 
-                span: a(href=`/players/${player.id}?team=${selectedTeam.id}`)= player.name
+                span: a(href=`/players/${player.id}?team=${selectedTeamId}`)= player.name
               td(data-sort=player.sharesUsed style={'text-align':'right'}): span= player.sharesUsed
               td(data-sort=player.perShare style={'text-align':'right'}): span= player.perShareDisp
               td(data-sort=player.total style={'text-align':'right'}): span= player.totalDisp
@@ -63,7 +63,7 @@ block content
           h5#end-date
       div.row#movies
         each movie in earnings
-          +movie_box(movie, selectedTeam.id)
+          +movie_box(movie, selectedTeamId)
 block scripts
   script=`var endDate = '${endDate}';`
   script(src='https://cdnjs.cloudflare.com/ajax/libs/jquery.countdown/2.2.0/jquery.countdown.js', integrity='sha256-2HAs3lxuJSrA/bAbF2bgaV55gSuX8vVsj2pCcWYqmY4=', crossorigin='anonymous')
