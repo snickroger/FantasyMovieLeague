@@ -38,9 +38,9 @@ block content
               td.bonuses
                 if player.enteredMoneyPool && usingMoneyPool
                   +entered_money_pool()
-                if player.bonus1
+                if player.hasBonus1
                   +best_movie_icon()
-                if player.bonus2
+                if player.hasBonus2
                   +worst_movie_icon()
               td(data-sort=player.name) 
                 span: a(href=`/players/${player.id}?team=${selectedTeamId}`)= player.name

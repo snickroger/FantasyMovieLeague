@@ -8,7 +8,7 @@ import { BestAndWorstMovies } from "./bestAndWorstMovies";
 export class MovieHelpers {
   public static totalSharesByMovie(shares: IEnumerable<Share>, players: IEnumerable<Player>): number {
     return shares
-      .where((s) => players.any((p) => p.id === s.id))
+      .where((s) => players.any((p) => p.id === s.playerId))
       .select((v) => v.numShares)
       .sum();
   }

@@ -13,10 +13,9 @@ export class SeasonRepository implements ISeasonRepository {
   }
 
   public async getSelectedSeason(seasonSlug: string | undefined): Promise<Season | undefined> {
-    
     let slug: string;
     if (seasonSlug === undefined) {
-      let maxSeason = await getManager().getRepository(Season).createQueryBuilder("season")
+      const maxSeason = await getManager().getRepository(Season).createQueryBuilder("season")
         .orderBy("id", "DESC")
         .getOne();
       slug = maxSeason!.slug;

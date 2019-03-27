@@ -19,8 +19,8 @@ export class Standings {
       let bonus1 = false;
       let bonus2 = false;
       let sharesUsed = 0;
-      const bonus1Id = player.bonus1 !== undefined ? player.bonus1.id : 0;
-      const bonus2Id = player.bonus2 !== undefined ? player.bonus2.id : 0;
+      const bonus1Id = player.bonus1Id !== undefined ? player.bonus1Id : 0;
+      const bonus2Id = player.bonus2Id !== undefined ? player.bonus2Id : 0;
 
       for (const movie of moviesArr) {
         const playerShares = Enumerable.from(movie.shares).firstOrDefault((s) => s.playerId === player.id);
@@ -43,23 +43,23 @@ export class Standings {
 
       total = Math.round(total);
       standings.push(new StandingsDisplay(player, bonus1, bonus2, sharesUsed, total));
-
-      const sortedStandings = Enumerable.from(standings).orderByDescending((s) => s.total).toArray();
-      let rank = 1;
-      let lastRank = 1;
-      let lastTotal = 0;
-      for (const standing of sortedStandings) {
-        if (standing.total === lastTotal) {
-          standing.rank = lastRank;
-        } else {
-          standing.rank = rank;
-          lastRank = rank;
-        }
-        rank++;
-        lastTotal = standing.total;
-      }
     }
 
-    return standings;
+    const sortedStandings = Enumerable.from(standings).orderByDescending((s) => s.total).toArray();
+    let rank = 1;
+    let lastRank = 1;
+    let lastTotal = 0;
+    for (const standing of sortedStandings) {
+      if (standing.total === lastTotal) {
+        standing.rank = lastRank;
+      } else {
+        standing.rank = rank;
+        lastRank = rank;
+      }
+      rank++;
+      lastTotal = standing.total;
+    }
+
+    return sortedStandings;
   }
 }

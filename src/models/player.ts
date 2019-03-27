@@ -18,15 +18,13 @@ export class Player {
   @UpdateDateColumn()
   public updatedAt!: Date;
 
-  @OneToOne(() => Movie)
-  @JoinColumn()
-  public bonus1?: Movie;
+  @Column()
+  public bonus1Id?: number;
 
-  @OneToOne(() => Movie)
-  @JoinColumn()
-  public bonus2?: Movie;
+  @Column()
+  public bonus2Id?: number;
 
-  @OneToMany(() => Share, (share) => share.movie, { cascade: ["remove"], nullable: false })
+  @OneToMany(() => Share, (share) => share.player, { cascade: ["remove"], nullable: false })
   @JoinTable()
   public shares!: Share[];
 
