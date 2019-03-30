@@ -1,0 +1,72 @@
+extends ../_layout
+include ../mixins/new_movie_box.pug
+include ../mixins/new_bonus_box.pug
+
+block styles
+  link(rel="stylesheet" href="/stylesheets/new.css")
+
+block content
+  form(action="/new", method="post")
+    nav.navbar.sticky-top.navbar-expand-lg.navbar-dark.bg-dark
+      a.navbar-brand(href="#") &#127909; Fantasy Movie League
+      div.team-type.form-inline
+        span Team: &nbsp;
+        span= selectedTeam.name
+        input(type="hidden", name="teamId" value=selectedTeam.id)
+      div.season-selector.form-inline
+        label Season: &nbsp;
+          select.form-control#selected-season(onchange="changeSeason(event)")
+            each season in seasons
+              option(value=season.slug selected= selectedSeasonSlug === season.slug)= season.name
+      button.navbar-toggler(type="button" data-toggle="collapse" data-target="#navbarsExample04" aria-controls="navbarsExample04" aria-expanded="false" aria-label="Toggle navigation")
+        span.navbar-toggler-icon
+      div#navbarsExample04.collapse.navbar-collapse
+        ul.navbar-nav.mr-auto
+      div
+        input#whoareyou(required type="text" name="whoareyou" placeholder="First & Last Name")
+      div
+        input#email(type="email" name="email" placeholder="Email (optional)")
+      div#remaining
+        span 100 remaining
+      button#save.btn.btn-primary(type="submit") Submit
+    div.main
+      div.jumbotron
+        div.container
+          if thanks
+            div.row.justify-content-md-center
+              div.col-sm-6.text-center
+                img(src="https://media.giphy.com/media/KJ1f5iTl4Oo7u/giphy.gif" alt="Thanks!")
+                hr
+          h1.display-4= title
+          p Enter the shares for each movie and select the bonus options you choose below, then enter your First and Last name (required) and your email (optional, only used for sending you a copy of your submissions) above.
+          h2.mb-5 Deadline: 
+            span#deadline 
+            span &nbsp;|&nbsp;
+            a(target="_blank" rel="noopener" href="https://www.github.com/snickroger/FantasyMovieLeagueJs#fantasy-movie-league") View Rules
+          div.row.justify-content-md-center
+            div.col-sm-6
+              h3.text-center Trailer Playlist
+              div#trailers.embed-responsive.embed-responsive-16by9!= newHeaderContent
+            if selectedTeam.moneyPool
+              div.col-sm-6
+                h3.text-center Money Pool
+                div#money-pool.alert.alert-warning
+                  p 
+                    strong Join this team's money pool! 
+                    | All players on the #{selectedTeam.name} team have a chance at winning the  
+                    a(href=selectedTeam.moneyPool target="_blank" rel="noopener") money pool
+                    | ! The total amount in the pool will be awarded to the leading scorer on this team who contributed at least $2. Players do <strong>not</strong> have to pay anything to play the game, but a player must have contributed to the pool to win it.
+                  p
+                    a.btn.btn-primary(href=selectedTeam.moneyPool target="_blank" rel="noopener") 
+                      i.fa.fa-paypal(aria-hidden="true")
+                      | &nbsp;&nbsp;Contribute
+      div.container
+        div.row
+          each movie in movies
+            +new_movie_box(movie)
+          +new_bonus_box(1, bonusAmount, movies)
+          +new_bonus_box(2, bonusAmount, movies)
+block scripts
+  script=`var seasonStart = '${seasonStart}';`
+  script(src='https://cdnjs.cloudflare.com/ajax/libs/jquery.countdown/2.2.0/jquery.countdown.js', integrity='sha256-2HAs3lxuJSrA/bAbF2bgaV55gSuX8vVsj2pCcWYqmY4=', crossorigin='anonymous')
+  script(src='/javascripts/new.js')

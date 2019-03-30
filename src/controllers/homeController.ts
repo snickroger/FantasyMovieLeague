@@ -44,7 +44,7 @@ export class HomeController {
   public async indexTeam(req: Request, res: Response, next: any) {
     try {
       const seasons = await this.seasonDb.getAllSeasonsForMenu();
-      // returns latest/current season if undefined:
+      // returns latest/current season if ?season= not given:
       const selectedSeason = await this.seasonDb.getSelectedSeason(req.query.season);
 
       if (selectedSeason === undefined) {
@@ -55,6 +55,7 @@ export class HomeController {
       const startDate = selectedSeason.getStartDate();
       if (startDate > new Date()) {
         res.redirect(307, "/new");
+        return;
       }
 
       const selectedTeamArr = selectedSeason.teams.filter((t) => t.slug === req.params.teamId);

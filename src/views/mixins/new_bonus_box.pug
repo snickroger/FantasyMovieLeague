@@ -11,5 +11,6 @@ mixin new_bonus_box(i, bonusAmount, movies)
             a(href="https://www.metacritic.com" target="_blank" rel="noopener") Metacritic
             | ?
           select(name=`bonus${i}`)
+            option
             each movie in movies
               option(value=movie.id)= movie.name

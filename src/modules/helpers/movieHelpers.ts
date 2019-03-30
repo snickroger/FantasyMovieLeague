@@ -4,6 +4,7 @@ import { Movie } from "../../models/movie";
 import { Player } from "../../models/player";
 import { Share } from "../../models/share";
 import { BestAndWorstMovies } from "./bestAndWorstMovies";
+import { MovieNewDisplay } from "./movieNewDisplay";
 
 export class MovieHelpers {
   public static totalSharesByMovie(shares: IEnumerable<Share>, players: IEnumerable<Player>): number {
@@ -42,5 +43,10 @@ export class MovieHelpers {
     const worstMovies = movies.where((m) => m.rating === worstMovieRating).toArray();
 
     return new BestAndWorstMovies(bestMovies, worstMovies);
+  }
+
+  public static moviesForNewPage(movies: IEnumerable<Movie>): MovieNewDisplay[] {
+    return movies.orderBy((movie) => movie.releaseDate).thenBy((movie) => movie.id).select(
+      (movie) => new MovieNewDisplay(movie)).toArray();
   }
 }

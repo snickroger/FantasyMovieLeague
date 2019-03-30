@@ -1,3 +1,4 @@
+import accounting from "accounting";
 import moment = require("moment");
 import { Column, Entity, JoinTable, OneToMany, PrimaryGeneratedColumn } from "typeorm";
 import { Movie } from "./movie";
@@ -43,6 +44,10 @@ export class Season {
   public getEndDate(): Date {
     const endDate = moment(this.movies.sort((a, b) => -this.compareDate(a, b))[0].releaseDate).add(4, "weeks");
     return endDate.toDate();
+  }
+
+  public getFormattedBonusAmount(): string {
+    return accounting.formatMoney(this.bonusAmount, "$", 0);
   }
 
   private compareDate(a: Movie, b: Movie): number {

@@ -24,10 +24,10 @@ export class SeasonRepository implements ISeasonRepository {
     }
 
     const season = await getManager().getRepository(Season).createQueryBuilder("season")
-      .innerJoinAndSelect("season.teams", "teams")
-      .innerJoinAndSelect("season.movies", "movies")
-      .innerJoinAndSelect("movies.earnings", "earnings")
-      .innerJoinAndSelect("movies.shares", "shares")
+      .leftJoinAndSelect("season.teams", "teams")
+      .leftJoinAndSelect("season.movies", "movies")
+      .leftJoinAndSelect("movies.earnings", "earnings")
+      .leftJoinAndSelect("movies.shares", "shares")
       .where("season.slug LIKE :slug", { slug })
       .getOne();
 
