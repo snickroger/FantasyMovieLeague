@@ -37,7 +37,7 @@ createConnection({
 
   // controller declarations
   const homeController = new HomeController(seasonDb, teamDb);
-  const newController = new NewController(seasonDb);
+  const newController = new NewController(seasonDb, teamDb);
 
   // server setup
   server.use(defaultParser);
@@ -50,6 +50,7 @@ createConnection({
   // route declarations
   server.get("/", homeController.index.bind(homeController));
   server.get("/new", newController.index.bind(newController));
+  server.post("/new", newController.postNew.bind(newController));
   server.get("/:teamId", homeController.indexTeam.bind(homeController));
 
   server.listen(3000);

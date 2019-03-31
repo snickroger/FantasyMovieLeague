@@ -14,6 +14,7 @@ services:
     image: postgres:9.6.12
     volumes:
       - postgres:/var/lib/postgresql/data
+      - ./dist:/movie/dist
     env_file: variables.env
 volumes:
   postgres:

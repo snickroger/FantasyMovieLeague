@@ -18,5 +18,4 @@ export class Share {
 
   @ManyToOne(() => Movie, (movie) => movie.shares)
   public movie!: Movie;
-
 }

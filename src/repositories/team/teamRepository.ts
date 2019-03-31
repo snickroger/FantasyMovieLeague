@@ -1,5 +1,9 @@
 import { getManager } from "typeorm";
+import { Movie } from "../../models/movie";
+import { Player } from "../../models/player";
+import { Share } from "../../models/share";
 import { Team } from "../../models/team";
+import { InvalidPostError } from "./invalidPostError";
 import { ITeamRepository } from "./iteamRepository";
 
 export class TeamRepository implements ITeamRepository {
@@ -10,5 +14,48 @@ export class TeamRepository implements ITeamRepository {
       .getOne();
 
     return team!;
+  }
+
+  public async addPlayerToTeam(team: Team, seasonMovies: Movie[], postBody: any): Promise<void> {
+    const movieIds = seasonMovies.map((m) => m.id);
+    const movieShares = Object.keys(postBody).filter((k) => k.substr(0, 6) === "movie_");
+    const playerName: string = postBody.whoareyou;
+    const bonus1 = parseInt(postBody.bonus1);
+    const bonus2 = parseInt(postBody.bonus2);
+
+    const newPlayer = new Player();
+    newPlayer.name = playerName;
+    newPlayer.bonus1Id = bonus1;
+    newPlayer.bonus2Id = bonus2;
+    newPlayer.teams = [team];
+    newPlayer.createdAt = new Date();
+    newPlayer.updatedAt = new Date();
+
+    const sharesToAdd: Share[] = [];
+    let sharesSum = 0;
+    for (const movieShare of movieShares) {
+      const movieId = parseInt(movieShare.replace("movie_", ""));
+      if (isNaN(movieId) || !movieIds.includes(movieId)) {
+        throw new InvalidPostError();
+      }
+
+      const movie = seasonMovies.filter((m) => m.id === movieId)[0];
+      const shares = parseInt(postBody[movieShare]);
+      sharesSum += shares;
+
+      const share = new Share();
+      share.numShares = shares;
+      share.movie = movie;
+
+      sharesToAdd.push(share);
+    }
+
+    if (sharesSum !== 100) {
+      throw new InvalidPostError();
+    }
+
+    newPlayer.shares = sharesToAdd;
+
+    await getManager().getRepository(Player).save(newPlayer);
   }
 }
