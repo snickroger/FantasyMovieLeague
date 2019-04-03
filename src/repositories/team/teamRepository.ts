@@ -54,8 +54,13 @@ export class TeamRepository implements ITeamRepository {
       throw new InvalidPostError();
     }
 
-    newPlayer.shares = sharesToAdd;
-
     await getManager().getRepository(Player).save(newPlayer);
+    const sharePromises: Array<Promise<Share>> = [];
+    for (const share of sharesToAdd) {
+      share.player = newPlayer;
+      sharePromises.push(getManager().getRepository(Share).save(share));
+    }
+
+    await Promise.all(sharePromises);
   }
 }

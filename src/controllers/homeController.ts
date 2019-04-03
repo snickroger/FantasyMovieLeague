@@ -25,7 +25,7 @@ export class HomeController {
       }
 
       const startDate = selectedSeason.getStartDate();
-      if (startDate > new Date()) {
+      if (startDate > new Date() && req.query.skip !== "1") {
         res.redirect(307, "/new");
       }
 
@@ -53,7 +53,7 @@ export class HomeController {
       }
 
       const startDate = selectedSeason.getStartDate();
-      if (startDate > new Date()) {
+      if (startDate > new Date() && req.query.skip !== "1") {
         res.redirect(307, "/new");
         return;
       }
