@@ -24,7 +24,7 @@ export class EarningsDisplay {
     const value = gross / shares || 0;
     this.id = movie.id;
     this.name = movie.name;
-    this.releaseDateInt = parseInt(moment(movie.releaseDate).format("X"));
+    this.releaseDateInt = parseInt(moment(movie.releaseDate).format("X"), 10);
     this.releaseDate = moment(movie.releaseDate).format("MMM DD");
     this.rating = movie.rating;
     this.isBestMovie = isBestMovie;

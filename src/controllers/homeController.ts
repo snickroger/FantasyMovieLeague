@@ -1,22 +1,19 @@
 import { Request, Response } from "express";
+import { ISql } from "../modules/db/isql";
 import { Earnings } from "../modules/earnings/earnings";
 import { Standings } from "../modules/standings/standings";
-import { ISeasonRepository } from "../repositories/season/iseasonRepository";
-import { ITeamRepository } from "../repositories/team/iteamRepository";
 
 export class HomeController {
-  private readonly seasonDb: ISeasonRepository;
-  private readonly teamDb: ITeamRepository;
+  private readonly sql: ISql;
 
-  constructor(seasonDb: ISeasonRepository, teamDb: ITeamRepository) {
-    this.seasonDb = seasonDb;
-    this.teamDb = teamDb;
+  constructor(sql: ISql) {
+    this.sql = sql;
   }
 
   public async index(req: Request, res: Response, next: any) {
     try {
-      const seasons = await this.seasonDb.getAllSeasonsForMenu();
-      const selectedSeason = await this.seasonDb.getSelectedSeason(req.query.season);
+      const seasons = await this.sql.getAllSeasonsForMenu();
+      const selectedSeason = await this.sql.getSelectedSeason(req.query.season);
 
       if (selectedSeason === undefined) {
         // season does not exist
@@ -43,9 +40,9 @@ export class HomeController {
 
   public async indexTeam(req: Request, res: Response, next: any) {
     try {
-      const seasons = await this.seasonDb.getAllSeasonsForMenu();
+      const seasons = await this.sql.getAllSeasonsForMenu();
       // returns latest/current season if ?season= not given:
-      const selectedSeason = await this.seasonDb.getSelectedSeason(req.query.season);
+      const selectedSeason = await this.sql.getSelectedSeason(req.query.season);
 
       if (selectedSeason === undefined) {
         res.status(404).send("Season not found");
@@ -65,7 +62,7 @@ export class HomeController {
       }
 
       const selectedTeamId: number = selectedTeamArr[0].id;
-      const selectedTeam = await this.teamDb.getTeam(selectedTeamId);
+      const selectedTeam = await this.sql.getTeam(selectedTeamId);
       if (selectedTeam === undefined) {
         res.status(404).send("Team not found");
         return;

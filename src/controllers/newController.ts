@@ -1,26 +1,24 @@
 import { Request, Response } from "express";
 import Enumerable from "linq";
+import { Player } from "../models/player";
 import { Team } from "../models/team";
+import { ISql } from "../modules/db/isql";
 import { IEmailSender } from "../modules/emailSender/iemailSender";
 import { MovieHelpers } from "../modules/helpers/movieHelpers";
-import { ISeasonRepository } from "../repositories/season/iseasonRepository";
-import { ITeamRepository } from "../repositories/team/iteamRepository";
 
 export class NewController {
-  private readonly seasonDb: ISeasonRepository;
-  private readonly teamDb: ITeamRepository;
+  private readonly sql: ISql;
   private readonly emailSender: IEmailSender;
 
-  constructor(seasonDb: ISeasonRepository, teamDb: ITeamRepository, emailSender: IEmailSender) {
-    this.seasonDb = seasonDb;
-    this.teamDb = teamDb;
+  constructor(sql: ISql, emailSender: IEmailSender) {
+    this.sql = sql;
     this.emailSender = emailSender;
   }
 
   public async index(req: Request, res: Response, next: any) {
     try {
-      const seasons = await this.seasonDb.getAllSeasonsForMenu();
-      const selectedSeason = await this.seasonDb.getSelectedSeason(req.query.season);
+      const seasons = await this.sql.getAllSeasonsForMenu();
+      const selectedSeason = await this.sql.getSelectedSeason(req.query.season);
       const thanks: boolean = req.query.thanks === "1";
 
       if (selectedSeason === undefined) {
@@ -74,7 +72,7 @@ export class NewController {
 
   public async postNew(req: Request, res: Response, next: any) {
     try {
-      const currentSeason = await this.seasonDb.getSelectedSeason(undefined);
+      const currentSeason = await this.sql.getSelectedSeason(undefined);
       if (currentSeason === undefined) {
         res.status(404);
         return;
@@ -92,7 +90,9 @@ export class NewController {
         return;
       }
       const selectedTeam = teams[0];
-      const savedPlayer = await this.teamDb.addPlayerToTeam(selectedTeam, currentSeason.movies, req.body);
+
+      const newPlayer = Player.fromPostBody(req.body, currentSeason.movies);
+      const savedPlayer = await this.sql.addPlayerToTeam(newPlayer, selectedTeam);
 
       if (req.body.email) {
         const envelope = this.emailSender.getEmail(req.body.email, savedPlayer, currentSeason.name);

@@ -13,12 +13,10 @@ import { Season } from "./models/season";
 import { Share } from "./models/share";
 import { Team } from "./models/team";
 import { Url } from "./models/url";
+import { ISql } from "./modules/db/isql";
+import { Sql } from "./modules/db/sql";
 import { EmailSender } from "./modules/emailSender/emailSender";
 import { IEmailSender } from "./modules/emailSender/iemailSender";
-import { ISeasonRepository } from "./repositories/season/iseasonRepository";
-import { SeasonRepository } from "./repositories/season/seasonRepository";
-import { ITeamRepository } from "./repositories/team/iteamRepository";
-import { TeamRepository } from "./repositories/team/teamRepository";
 
 // database setup
 createConnection({
@@ -34,13 +32,12 @@ createConnection({
   const defaultParser = bodyParser.urlencoded({ extended: true });
   const server = express();
 
-  const seasonDb: ISeasonRepository = new SeasonRepository();
-  const teamDb: ITeamRepository = new TeamRepository();
+  const db: ISql = new Sql();
   const emailSender: IEmailSender = new EmailSender();
 
   // controller declarations
-  const homeController = new HomeController(seasonDb, teamDb);
-  const newController = new NewController(seasonDb, teamDb, emailSender);
+  const homeController = new HomeController(db);
+  const newController = new NewController(db, emailSender);
 
   // server setup
   server.use(defaultParser);
