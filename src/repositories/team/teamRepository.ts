@@ -16,7 +16,7 @@ export class TeamRepository implements ITeamRepository {
     return team!;
   }
 
-  public async addPlayerToTeam(team: Team, seasonMovies: Movie[], postBody: any): Promise<void> {
+  public async addPlayerToTeam(team: Team, seasonMovies: Movie[], postBody: any): Promise<Player> {
     const movieIds = seasonMovies.map((m) => m.id);
     const movieShares = Object.keys(postBody).filter((k) => k.substr(0, 6) === "movie_");
     const playerName: string = postBody.whoareyou;
@@ -30,6 +30,7 @@ export class TeamRepository implements ITeamRepository {
     newPlayer.teams = [team];
     newPlayer.createdAt = new Date();
     newPlayer.updatedAt = new Date();
+    newPlayer.shares = [];
 
     const sharesToAdd: Share[] = [];
     let sharesSum = 0;
@@ -58,9 +59,11 @@ export class TeamRepository implements ITeamRepository {
     const sharePromises: Array<Promise<Share>> = [];
     for (const share of sharesToAdd) {
       share.player = newPlayer;
+      newPlayer.shares.push(share);
       sharePromises.push(getManager().getRepository(Share).save(share));
     }
 
     await Promise.all(sharePromises);
+    return newPlayer;
   }
 }

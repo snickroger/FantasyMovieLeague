@@ -13,6 +13,8 @@ import { Season } from "./models/season";
 import { Share } from "./models/share";
 import { Team } from "./models/team";
 import { Url } from "./models/url";
+import { EmailSender } from "./modules/emailSender/emailSender";
+import { IEmailSender } from "./modules/emailSender/iemailSender";
 import { ISeasonRepository } from "./repositories/season/iseasonRepository";
 import { SeasonRepository } from "./repositories/season/seasonRepository";
 import { ITeamRepository } from "./repositories/team/iteamRepository";
@@ -34,10 +36,11 @@ createConnection({
 
   const seasonDb: ISeasonRepository = new SeasonRepository();
   const teamDb: ITeamRepository = new TeamRepository();
+  const emailSender: IEmailSender = new EmailSender();
 
   // controller declarations
   const homeController = new HomeController(seasonDb, teamDb);
-  const newController = new NewController(seasonDb, teamDb);
+  const newController = new NewController(seasonDb, teamDb, emailSender);
 
   // server setup
   server.use(defaultParser);

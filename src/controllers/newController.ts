@@ -1,6 +1,7 @@
 import { Request, Response } from "express";
 import Enumerable from "linq";
 import { Team } from "../models/team";
+import { IEmailSender } from "../modules/emailSender/iemailSender";
 import { MovieHelpers } from "../modules/helpers/movieHelpers";
 import { ISeasonRepository } from "../repositories/season/iseasonRepository";
 import { ITeamRepository } from "../repositories/team/iteamRepository";
@@ -8,10 +9,12 @@ import { ITeamRepository } from "../repositories/team/iteamRepository";
 export class NewController {
   private readonly seasonDb: ISeasonRepository;
   private readonly teamDb: ITeamRepository;
+  private readonly emailSender: IEmailSender;
 
-  constructor(seasonDb: ISeasonRepository, teamDb: ITeamRepository) {
+  constructor(seasonDb: ISeasonRepository, teamDb: ITeamRepository, emailSender: IEmailSender) {
     this.seasonDb = seasonDb;
     this.teamDb = teamDb;
+    this.emailSender = emailSender;
   }
 
   public async index(req: Request, res: Response, next: any) {
@@ -83,14 +86,20 @@ export class NewController {
         return;
       }
 
-      const team = currentSeason.teams.filter((t) => t.id.toString() === req.body.teamId);
-      if (team.length === 0) {
+      const teams = currentSeason.teams.filter((t) => t.id.toString() === req.body.teamId);
+      if (teams.length === 0) {
         res.status(404).contentType("text/plain").send("Team not found.");
         return;
       }
+      const selectedTeam = teams[0];
+      const savedPlayer = await this.teamDb.addPlayerToTeam(selectedTeam, currentSeason.movies, req.body);
 
-      await this.teamDb.addPlayerToTeam(team[0], currentSeason.movies, req.body);
-      res.redirect(`/new?team=${team[0].slug}&thanks=1`);
+      if (req.body.email) {
+        const envelope = this.emailSender.getEmail(req.body.email, savedPlayer, currentSeason.name);
+        await this.emailSender.sendMail(envelope);
+      }
+
+      res.redirect(`/new?team=${selectedTeam.slug}&thanks=1`);
     } catch (e) {
       next(e);
     }
