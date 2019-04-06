@@ -5,7 +5,7 @@ import { MovieHelpers } from "../helpers/movieHelpers";
 import { StandingsDisplay } from "./standingsDisplay";
 
 export class Standings {
-  public static getStandings(moviesArr: Movie[], players: Player[], bonusAmount: number): StandingsDisplay[] {
+  public static getStandingsDisplay(moviesArr: Movie[], players: Player[], bonusAmount: number): StandingsDisplay[] {
     const movies = Enumerable.from(moviesArr);
     const totalShares = movies.toDictionary((k) => k.id, (v) =>
       MovieHelpers.totalSharesByMovie(Enumerable.from(v.shares), Enumerable.from(players)));

@@ -68,8 +68,8 @@ export class HomeController {
         return;
       }
 
-      const standings = Standings.getStandings(selectedSeason.movies, selectedTeam.players, selectedSeason.bonusAmount);
-      const earnings = Earnings.getEarnings(selectedSeason.movies, selectedTeam.players);
+      const standings = Standings.getStandingsDisplay(selectedSeason.movies, selectedTeam.players, selectedSeason.bonusAmount);
+      const earnings = Earnings.getEarningsDisplay(selectedSeason.movies, selectedTeam.players);
 
       const teams = selectedSeason.teams.map((t) => ({ id: t.slug, name: t.name }));
       const endDate = selectedSeason.getEndDate();

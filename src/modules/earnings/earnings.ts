@@ -5,7 +5,7 @@ import { MovieHelpers } from "../helpers/movieHelpers";
 import { EarningsDisplay } from "./earningsDisplay";
 
 export class Earnings {
-  public static getEarnings(movies: Movie[], players: Player[]) {
+  public static getEarningsDisplay(movies: Movie[], players: Player[]): EarningsDisplay[] {
     const earnings: EarningsDisplay[] = [];
     const bestAndWorstMovies = MovieHelpers.bestAndWorstMovies(Enumerable.from(movies));
     const playersEnum = Enumerable.from(players);
