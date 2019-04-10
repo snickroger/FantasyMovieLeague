@@ -1,4 +1,5 @@
 import { getManager } from "typeorm";
+import { Earning } from "../../models/earning";
 import { Movie } from "../../models/movie";
 import { Player } from "../../models/player";
 import { Season } from "../../models/season";
@@ -30,6 +31,7 @@ export class Sql implements ISql {
     const season = await getManager().getRepository(Season).createQueryBuilder("season")
       .leftJoinAndSelect("season.teams", "teams")
       .leftJoinAndSelect("season.movies", "movies")
+      .leftJoinAndSelect("season.urls", "urls")
       .leftJoinAndSelect("movies.earnings", "earnings")
       .leftJoinAndSelect("movies.shares", "shares")
       .where("season.slug LIKE :slug", { slug })
@@ -61,5 +63,25 @@ export class Sql implements ISql {
 
     await Promise.all(sharePromises);
     return player;
+  }
+
+  public async addEarningsForMovies(earnings: Earning[]): Promise<void> {
+    const earningPromises = earnings.map((e) => getManager().getRepository(Earning).save(e));
+    await Promise.all(earningPromises);
+  }
+
+  public async deleteEarningsForDate(dateStr: string) {
+    await getManager().getRepository(Earning).createQueryBuilder("earning")
+      .delete()
+      .where('DATE("createdAt") = :date', { date: dateStr })
+      .execute();
+  }
+
+  public async updateRatingForMovie(movie: Movie, rating: number): Promise<void> {
+    await getManager().getRepository(Movie).createQueryBuilder("movies")
+      .update()
+      .set({ rating })
+      .where({ id: movie.id })
+      .execute();
   }
 }

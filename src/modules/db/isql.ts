@@ -1,3 +1,4 @@
+import { Earning } from "../../models/earning";
 import { Movie } from "../../models/movie";
 import { Player } from "../../models/player";
 import { Season } from "../../models/season";
@@ -9,4 +10,7 @@ export interface ISql {
   getSelectedSeason(seasonSlug: string | undefined): Promise<Season | undefined>;
   getTeam(id: number): Promise<Team>;
   addPlayerToTeam(player: Player, team: Team): Promise<Player>;
+  addEarningsForMovies(earning: Earning[]): Promise<void>;
+  deleteEarningsForDate(dateStr: string): Promise<void>;
+  updateRatingForMovie(movie: Movie, rating: number): Promise<void>;
 }
