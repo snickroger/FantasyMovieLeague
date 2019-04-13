@@ -1,0 +1,1795 @@
+<!DOCTYPE html>
+<html xmlns:og="http://opengraphprotocol.org/schema/" xmlns:fb="http://ogp.me/ns/fb#">
+<head>
+            <title>Vice (2018) Reviews - Metacritic</title>
+        
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8"><script type="text/javascript">window.NREUM||(NREUM={}),__nr_require=function(e,n,t){function r(t){if(!n[t]){var o=n[t]={exports:{}};e[t][0].call(o.exports,function(n){var o=e[t][1][n];return r(o||n)},o,o.exports)}return n[t].exports}if("function"==typeof __nr_require)return __nr_require;for(var o=0;o<t.length;o++)r(t[o]);return r}({1:[function(e,n,t){function r(){}function o(e,n,t){return function(){return i(e,[c.now()].concat(u(arguments)),n?null:this,t),n?void 0:this}}var i=e("handle"),a=e(3),u=e(4),f=e("ee").get("tracer"),c=e("loader"),s=NREUM;"undefined"==typeof window.newrelic&&(newrelic=s);var p=["setPageViewName","setCustomAttribute","setErrorHandler","finished","addToTrace","inlineHit","addRelease"],d="api-",l=d+"ixn-";a(p,function(e,n){s[n]=o(d+n,!0,"api")}),s.addPageAction=o(d+"addPageAction",!0),s.setCurrentRouteName=o(d+"routeName",!0),n.exports=newrelic,s.interaction=function(){return(new r).get()};var m=r.prototype={createTracer:function(e,n){var t={},r=this,o="function"==typeof n;return i(l+"tracer",[c.now(),e,t],r),function(){if(f.emit((o?"":"no-")+"fn-start",[c.now(),r,o],t),o)try{return n.apply(this,arguments)}catch(e){throw f.emit("fn-err",[arguments,this,e],t),e}finally{f.emit("fn-end",[c.now()],t)}}}};a("actionText,setName,setAttribute,save,ignore,onEnd,getContext,end,get".split(","),function(e,n){m[n]=o(l+n)}),newrelic.noticeError=function(e){"string"==typeof e&&(e=new Error(e)),i("err",[e,c.now()])}},{}],2:[function(e,n,t){function r(e,n){if(!o)return!1;if(e!==o)return!1;if(!n)return!0;if(!i)return!1;for(var t=i.split("."),r=n.split("."),a=0;a<r.length;a++)if(r[a]!==t[a])return!1;return!0}var o=null,i=null,a=/Version\/(\S+)\s+Safari/;if(navigator.userAgent){var u=navigator.userAgent,f=u.match(a);f&&u.indexOf("Chrome")===-1&&u.indexOf("Chromium")===-1&&(o="Safari",i=f[1])}n.exports={agent:o,version:i,match:r}},{}],3:[function(e,n,t){function r(e,n){var t=[],r="",i=0;for(r in e)o.call(e,r)&&(t[i]=n(r,e[r]),i+=1);return t}var o=Object.prototype.hasOwnProperty;n.exports=r},{}],4:[function(e,n,t){function r(e,n,t){n||(n=0),"undefined"==typeof t&&(t=e?e.length:0);for(var r=-1,o=t-n||0,i=Array(o<0?0:o);++r<o;)i[r]=e[n+r];return i}n.exports=r},{}],5:[function(e,n,t){n.exports={exists:"undefined"!=typeof window.performance&&window.performance.timing&&"undefined"!=typeof window.performance.timing.navigationStart}},{}],ee:[function(e,n,t){function r(){}function o(e){function n(e){return e&&e instanceof r?e:e?f(e,u,i):i()}function t(t,r,o,i){if(!d.aborted||i){e&&e(t,r,o);for(var a=n(o),u=v(t),f=u.length,c=0;c<f;c++)u[c].apply(a,r);var p=s[y[t]];return p&&p.push([b,t,r,a]),a}}function l(e,n){h[e]=v(e).concat(n)}function m(e,n){var t=h[e];if(t)for(var r=0;r<t.length;r++)t[r]===n&&t.splice(r,1)}function v(e){return h[e]||[]}function g(e){return p[e]=p[e]||o(t)}function w(e,n){c(e,function(e,t){n=n||"feature",y[t]=n,n in s||(s[n]=[])})}var h={},y={},b={on:l,addEventListener:l,removeEventListener:m,emit:t,get:g,listeners:v,context:n,buffer:w,abort:a,aborted:!1};return b}function i(){return new r}function a(){(s.api||s.feature)&&(d.aborted=!0,s=d.backlog={})}var u="nr@context",f=e("gos"),c=e(3),s={},p={},d=n.exports=o();d.backlog=s},{}],gos:[function(e,n,t){function r(e,n,t){if(o.call(e,n))return e[n];var r=t();if(Object.defineProperty&&Object.keys)try{return Object.defineProperty(e,n,{value:r,writable:!0,enumerable:!1}),r}catch(i){}return e[n]=r,r}var o=Object.prototype.hasOwnProperty;n.exports=r},{}],handle:[function(e,n,t){function r(e,n,t,r){o.buffer([e],r),o.emit(e,n,t)}var o=e("ee").get("handle");n.exports=r,r.ee=o},{}],id:[function(e,n,t){function r(e){var n=typeof e;return!e||"object"!==n&&"function"!==n?-1:e===window?0:a(e,i,function(){return o++})}var o=1,i="nr@id",a=e("gos");n.exports=r},{}],loader:[function(e,n,t){function r(){if(!E++){var e=x.info=NREUM.info,n=l.getElementsByTagName("script")[0];if(setTimeout(s.abort,3e4),!(e&&e.licenseKey&&e.applicationID&&n))return s.abort();c(y,function(n,t){e[n]||(e[n]=t)}),f("mark",["onload",a()+x.offset],null,"api");var t=l.createElement("script");t.src="https://"+e.agent,n.parentNode.insertBefore(t,n)}}function o(){"complete"===l.readyState&&i()}function i(){f("mark",["domContent",a()+x.offset],null,"api")}function a(){return O.exists&&performance.now?Math.round(performance.now()):(u=Math.max((new Date).getTime(),u))-x.offset}var u=(new Date).getTime(),f=e("handle"),c=e(3),s=e("ee"),p=e(2),d=window,l=d.document,m="addEventListener",v="attachEvent",g=d.XMLHttpRequest,w=g&&g.prototype;NREUM.o={ST:setTimeout,SI:d.setImmediate,CT:clearTimeout,XHR:g,REQ:d.Request,EV:d.Event,PR:d.Promise,MO:d.MutationObserver};var h=""+location,y={beacon:"bam.nr-data.net",errorBeacon:"bam.nr-data.net",agent:"js-agent.newrelic.com/nr-1099.min.js"},b=g&&w&&w[m]&&!/CriOS/.test(navigator.userAgent),x=n.exports={offset:u,now:a,origin:h,features:{},xhrWrappable:b,userAgent:p};e(1),l[m]?(l[m]("DOMContentLoaded",i,!1),d[m]("load",r,!1)):(l[v]("onreadystatechange",o),d[v]("onload",r)),f("mark",["firstbyte",u],null,"api");var E=0,O=e(5)},{}]},{},["loader"]);</script>
+
+    
+    <meta name="description" content="Vice movie reviews &amp; Metacritic score: Vice explores the epic story about how a bureaucratic Washington insider quietly became the most powerful man in the w...">
+
+    
+    
+
+    
+    <meta name="application-name" content="Metacritic">
+    <meta name="msapplication-TileColor" content="#000000">
+    <meta name="msapplication-TileImage" content="/images/win8tile/76bf1426-2886-4b87-ae1c-06424b6bb8a2.png">
+
+    
+                        <meta property="og:title" content="Vice">
+                    <meta property="og:type" content="video.movie">
+                    <meta property="og:url" content="https://www.metacritic.com/movie/vice-2018">
+                    <meta property="og:image" content="https://static.metacritic.com/images/products/movies/9/81bed398f129a43b1f9ddcd7e2ac4e5b-250h.jpg">
+                    <meta property="og:site_name" content="Metacritic">
+                    <meta property="fb:app_id" content="123113677890173">
+                    <meta property="og:description" content="Vice movie reviews &amp; Metacritic score: Vice explores the epic story about how a bureaucratic Washington insider quietly became the most powerful man in the world as Vice-President to George W. Bush,...">
+            
+    
+     
+        <link rel="canonical" href="https://www.metacritic.com/movie/vice-2018" />
+        
+    
+
+    
+        
+    
+    <script type="text/javascript">
+        
+        (function(id){function append(scriptid,url,async){var d=document,sn='script',f=d.getElementsByTagName(sn)[0];if(!f)f=d.head;var s=d.createElement(sn);s.async=!0;s.id=scriptid;s.src=url;f.parentNode.insertBefore(s,f)}
+        function getRootDomain(){var parts=window.location.hostname.split('.');if(parts.length===2)rootDomain=parts[0];else if(parts.length>2){var part=parts[parts.length-2];if(part==='com'||part==='co'){rootDomain=parts[parts.length-3]}
+        else{rootDomain=part}}
+        return rootDomain}
+        window.evidon={};window.evidon.id=id;var cdn='//c.evidon.com/',rootDomain=getRootDomain(),noticecdn=cdn+'sitenotice/';append('evidon-notice',noticecdn+'evidon-sitenotice-tag.js',!1);append('evidon-location',cdn+'geo/country.js',!0);append('evidon-themes',noticecdn+id+'/snthemes.js',!0);if(rootDomain)append('evidon-settings',noticecdn+id+'/'+rootDomain+'/settings.js',!0);
+            window.evidon.priorConsentCallback=function(){
+                // IX Ad Bidding
+                append('ix-lib',  (('https:' == document.location.protocol)?'https:':'http:') + '///js-sec.indexww.com/ht/ls-metacritic.js', true);
+                // GPT/DFP ads
+                append('gpt-lib', (('https:' == document.location.protocol)?'https:':'http:') + '//www.googletagservices.com/tag/js/gpt.js', true);
+                // Sharethrough
+                append('st-lib', (('https:' == document.location.protocol)?'https:':'http:') + '//native.sharethrough.com/assets/tag.js', true);
+                // Google Analytics
+                append('ga-lib', (('https:' == document.location.protocol)?'https://ssl':'http://www') + '.google-analytics.com/ga.js', true);
+                // Omniture
+                window.gdprConsent = true;
+                if (typeof om == 'object' && typeof om.fireGdprTags != 'undefined') { om.fireGdprTags(); }
+                                // Taboola
+                load_vendor_taboola();
+                                            }
+        window.evidon.closeCallback=function(){}
+        window.evidon.consentWithdrawnCallback=function(){}})(425)
+        
+    </script>
+
+    <script src="//code.jquery.com/jquery-2.2.0.min.js"></script>
+
+    <link rel="stylesheet" href="/css/global_alt.min.1542323564.css" type="text/css">
+    <script type="text/javascript" src="/js/global_alt.min.1542323564.js"></script>
+
+    
+    
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    
+
+    
+    <link rel="stylesheet" href="/css/fonts/proxima-nova/stylesheet.css" type="text/css" charset="utf-8" />
+
+
+    <script type="text/javascript">
+        
+    	MC_USER_LOGGED_IN = false;
+        
+        
+        
+        var googletag = googletag || {};
+        googletag.cmd = googletag.cmd || [];
+        window.metac_ads_pushdisplay = window.metac_ads_pushdisplay || [];
+        window.metac_gallery_ads_pushdisplay = window.metac_gallery_ads_pushdisplay || [];
+        window.metac_hover_ads_pushdisplay = window.metac_hover_ads_pushdisplay || [];
+        
+
+        
+                    
+            window._taboola = window._taboola || [];
+            function load_vendor_taboola(){
+                _taboola.push({
+                    other : 'auto'
+                });
+                !function (e, f, u) {
+                    e.async = 1;
+                    e.src = u;
+                    f.parentNode.insertBefore(e, f);
+                }(document.createElement('script'),
+                document.getElementsByTagName('script')[0],
+                '//cdn.taboola.com/libtrc/cbsinteractive-metacritic/loader.js');
+            }
+            
+            </script>
+
+    
+    <script src="//vidtech.cbsinteractive.com/uvpjs/2.8.3/CBSI-PLAYER.js"></script>
+    <script type="text/javascript" src="//imasdk.googleapis.com/js/sdkloader/ima3.js"></script>
+
+</head>
+<body>
+
+    
+    
+    <div id="page">
+        
+        <div id="content_header_wrapper">
+            <header id="top_header">
+    <nav id="primary_nav">
+        <nav id="primary_logo" class="primary_nav_item">
+            <a href="https://www.metacritic.com"><img src="/images/icons/dark_logo.png" alt="Metacritic logo"></a>
+        </nav>
+
+        <nav id="primary_search" class="primary_nav_item">
+            <div class="rounded_field">
+                <div class="imgs">
+                    <img class="inactive" src="/images/icons/search_inactive.png" alt="search">
+                    <img class="active" src="/images/icons/search_active.png" alt="search">
+                </div>
+                <div class="field innerLabel">
+                    <div class="input_wrapper">
+                        <form action="/search" method="post" autocomplete="off">
+                            <label for="primary_search_box">search...</label>
+                            <input name="search_term" id="primary_search_box" autocomplete="off"
+                                                            >
+                            <input type="hidden" name="search_filter" value="all">
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div id="primary_search_results">
+
+            </div>
+        </nav>
+
+                    <nav id="primary_nav_item_movies" class="primary_nav_item selected">
+                <span class="primary_nav_text">
+                    <a href="https://www.metacritic.com/movie">
+                                                    Movies
+                                            </a>
+                </span>
+
+                                    <span class="cutout_wrapper selected">
+                        <i class="fa fa-caret-down" aria-hidden="true"></i>
+                    </span>
+                
+                                            <nav class="primary_drop_down">
+                            <span class="cutout_wrapper">
+                                <i class="fa fa-caret-down" aria-hidden="true"></i>
+                            </span>
+                            <div class="primary_feature">
+                                                                                                                                                
+                                        <a href="/feature/new-movie-trailers-november-9-2018">
+                                            <div class="primary_feature_blur" style="background-image: url(https://static.metacritic.com/images/features/main/ff20181109-180.jpg)"></div>
+                                            <img class="primary_feature_img" src="https://static.metacritic.com/images/features/main/ff20181109-180.jpg" alt="Film Friday (11/9): This Week's New Movie Trailers Image" />
+                                        </a>
+                                        <span class="primary_feature_text"><a href="/feature/new-movie-trailers-november-9-2018">Film Friday (11/9): This Week's New Movie Trailers</a></span>
+                                                                                                </div>
+                            <nav class="primary_dditems">
+                                <a href="/feature/movie">More Reports</a>
+                                <a href="/movie">All Movies &gt;</a>
+                                <a href="/browse/movies/release-date/theaters/date">In Theaters</a>
+                                <a href="/browse/movies/release-date/coming-soon/date">Coming Soon</a>
+                                <a href="/browse/dvds/release-date/new-releases/date">New to DVD & Streaming</a>
+                                <a href="/browse/movies/score/metascore/all/filtered/netflix">Best of Netflix</a>
+                                <a href="/browse/movies/score/metascore/all/filtered/piv">Best of Amazon</a>
+                                <a href="/browse/movies/score/metascore/all/filtered">Best Movies of All Time</a>
+                                <a href="/browse/movies/genre/date">Browse Movies by Genre</a>
+                            </nav>
+                        </nav>
+                                </nav>
+                    <nav id="primary_nav_item_games" class="primary_nav_item">
+                <span class="primary_nav_text">
+                    <a href="https://www.metacritic.com/game">
+                                                    Games
+                                            </a>
+                </span>
+
+                
+                                            <nav class="primary_drop_down">
+                            <span class="cutout_wrapper">
+                                <i class="fa fa-caret-down" aria-hidden="true"></i>
+                            </span>
+                            <div class="primary_feature">
+                                                                                                                                                
+                                        <a href="/feature/major-upcoming-video-game-release-dates-xbox-ps4-pc-switch">
+                                            <div class="primary_feature_blur" style="background-image: url(https://static.metacritic.com/images/features/main/gamespreviewwinter2019-180.jpg)"></div>
+                                            <img class="primary_feature_img" src="https://static.metacritic.com/images/features/main/gamespreviewwinter2019-180.jpg" alt="Notable Video Game Releases: New and Upcoming Image" />
+                                        </a>
+                                        <span class="primary_feature_text"><a href="/feature/major-upcoming-video-game-release-dates-xbox-ps4-pc-switch">Notable Video Game Releases: New and Upcoming</a></span>
+                                                                                                </div>
+                            <nav class="primary_dditems">
+                                <a href="/feature/game">More Reports</a>
+                                <a href="/game">All Games &gt;</a>
+                                <a href="/game/playstation-4">PS4</a>
+                                <a href="/game/xbox-one">Xbox One</a>
+                                <a href="/game/pc">PC</a>
+                                <a href="/game/switch">Switch</a>
+                                <a href="/game/wii-u">Wii U</a>
+                                <a href="/game/3ds">3DS</a>
+                                <a href="/game/playstation-vita">PS Vita</a>
+                                <a href="/game/ios">iOS</a>
+                                <a href="/game/legacy">Legacy</a>
+                            </nav>
+                        </nav>
+                                </nav>
+                    <nav id="primary_nav_item_tv" class="primary_nav_item">
+                <span class="primary_nav_text">
+                    <a href="https://www.metacritic.com/tv">
+                                                    TV
+                                            </a>
+                </span>
+
+                
+                                            <nav class="primary_drop_down">
+                            <span class="cutout_wrapper">
+                                <i class="fa fa-caret-down" aria-hidden="true"></i>
+                            </span>
+                            <div class="primary_feature">
+                                                                                                                                                
+                                        <a href="/feature/now-streaming-on-amazon-instant-video">
+                                            <div class="primary_feature_blur" style="background-image: url(https://static.metacritic.com/images/features/main/amazon201812-180.jpg)"></div>
+                                            <img class="primary_feature_img" src="https://static.metacritic.com/images/features/main/amazon201812-180.jpg" alt="What to Watch Now on Prime Video Image" />
+                                        </a>
+                                        <span class="primary_feature_text"><a href="/feature/now-streaming-on-amazon-instant-video">What to Watch Now on Prime Video</a></span>
+                                                                                                </div>
+                            <nav class="primary_dditems">
+                                <a href="/feature/tv">More Reports</a>
+                                <a href="/tv">All TV &gt;</a>
+                                <a href="/browse/tv/release-date/new-series/date">New Shows</a>
+                                <a href="/browse/tv/score/metascore/all/filtered/netflix">Best of Netflix</a>
+                                <a href="/browse/tv/score/metascore/all/filtered/piv">Best of Amazon</a>
+                                <a href="/browse/tv/score/metascore/all/filtered">Best TV Shows</a>
+                                <a href="/browse/tv/genre/date">Browse TV by Genre</a>
+                            </nav>
+                        </nav>
+                                </nav>
+                    <nav id="primary_nav_item_music" class="primary_nav_item">
+                <span class="primary_nav_text">
+                    <a href="https://www.metacritic.com/music">
+                                                    Music
+                                            </a>
+                </span>
+
+                
+                                            <nav class="primary_drop_down">
+                            <span class="cutout_wrapper">
+                                <i class="fa fa-caret-down" aria-hidden="true"></i>
+                            </span>
+                            <div class="primary_feature">
+                                                                                                                                                
+                                        <a href="/feature/best-of-september-2018">
+                                            <div class="primary_feature_blur" style="background-image: url(https://static.metacritic.com/images/features/main/bestof_2018_09-180.jpg)"></div>
+                                            <img class="primary_feature_img" src="https://static.metacritic.com/images/features/main/bestof_2018_09-180.jpg" alt="Best of September 2018: Top Albums, Games, Movies & TV Image" />
+                                        </a>
+                                        <span class="primary_feature_text"><a href="/feature/best-of-september-2018">Best of September 2018: Top Albums, Games, Movies & TV</a></span>
+                                                                                                </div>
+                            <nav class="primary_dditems">
+                                <a href="/feature/album">More Reports</a>
+                                <a href="/music">All Music &gt;</a>
+                                <a href="/browse/albums/release-date/new-releases/date">New Releases</a>
+                                <a href="/browse/albums/release-date/coming-soon/date">Coming Soon</a>
+                                <a href="/browse/albums/score/metascore/90day/filtered">Best New Albums</a>
+                                <a href="/browse/albums/score/metascore/all/filtered">Best Albums of All Time</a>
+                                <a href="/browse/albums/genre/date">Browse Music by Genre</a>
+                            </nav>
+                        </nav>
+                                </nav>
+                    <nav id="primary_nav_item_features" class="primary_nav_item">
+                <span class="primary_nav_text">
+                    <a href="https://www.metacritic.com/feature">
+                                                    Reports
+                                            </a>
+                </span>
+
+                
+                                </nav>
+        
+        <nav id="primary_menu_item_enter_search" class="">
+            <span class="">
+                Enter to Search
+            </span>
+        </nav>
+
+
+        
+                    <nav id="primary_menu_item_create" class="primary_nav_item">
+                <span class="primary_nav_text">
+                    <a id="signup" href="https://secure.metacritic.com/signup">+ Create Account</a>
+                </span>
+            </nav>
+            <nav id="primary_menu_item_login" class="primary_nav_item">
+                <span class="primary_nav_text">
+                    <a id="login" href="https://secure.metacritic.com/login">Login</a>
+                </span>
+            </nav>
+                
+    </nav>
+
+            <nav id="secondary_nav" class="clearfix hgrayblue inset_left2 inset_right2">
+            <div id="primary_social" class="social_round">
+                <span>follow on</span>
+                <a href="https://twitter.com/metacritic" target="_blank" rel="noopener"><i class="fa fa-twitter"></i></a>
+                <a href="https://www.facebook.com/Metacritic" target="_blank" rel="noopener"><i class="fa fa-facebook"></i></a>
+            </div>
+
+                            <nav id="secondary_nav_movies" class="secondary_nav_list">
+                    <a href="/browse/movies/release-date/theaters/date">In Theaters</a>
+                    <a href="/browse/movies/release-date/coming-soon/date">Coming Soon</a>
+                    <a href="/browse/movies/score/metascore/all/filtered">Best Movies</a>
+                    <a href="/browse/movies/critic/reviewed">Critics</a>
+                    <a href="/browse/movies/publication/reviewed">Publications</a>
+                    <a href="/browse/movies/trailers/all/date">Trailers</a>
+                </nav>
+                    </nav>
+        <header id="primary_backdrop">
+    </header>
+</header>
+
+
+            
+                                                <nav id="primary_baby_menu_movies" class="primary_baby_menu">
+                        <div class="primary_baby_row">
+                            <div class="logo inset_left2">
+                                <a href="https://www.metacritic.com"><img src="/images/mobile/logo.png" alt="Metacritic logo"></a>
+                            </div>
+                            <div id="primary_baby_menu_item_movies" class="primary_menu_item selected">
+                                <span class="primary_menu_text">
+                                    <a href="https://www.metacritic.com/movie">
+                                        Movies
+                                    </a>
+                                </span>
+                            </div>
+
+                                                                                                                                                                                                        <div class="primary_baby_item">
+                                            <a href="https://www.metacritic.com/browse/movies/release-date/theaters/date">
+                                                In Theaters
+                                            </a>
+                                        </div>
+                                                                                                                                                                                    <div class="primary_baby_item">
+                                            <a href="https://www.metacritic.com/browse/movies/release-date/coming-soon/date">
+                                                Coming Soon
+                                            </a>
+                                        </div>
+                                                                                                                                                                                    <div class="primary_baby_item">
+                                            <a href="https://www.metacritic.com/browse/movies/score/metascore/all/filtered/netflix">
+                                                Best of Netflix
+                                            </a>
+                                        </div>
+                                                                                                                                                                                    <div class="primary_baby_item">
+                                            <a href="https://www.metacritic.com/browse/movies/score/metascore/all/filtered/piv">
+                                                Best of Amazon
+                                            </a>
+                                        </div>
+                                                                                                
+                                                            <div class="primary_baby_item oswald">
+                                    <a href="#nav_to_metascore">
+                                    
+
+        
+<span class="metascore_w header_size movie tbd">tbd</span>
+
+                                    <span class="primary_baby_text">METASCORE</span>
+                                    </a>
+                                </div>
+                                                        
+                        </div>
+                    </nav>
+                                                                                                                                                        <aside id="popup_dialog">
+                <header class="pad_btm1"></header>
+                <div class="left">
+                </div>
+                <div class="right">
+                </div>
+                <div class="clr"></div>
+                <footer></footer>
+                
+                <div class="popup_close" onclick="MetaC.Popup.hide()"><i class="fa fa-times" aria-hidden="true"></i></div>
+            </aside>
+            <aside class="popup_hidden" id="popup_login">
+                <div class="login_section">
+                    <button class="meta_fb_login">Continue with Facebook</button>
+
+                    <div class="ruled_divider pad_top1">
+                        <hr class="rdleft"/>OR<hr class="rdright" />
+                    </div>
+
+                    <div id="popup_email_wrapper" class="pad_top1">
+                        <div class="field innerLabel">
+                            
+                            
+                        </div>
+                    </div>
+
+                    <div id="popup_pwd_wrapper" class="pad_top1">
+                        <div class="field innerLabel">
+                            
+                            
+                        </div>
+                        <div class="popup_forgot">
+                            <a href="javascript:void(0);"></a>
+                        </div>
+                    </div>
+
+                    <div class="pad_top1 fr">
+                        <span class="progress ">
+    <i class="fa fa-spinner"></i>
+</span>
+
+                        <button class="popup_login_btn grey_button marg_right_half">LOG IN</button>
+                        <button class="popup_signup_btn grey_button">CREATE AN ACCOUNT</button>
+                    </div>
+                    <div class="clr"></div>
+                </div>
+            </aside>
+
+            <div id="main_content" class="pad_btm2">
+                
+
+
+
+    
+
+<div class="movie product summary">
+    <input type="hidden" name="csrf_newsletter" value="75e6cce5f3d1355f153db7e20bdcb5de" />
+
+    
+
+
+    
+
+
+
+<script type="application/ld+json">
+    {
+        "@context" : "https://schema.org",
+        "@type" : "Movie",
+                "name" : "Vice",
+        "description" : "Vice explores the epic story about how a bureaucratic Washington insider quietly became the most powerful man in the world as Vice-President to George W. Bush, reshaping the country and the globe in ways that we still feel today.",
+        "datePublished" : "December 25, 2018",
+        "url" : "https://www.metacritic.com/movie/vice-2018",
+        "image" : "https://static.metacritic.com/images/products/movies/9/81bed398f129a43b1f9ddcd7e2ac4e5b.jpg"
+                            ,"contentRating" : "R"
+                                                    ,"trailer" : {
+                "@type":"VideoObject",
+                "name": "Vice",
+                "description": "VICE explores the epic story about how a bureaucratic Washington insider quietly became the most powerful man in the world as Vice-President to George W. Bush, reshaping the country and the globe in ways that we still feel today.",
+                "thumbnailUrl": "https://content.internetvideoarchive.com/content/photos/11979/304943_056.jpg",
+                "uploadDate": "2018-11-15 19:10:00"
+            }
+                                ,"director" : [
+                                {
+                        "@type":"Person",
+                        "name": "Adam McKay",
+                        "url": "https://www.metacritic.com/person/adam-mckay"
+                    }                            ]
+                            ,"actor" : [
+                            {
+                    "@type":"Person",
+                    "name": "Alison Pill",
+                    "url": "https://www.metacritic.com/person/alison-pill"
+                },                            {
+                    "@type":"Person",
+                    "name": "Amy Adams",
+                    "url": "https://www.metacritic.com/person/amy-adams"
+                },                            {
+                    "@type":"Person",
+                    "name": "Christian Bale",
+                    "url": "https://www.metacritic.com/person/christian-bale"
+                },                            {
+                    "@type":"Person",
+                    "name": "Eddie Marsan",
+                    "url": "https://www.metacritic.com/person/eddie-marsan"
+                },                            {
+                    "@type":"Person",
+                    "name": "Jesse Plemons",
+                    "url": "https://www.metacritic.com/person/jesse-plemons"
+                },                            {
+                    "@type":"Person",
+                    "name": "Lily Rabe",
+                    "url": "https://www.metacritic.com/person/lily-rabe"
+                },                            {
+                    "@type":"Person",
+                    "name": "Sam Rockwell",
+                    "url": "https://www.metacritic.com/person/sam-rockwell"
+                },                            {
+                    "@type":"Person",
+                    "name": "Shea Whigham",
+                    "url": "https://www.metacritic.com/person/shea-whigham"
+                },                            {
+                    "@type":"Person",
+                    "name": "Steve Carell",
+                    "url": "https://www.metacritic.com/person/steve-carell"
+                },                            {
+                    "@type":"Person",
+                    "name": "Tyler Perry",
+                    "url": "https://www.metacritic.com/person/tyler-perry"
+                }                        ]
+                        ,"publisher" : [
+                                    {
+                "@type":"Organization",
+                "name": "Annapurna Pictures",
+                "url": "https://www.metacritic.com/company/annapurna-pictures"
+            }
+                                ]
+                            ,"genre" : [
+                             "Biography"
+                 ,                             "Drama"
+                 ,                             "History"
+                                         ]
+            }
+</script>
+
+
+
+    <div class="content_under_header">
+        <div class="product_header" style="background-image: url(https://static.metacritic.com/images/products/movies/9/81bed398f129a43b1f9ddcd7e2ac4e5b.jpg);">
+                            <div class="product_header_mask"></div>
+                <table class="maskedauto">
+                    <tr>
+                        <td class="maskedleft"></td>
+                        <td class="maskedcenter">
+                            <div class="fxdrow">
+                            <table>
+                                <tr>
+                                    <td class="gu5 maskedbg">
+                                        <div class="padcol">
+                                            <div class="phead_summary pad_btm2">
+                                                <div class="pad_btm1">
+                                                    <div class="product_page_title oswald">
+    <h1>Vice</h1>
+            <span class="release_year lighter">2018</span>
+    </div>
+
+                                                </div>
+                                                
+
+<div class="ms_wrapper">
+    <div class="title_bump"></div>
+    <table>
+        <tr>
+            <td class="summary_left pad_btm2">
+                <div class="header_title oswald">
+                    <a href="/movie/vice-2018/critic-reviews">METASCORE <a class="about_ms inset_left_half" href="/about-metascores"><i class="fa fa-question-circle" aria-hidden="true"></i></a></a>
+                </div>
+                <div class="score_details pad_top1">
+                    <span class="score_description">
+    <a class="data" href="/movie/vice-2018/critic-reviews">
+            <span>
+            No score yet
+        </span>
+                                                <span class="connect4_msg">Awaiting 4 more reviews</span>
+    
+</a>
+</span>
+
+                </div>
+                            </td>
+            <td class="summary_right pad_btm1">
+
+                                                                    
+                
+
+        
+    <a class="metascore_anchor" href="/movie/vice-2018/critic-reviews">
+<span class="metascore_w larger movie tbd">tbd</span>
+    </a>
+
+            </td>
+        </tr>
+    </table>
+</div>
+
+                                                
+
+<div class="us_wrapper">
+    
+    </div>
+
+                                                    <div class="phead_date_wrapper">
+        <div class="title_bump">
+            <div class="pad_top_half"><span class="mc_yellow">RELEASE DATE:</span> December 25, 2018</div>
+        </div>
+    </div>
+
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td class="gu7 fakemaskcutoutbtm">
+                                        <div class="maskedcol padcol">
+                                            
+                                    
+                                
+
+<script>
+    window.anPrebidAsyncInit = function() {
+        var prebid = new AudienceNetworkPrebid(
+            '195612451022080_220228551893803',
+            document.getElementById('ad_video_holder')
+        );
+        prebid.getProfile(function(profile) {
+            var token = profile.token;
+            cbsiads_passFBtoken(token);
+        });
+    };
+    (function(d, s, id){
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) {
+            return;
+        }
+        js = d.createElement(s);
+        js.id = id;
+        js.src = "//connect.facebook.com/en_US/AudienceNetworkPrebid.js";
+        fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'an-prebid'));
+    var cbsiads_FBtoken;
+    function cbsiads_passFBtoken(token){
+        cbsiads_FBtoken = (token=='nobid' || token==null) ? null : 'fan';
+    };
+</script>
+
+<div class="video_wrapper">
+    <div id="agegate" class="agegate">
+        <div class="title">
+            Please enter your birth date to watch this video:
+        </div>
+        <div class="select">
+            <select class="month">
+                <option value="01">January</option>
+                <option value="02">February</option>
+                <option value="03">March</option>
+                <option value="04">April</option>
+                <option value="05">May</option>
+                <option value="06">June</option>
+                <option value="07">July</option>
+                <option value="08">August</option>
+                <option value="09">September</option>
+                <option value="10">October</option>
+                <option value="11">November</option>
+                <option value="12">December</option>
+            </select>
+            <select class="day">
+                                    <option value="01">1</option>
+                                    <option value="02">2</option>
+                                    <option value="03">3</option>
+                                    <option value="04">4</option>
+                                    <option value="05">5</option>
+                                    <option value="06">6</option>
+                                    <option value="07">7</option>
+                                    <option value="08">8</option>
+                                    <option value="09">9</option>
+                                    <option value="10">10</option>
+                                    <option value="11">11</option>
+                                    <option value="12">12</option>
+                                    <option value="13">13</option>
+                                    <option value="14">14</option>
+                                    <option value="15">15</option>
+                                    <option value="16">16</option>
+                                    <option value="17">17</option>
+                                    <option value="18">18</option>
+                                    <option value="19">19</option>
+                                    <option value="20">20</option>
+                                    <option value="21">21</option>
+                                    <option value="22">22</option>
+                                    <option value="23">23</option>
+                                    <option value="24">24</option>
+                                    <option value="25">25</option>
+                                    <option value="26">26</option>
+                                    <option value="27">27</option>
+                                    <option value="28">28</option>
+                                    <option value="29">29</option>
+                                    <option value="30">30</option>
+                                    <option value="31">31</option>
+                            </select>
+            <select class="year">
+                                                    <option value="2018">2018</option>
+                                    <option value="2017">2017</option>
+                                    <option value="2016">2016</option>
+                                    <option value="2015">2015</option>
+                                    <option value="2014">2014</option>
+                                    <option value="2013">2013</option>
+                                    <option value="2012">2012</option>
+                                    <option value="2011">2011</option>
+                                    <option value="2010">2010</option>
+                                    <option value="2009">2009</option>
+                                    <option value="2008">2008</option>
+                                    <option value="2007">2007</option>
+                                    <option value="2006">2006</option>
+                                    <option value="2005">2005</option>
+                                    <option value="2004">2004</option>
+                                    <option value="2003">2003</option>
+                                    <option value="2002">2002</option>
+                                    <option value="2001">2001</option>
+                                    <option value="2000">2000</option>
+                                    <option value="1999">1999</option>
+                                    <option value="1998">1998</option>
+                                    <option value="1997">1997</option>
+                                    <option value="1996">1996</option>
+                                    <option value="1995">1995</option>
+                                    <option value="1994">1994</option>
+                                    <option value="1993">1993</option>
+                                    <option value="1992">1992</option>
+                                    <option value="1991">1991</option>
+                                    <option value="1990">1990</option>
+                                    <option value="1989">1989</option>
+                                    <option value="1988">1988</option>
+                                    <option value="1987">1987</option>
+                                    <option value="1986">1986</option>
+                                    <option value="1985">1985</option>
+                                    <option value="1984">1984</option>
+                                    <option value="1983">1983</option>
+                                    <option value="1982">1982</option>
+                                    <option value="1981">1981</option>
+                                    <option value="1980">1980</option>
+                                    <option value="1979">1979</option>
+                                    <option value="1978">1978</option>
+                                    <option value="1977">1977</option>
+                                    <option value="1976">1976</option>
+                                    <option value="1975">1975</option>
+                                    <option value="1974">1974</option>
+                                    <option value="1973">1973</option>
+                                    <option value="1972">1972</option>
+                                    <option value="1971">1971</option>
+                                    <option value="1970">1970</option>
+                                    <option value="1969">1969</option>
+                                    <option value="1968">1968</option>
+                                    <option value="1967">1967</option>
+                                    <option value="1966">1966</option>
+                                    <option value="1965">1965</option>
+                                    <option value="1964">1964</option>
+                                    <option value="1963">1963</option>
+                                    <option value="1962">1962</option>
+                                    <option value="1961">1961</option>
+                                    <option value="1960">1960</option>
+                                    <option value="1959">1959</option>
+                                    <option value="1958">1958</option>
+                                    <option value="1957">1957</option>
+                                    <option value="1956">1956</option>
+                                    <option value="1955">1955</option>
+                                    <option value="1954">1954</option>
+                                    <option value="1953">1953</option>
+                                    <option value="1952">1952</option>
+                                    <option value="1951">1951</option>
+                                    <option value="1950">1950</option>
+                                    <option value="1949">1949</option>
+                                    <option value="1948">1948</option>
+                                    <option value="1947">1947</option>
+                                    <option value="1946">1946</option>
+                                    <option value="1945">1945</option>
+                                    <option value="1944">1944</option>
+                                    <option value="1943">1943</option>
+                                    <option value="1942">1942</option>
+                                    <option value="1941">1941</option>
+                                    <option value="1940">1940</option>
+                                    <option value="1939">1939</option>
+                                    <option value="1938">1938</option>
+                                    <option value="1937">1937</option>
+                                    <option value="1936">1936</option>
+                                    <option value="1935">1935</option>
+                                    <option value="1934">1934</option>
+                                    <option value="1933">1933</option>
+                                    <option value="1932">1932</option>
+                                    <option value="1931">1931</option>
+                                    <option value="1930">1930</option>
+                                    <option value="1929">1929</option>
+                                    <option value="1928">1928</option>
+                                    <option value="1927">1927</option>
+                                    <option value="1926">1926</option>
+                                    <option value="1925">1925</option>
+                                    <option value="1924">1924</option>
+                                    <option value="1923">1923</option>
+                                    <option value="1922">1922</option>
+                                    <option value="1921">1921</option>
+                                    <option value="1920">1920</option>
+                                    <option value="1919">1919</option>
+                                    <option value="1918">1918</option>
+                                    <option value="1917">1917</option>
+                                    <option value="1916">1916</option>
+                                    <option value="1915">1915</option>
+                                    <option value="1914">1914</option>
+                                    <option value="1913">1913</option>
+                                    <option value="1912">1912</option>
+                                    <option value="1911">1911</option>
+                                    <option value="1910">1910</option>
+                                    <option value="1909">1909</option>
+                                    <option value="1908">1908</option>
+                                    <option value="1907">1907</option>
+                                    <option value="1906">1906</option>
+                                    <option value="1905">1905</option>
+                                    <option value="1904">1904</option>
+                                    <option value="1903">1903</option>
+                                    <option value="1902">1902</option>
+                                    <option value="1901">1901</option>
+                                    <option value="1900">1900</option>
+                            </select>
+            <button type="button" class="ag_button">Enter</button>
+        </div>
+        <div class="msg">
+            You are not allowed to view this material at this time.
+        </div>
+    </div>
+
+    <div class="video_and_autoplay">
+        <div id="video_holder_wrapper" data-mctrailerid="11700656" data-mctrailerurl="/movie/vice-2018/trailers/11700656" data-mcvideourl="https://www.videodetective.net/player.aspx?publishedid=304943&cmd=6&fmt=4&customerid=192333&clientskip=255&videokbrate=2500&e=1542594540&h=6ce431c35377720803fbe53ea6b6ee9f"
+             data-mcvideotitle="Vice" data-mcwarning="" data-mcrating="R" data-mcplaylist="1"             data-mctrailerimg="https://content.internetvideoarchive.com/content/photos/11979/304943_056.jpg"             data-mcproductid="mc-movie-549479" data-mcproviderid="2">
+
+                        <div class="video_holder_float_bar clearfix">
+                <span class="video_holder_drag"><span class="fa fa-ellipsis-v"></span><span class="fa fa-ellipsis-v"></span></span>
+                <span class="video_holder_float_title">Vice</span>
+                <span class="video_holder_close"><span class="fa fa-close"></span></span>
+            </div>
+            
+            <div id="video_holder">
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+                        MetaC.Video.addToPlaylist(
+                    'https://www.videodetective.net/player.aspx?publishedid=472236&cmd=6&fmt=4&customerid=192333&clientskip=255&videokbrate=2500&e=1542594540&h=9b355a054be336cd33ec570644f56140',
+                    'Vice (Trailer Tease)',
+                    '11700657'
+                    );
+                </script>
+
+                                        </div>
+                                    </td>
+                                </tr>
+                            </table>
+                            </div>
+                        </td>
+                        <td class="maskedright"></td>
+                    </tr>
+                </table>
+                <div class="product_header_mask_btm"></div>
+                    </div>
+    </div>
+
+
+    <div id="mantle_skin">
+    
+                        
+                        <div id="skin" class="ad_unit">
+                            
+                            <script type="text/javascript">
+                                            
+                        googletag.cmd.push(function() {
+                        
+                                                            window.metac_g_ad_skin = googletag.defineSlot("/8264/aw-metacritic/movies",[1600,1000], "skin").addService(googletag.pubads()).setTargeting("pos", "top");
+                                                        
+                        
+                        });
+                        
+                                                    window.metac_ads_pushdisplay.push("skin");
+                                                            </script>
+                                        </div>
+                        
+
+
+    <div id="gutters"></div>
+                    
+                        
+                            <div id="leader_top_wrapper" class="ad_height_min">
+                        <div id="leader_plus_top" class="ad_unit">
+                            
+                            <script type="text/javascript">
+                                            
+                        googletag.cmd.push(function() {
+                        
+                                                            window.metac_g_ad_leader_plus_top = googletag.defineSlot("/8264/aw-metacritic/movies",[[728,90],[970,66],[970,250],[728,91],[321,31],[7,7]], "leader_plus_top").addService(googletag.pubads()).setTargeting("pos", "top");
+                                                        
+                        
+                        });
+                        
+                                                    window.metac_ads_pushdisplay.push("leader_plus_top");
+                                                            </script>
+                                        </div>
+                            </div>
+                        
+
+
+            
+    <div class="content_after_header">
+    <div class="fxdrow">
+        <div class="pad_top2">
+            <div class="fxdcol gu8">
+                <div class="subrow pad_btm2">
+                    <div class="fxdcol gu8">
+                                <div class="sharing " data-mc-refid="549479" data-mc-reftid="150" >
+    
+    <a class="sharing-facebook" title="Share on Facebook" rel="nofollow noopener popup:external" data-mc-social-url="https://www.metacritic.com/movie/vice-2018?ftag=fbsoshares" href="javascript:void(0);"><span class="fa fa-fw fa-facebook"></span></a><a class="sharing-twitter" title="Share on Twitter" rel="nofollow noopener popup:external" data-mc-social-url="https://www.metacritic.com/movie/vice-2018" data-mc-tweet-prefix="https://twitter.com/intent/tweet?via=metacritic&text=Vice%20%282018%29%20Reviews" href="#" target="_blank"><span class="fa fa-fw fa-twitter"></span></a><a class="sharing-reddit" title="Share on Reddit" rel="nofollow noopener popup:external" data-mc-social-track-id="6" target="_blank" href="https://www.reddit.com/submit?url=https%3A%2F%2Fwww.metacritic.com%2Fmovie%2Fvice-2018%3Fftag%3Dredsoshares&title=Vice%20%282018%29%20Reviews"><span class="fa fa-fw fa-reddit-alien"></span></a><a class="sharing-pinterest" title="Share on Pinterest" rel="nofollow noopener popup:external" data-mc-social-track-id="5" target="_blank" href="//pinterest.com/pin/create/link/?url=https%3A%2F%2Fwww.metacritic.com%2Fmovie%2Fvice-2018%3Fftag%3Dpinsoshares&description=Vice%20%282018%29%20Reviews&media=https://static.metacritic.com/images/products/movies/9/81bed398f129a43b1f9ddcd7e2ac4e5b.jpg"><span class="fa fa-fw fa-pinterest"></span></a></div>
+
+
+                    </div>
+                </div>
+
+                <div class="subrow">
+                    <div class="fxdcol gu2">
+                        <img class="summary_img" src="https://static.metacritic.com/images/products/movies/9/81bed398f129a43b1f9ddcd7e2ac4e5b-250h.jpg" alt="Vice">
+                    </div>
+                    <div class="fxdcol gu6 lh14 pad_btm1">
+                        <div class="section_title bold">
+                            <a href="/movie/vice-2018/details">Movie Details & Credits</a>
+                        </div>
+
+                        <div class="details_section">
+                            <table class="cert_rating_wrapper">
+                                <tr>
+                                                                            <td>
+                                                <img class="cert_rating_img" src="/images/mpaa/RATED_R.svg" />
+
+                                        </td>
+                                                                                                            <td>
+                                                                                    <span class="distributor"><a href="/company/annapurna-pictures">Annapurna Pictures</a> | </span>
+                                                                                <span class="release_date">
+                                            <span class="label">Release Date:</span>
+                                            <span>December 25, 2018</span>
+                                        </span>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+
+                                                    <div class="summary_cast details_section">
+                                <span class="label">Starring:</span>
+                                <span>
+                                                                            <a href="/person/alison-pill">Alison Pill</a>,                                                                             <a href="/person/amy-adams">Amy Adams</a>,                                                                             <a href="/person/christian-bale">Christian Bale</a>,                                                                             <a href="/person/eddie-marsan">Eddie Marsan</a>,                                                                             <a href="/person/jesse-plemons">Jesse Plemons</a>,                                                                             <a href="/person/lily-rabe">Lily Rabe</a>,                                                                             <a href="/person/sam-rockwell">Sam Rockwell</a>,                                                                             <a href="/person/shea-whigham">Shea Whigham</a>,                                                                             <a href="/person/steve-carell">Steve Carell</a>,                                                                             <a href="/person/tyler-perry">Tyler Perry</a>                                                                    </span>
+                            </div>
+                                                
+                        
+                                                    <div class="summary_deck details_section">
+                                <span class="label">Summary:</span>
+                                <span>
+                                    <span>Vice explores the epic story about how a bureaucratic Washington insider quietly became the most powerful man in the world as Vice-President to George W. Bush, reshaping the country and the globe in ways that we still feel today.</span>
+                                </span>
+                            </div>
+                        
+                        <div class="details_section">
+                                                            <div class="director">
+                                    <span class="label">Director:</span>
+                                    <a href="/person/adam-mckay"><span>Adam McKay</span></a>                                </div>
+                            
+                            
+                            
+
+
+                                                            <div class="genres">
+                                    <span class="label">Genre(s):</span>
+                                                                                                                <span>
+                                                                                            <span>Biography</span>,                                                                                            <span>Drama</span>,                                                                                            <span>History</span>                                                                                    </span>
+                                                                    </div>
+                            
+                                                            <div class="rating">
+                                    <span class="label">Rating:</span>
+                                    <span>
+                                        
+                                        R
+                                    </span>
+                                </div>
+                            
+                            
+                            
+                            
+                                                    </div>
+
+                        <div class="see_all pad_btm1">
+                            <a href="/movie/vice-2018/details">See All Details and Credits</a>
+                        </div>
+
+
+                        <div class="details_section" id="nav_to_awards" >
+                            <div class="title_bump oswald">
+                                <div class="section_title bold pad_btm_half">
+                                    Awards & Rankings
+                                </div>
+                            </div>
+
+                            
+                        </div>
+
+                        <div class="details_section">
+                            <div class="title_bump pad_btm1 oswald">
+                                <div class="section_title bold">
+                                    Watch Now                                </div>
+                            </div>
+                            
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="subrow reviews pad_top2" id="nav_to_metascore">
+                    <input type="hidden" name="csrf" value="75e6cce5f3d1355f153db7e20bdcb5de" />
+                    <div class="fxdcol gu4">
+                        <div class="title_bump pad_btm1 oswald fh40">
+                            <div class="section_title bold">
+                                <a href="/movie/vice-2018/critic-reviews">Metascore</a>
+                            </div>
+                        </div>
+                                                    <div class="pad_btm2">Critic reviews are not available for this Movie yet.</div>
+                                            </div>
+
+                    <div class="fxdcol gu4">
+                        <div class="title_bump pad_btm1 oswald fh40">
+                            <div>
+                                <div class="fl section_title"><a href="/movie/vice-2018/user-reviews">User Score</a></div>
+                                                            <div class="clr"></div>
+                            </div>
+                        </div>
+
+                                                                                    <div class="pad_btm2 lh14" style="clear: both;">User reviews are not available for this Movie until December 25, 2018.</div>
+                                                    
+                    </div>
+                </div>
+
+                                    <div class="subrow">
+                        <div class="title_bump pad_btm1 marg_top1 oswald">
+                            <div class="section_title bold">
+                                More From Metacritic
+                            </div>
+                        </div>
+                        <div class="related_list pad_btm2">
+                                                                                            
+                                <div class="fxdcol gu2">
+                                    <a href="/pictures/oscar-best-picture-contenders-for-2019">
+                                        
+                                        <img class="iehack" src="https://static.metacritic.com/images/features/main/oscarcontenders2018-180.jpg">
+                                    </a>
+                                    <div class="title pad_btm_half pad_top_half bold">
+                                        <a href="/pictures/oscar-best-picture-contenders-for-2019">Meet This Year's Oscar Best Picture Contenders</a>
+                                    </div>
+                                    <div class="deck">
+                                        <a href="/pictures/oscar-best-picture-contenders-for-2019">Sure, A Star Is Born will be nominated for best picture. But what about...</a>
+                                    </div>
+                                </div>
+                                                                                            
+                                <div class="fxdcol gu2">
+                                    <a href="/feature/new-movie-trailers-october-5-2018">
+                                        
+                                        <img class="iehack" src="https://static.metacritic.com/images/features/main/ff20181005-180.jpg">
+                                    </a>
+                                    <div class="title pad_btm_half pad_top_half bold">
+                                        <a href="/feature/new-movie-trailers-october-5-2018">Film Friday (10/5): This Week's New Movie Trailers</a>
+                                    </div>
+                                    <div class="deck">
+                                        <a href="/feature/new-movie-trailers-october-5-2018">Watch all of this week's new film trailers, including new looks at...</a>
+                                    </div>
+                                </div>
+                                                                                            
+                                <div class="fxdcol gu2">
+                                    <a href="/feature/now-streaming-on-amazon-instant-video">
+                                        
+                                        <img class="iehack" src="https://static.metacritic.com/images/features/main/amazon201812-180.jpg">
+                                    </a>
+                                    <div class="title pad_btm_half pad_top_half bold">
+                                        <a href="/feature/now-streaming-on-amazon-instant-video">What to Watch Now on Prime Video</a>
+                                    </div>
+                                    <div class="deck">
+                                        <a href="/feature/now-streaming-on-amazon-instant-video">Get a list of the best movie and TV titles recently added (and coming...</a>
+                                    </div>
+                                </div>
+                                                                                            
+                                <div class="fxdcol gu2">
+                                    <a href="/feature/new-movie-trailers-november-9-2018">
+                                        
+                                        <img class="iehack" src="https://static.metacritic.com/images/features/main/ff20181109-180.jpg">
+                                    </a>
+                                    <div class="title pad_btm_half pad_top_half bold">
+                                        <a href="/feature/new-movie-trailers-november-9-2018">Film Friday (11/9): This Week's New Movie Trailers</a>
+                                    </div>
+                                    <div class="deck">
+                                        <a href="/feature/new-movie-trailers-november-9-2018">Watch all of this week's new film trailers, including new looks at...</a>
+                                    </div>
+                                </div>
+                                                                                                                        </div>
+                    </div>
+                            </div>
+
+            
+            <div class="fxdcol gu4">
+                
+                        
+                        <div id="mpu_plus_top" class="ad_unit marg_btm2">
+                            
+                            <script type="text/javascript">
+                                            
+                        googletag.cmd.push(function() {
+                        
+                                                            window.metac_g_ad_mpu_plus_top = googletag.defineSlot("/8264/aw-metacritic/movies",[[300,250],[300,600]], "mpu_plus_top").addService(googletag.pubads()).setTargeting("pos", "top");
+                                                        
+                        
+                        });
+                        
+                                                    window.metac_ads_pushdisplay.push("mpu_plus_top");
+                                                            </script>
+                                        </div>
+                        
+
+
+
+                                    <div class="product_current_releases pad_btm2">
+                        <div class="title_bump oswald">
+                            <div class="section_title pad_btm1">
+                                Current Movie Releases
+                            </div>
+                        </div>
+
+                        <div class="pad_btm1">
+                            <div id="newReleases_Widget_0" class="toggles" data-mcqw="newReleases_Widget" data-mcqwtype="toggles" data-mcqwset="0"><span class="toggle_tab selected" data-mcqwval="metascore" data-mcqwqname="val_metascore"><i class="fa fa-check thin"></i><span class="toggle_text">By Metascore</span></span><span class="toggle_tab" data-mcqwval="userscore" data-mcqwqname="val_userscore"><i class="fa fa-check thin"></i><span class="toggle_text">By Userscore</span></span></div>
+
+                        </div>
+                        
+                        <div class="score_title_list_wrapper">
+                            <div class="score_title_list">
+                                                                            <div class="list_item selected" data-bgimg="https://static.metacritic.com/images/products/movies/9/1028c7727e79e1d5afcbf77965c28d29-250h.jpg" data-mctrailerurl="" data-mcvideourl="">
+                            <a href="/movie/a-star-is-born">
+                        <span class="item_num">
+                1
+            </span>
+            <span  class="item_score">
+                                    
+
+        
+<span class="metascore_w medium movie positive">88</span>
+
+                            </span>
+            <span class="item_name">
+                A Star Is Born
+            </span>
+                            </a>
+                    </div>
+                                                                            <div class="list_item" data-bgimg="https://static.metacritic.com/images/products/movies/7/85def5012461b4ab805b16cafed1acaa-250h.jpg" data-mctrailerurl="" data-mcvideourl="">
+                            <a href="/movie/mission-impossible-fallout">
+                        <span class="item_num">
+                2
+            </span>
+            <span  class="item_score">
+                                    
+
+        
+<span class="metascore_w medium movie positive">86</span>
+
+                            </span>
+            <span class="item_name">
+                Mission: Impossible – Fallout
+            </span>
+                            </a>
+                    </div>
+                                                                            <div class="list_item" data-bgimg="https://static.metacritic.com/images/products/movies/5/ca09e8acac7b84c25574c334e57b557c-250h.jpg" data-mctrailerurl="" data-mcvideourl="">
+                            <a href="/movie/first-man">
+                        <span class="item_num">
+                3
+            </span>
+            <span  class="item_score">
+                                    
+
+        
+<span class="metascore_w medium movie positive">84</span>
+
+                            </span>
+            <span class="item_name">
+                First Man
+            </span>
+                            </a>
+                    </div>
+                                                                            <div class="list_item" data-bgimg="https://static.metacritic.com/images/products/movies/5/47c13d0ec2a7e53618442d0bb7aecf22-250h.jpg" data-mctrailerurl="" data-mcvideourl="">
+                            <a href="/movie/the-old-man-and-the-gun">
+                        <span class="item_num">
+                4
+            </span>
+            <span  class="item_score">
+                                    
+
+        
+<span class="metascore_w medium movie positive">79</span>
+
+                            </span>
+            <span class="item_name">
+                The Old Man & the Gun
+            </span>
+                            </a>
+                    </div>
+                                                                            <div class="list_item" data-bgimg="https://static.metacritic.com/images/products/movies/8/aab990c187b810892753359de8f4e6d2-250h.jpg" data-mctrailerurl="" data-mcvideourl="">
+                            <a href="/movie/crazy-rich-asians">
+                        <span class="item_num">
+                5
+            </span>
+            <span  class="item_score">
+                                    
+
+        
+<span class="metascore_w medium movie positive">74</span>
+
+                            </span>
+            <span class="item_name">
+                Crazy Rich Asians
+            </span>
+                            </a>
+                    </div>
+                        </div>
+
+                        </div>
+
+                                                <div class="marg_top1">
+                            <a class="see_all boxed oswald" href="/browse/movies/release-date/theaters/date">SEE ALL</a>
+                        </div>
+                                            </div>
+                
+                
+                        
+                        <div id="mpu_bottom" class="ad_unit marg_top2 marg_btm2">
+                            
+                            <script type="text/javascript">
+                                            
+                        googletag.cmd.push(function() {
+                        
+                                                            window.metac_g_ad_mpu_bottom = googletag.defineSlot("/8264/aw-metacritic/movies",[300,250], "mpu_bottom").addService(googletag.pubads()).setTargeting("pos", "bottom");
+                                                        
+                        
+                        });
+                        
+                                                    window.metac_ads_pushdisplay.push("mpu_bottom");
+                                                            </script>
+                                        </div>
+                        
+
+
+
+                
+    <div id="taboola-right-rail-thumbnails"></div>
+    
+    <script type="text/javascript">
+        if ( window._taboola ) {
+                        var placement = 'desktop product_overview Right Rail Thumbnails';
+            _taboola.push({
+                mode: 'thumbnails-b',
+                container: 'taboola-right-rail-thumbnails',
+                placement: placement,
+                target_type: 'mix'
+            });
+                    }
+    </script>
+    
+
+
+                
+                <script>
+                    $(document).ready(function(){
+                        MetaC.SliderQWs.addQWs($('.product_current_releases .score_title_list_wrapper'), $('#newReleases_Widget_0'));
+                    });
+                </script>
+                
+
+            </div>
+        </div>
+    </div>
+
+    
+                        
+                        <div id="leader_middle" class="ad_unit">
+                            
+                            <script type="text/javascript">
+                                            
+                        googletag.cmd.push(function() {
+                        
+                                                            window.metac_g_ad_leader_middle = googletag.defineSlot("/8264/aw-metacritic/movies",[[728,90],[970,66],[728,93]], "leader_middle").addService(googletag.pubads()).setTargeting("pos", "middle");
+                                                        
+                        
+                        });
+                        
+                                                    window.metac_ads_pushdisplay.push("leader_middle");
+                                                            </script>
+                                        </div>
+                        
+
+
+
+    <div class="fxdrow">
+        
+        <div class="fxdcol gu12">
+            <div class="trailers_strip pad_top1 pad_btm2 bump_section">
+                <div class="title_bump pad_btm1">
+                    <div class="section_title bold">
+                        <div class="fl oswald"><a href="/movie/vice-2018/trailers">More From Vice</a></div>
+                        <div class="see_all fwnorm fr">
+                            <a href="/movie/vice-2018/trailers">See all trailers</a>
+                        </div>
+                    <div class="clr"></div>
+                    </div>
+                </div>
+
+                
+<div class="image_strip_and_arrows trailers more_right">
+    <div class="slider_arrow slider_previous">
+        
+        <i class="fa fa-angle-left"></i>
+    </div>
+    <div class="slider_arrow slider_next">
+        
+        <i class="fa fa-angle-right"></i>
+    </div>
+    <div class="image_strip_wrapper">
+        <div class="slider_gradient slider_previous light"></div>
+        <div class="slider_gradient slider_next light"></div>
+        <div class="image_strip">
+            <div id="mctid_11700656" class="product"><a href="/movie/vice-2018/trailers/11700656"><div class="img_wrapper"><img src="https://content.internetvideoarchive.com/content/photos/11979/304943_056.jpg" alt="Vice" /><div class="stats_wrapper"><span class="duration">1:53</span> <span class="count"><i class="fa fa-eye" aria-hidden="true"></i> 0</span></div><div class="play_button"><i class="fa fa-play"></i></div></div></a><div class="title_wrapper"><a href="/movie/vice-2018/trailers/11700656"><span class="title">Vice</span></a></div></div><div id="mctid_11700657" class="product"><a href="/movie/vice-2018/trailers/11700657"><div class="img_wrapper"><img src="https://content.internetvideoarchive.com/content/photos/11979/472236_014.jpg" alt="Vice (Trailer Tease)" /><div class="stats_wrapper"><span class="duration">0:12</span> <span class="count"><i class="fa fa-eye" aria-hidden="true"></i> 0</span></div><div class="play_button"><i class="fa fa-play"></i></div></div></a><div class="title_wrapper"><a href="/movie/vice-2018/trailers/11700657"><span class="title">Vice (Trailer Tease)</span></a></div></div>
+            <div class="clr"></div>
+        </div>
+    </div>
+</div>
+
+<script>
+    MetaC.Video.addVideoStartCallback(function(payloadRco){
+        var trailersStrip = $('.image_strip_and_arrows.trailers');
+        trailersStrip.find('.product.selected').removeClass('selected');
+        var selectedId = '#mctid_'+payloadRco.mc_id;
+        $(selectedId).addClass('selected');
+    });
+</script>
+
+
+            </div>
+        </div>
+    </div>
+    </div>
+
+    </div> 
+
+
+
+</div>
+
+
+                                    <div class="mc_obbtm">
+                        
+        <div id="taboola-below-main-column-thumbnails"></div>
+    
+    <script type="text/javascript">
+        if ( window._taboola ) {
+                        var placement = 'desktop product_overview Below Main Column Thumbnails';
+            _taboola.push({
+                mode: 'alternating-thumbnails-c',
+                container: 'taboola-below-main-column-thumbnails',
+                placement: placement,
+                target_type: 'mix'
+            });
+                    }
+    </script>
+    
+
+                    </div>
+                
+                                    
+                        
+                        <div id="leader_bottom" class="ad_unit">
+                            
+                            <script type="text/javascript">
+                                            
+                        googletag.cmd.push(function() {
+                        
+                                                            window.metac_g_ad_leader_bottom = googletag.defineSlot("/8264/aw-metacritic/movies",[[728,90],[970,66],[728,92],[970,250],[7,7]], "leader_bottom").addService(googletag.pubads()).setTargeting("pos", "bottom");
+                                                        
+                        
+                        });
+                        
+                                                    window.metac_ads_pushdisplay.push("leader_bottom");
+                                                            </script>
+                                        </div>
+                        
+
+
+                            </div>
+        </div>
+
+                    
+                        
+                        <div id="intromercial" class="ad_unit">
+                            
+                            <script type="text/javascript">
+                                            
+                        googletag.cmd.push(function() {
+                        
+                                                            window.metac_g_ad_intromercial = googletag.defineOutOfPageSlot("/8264/aw-metacritic/movies",
+                                    "intromercial").addService(googletag.pubads());
+                                                        
+                        
+                        });
+                        
+                                                    window.metac_ads_pushdisplay.push("intromercial");
+                                                            </script>
+                                        </div>
+                        
+
+
+        
+        <footer id="bottom_footer">
+    <div id="providers">
+	<a href="https://www.allmusic.com" target="_blank">Music title data, credits, and images provided by <span>AMG</span></a>
+	<span class="link_divider">|</span><a href="https://www.imdb.com" target="_blank">Movie title data, credits, and poster art provided by <span>IMDb</span></a>
+	<span class="link_divider">|</span><a href="https://www.internetvideoarchive.com" target="_blank">Video and Images provided by <span>IVA</span></a>
+    <div id="trademark">
+        We Deal With Criticism<sup>&reg;</sup>&nbsp;
+	</div>
+</div>
+
+
+            <div class="site_links upper">
+                    <a href="https://www.metacritic.com/movie">
+                <span>
+                                            Movies
+                                    </span>
+            </a>
+                    <a href="https://www.metacritic.com/tv">
+                <span>
+                                            TV
+                                    </span>
+            </a>
+                    <a href="https://www.metacritic.com/music">
+                <span>
+                                            Music
+                                    </span>
+            </a>
+                    <a href="https://www.metacritic.com/game/playstation-4">
+                <span>
+                                            PS4
+                                    </span>
+            </a>
+                    <a href="https://www.metacritic.com/game/xbox-one">
+                <span>
+                                            XboxOne
+                                    </span>
+            </a>
+                    <a href="https://www.metacritic.com/game/switch">
+                <span>
+                                            Switch
+                                    </span>
+            </a>
+                    <a href="https://www.metacritic.com/game/pc">
+                <span>
+                                            PC
+                                    </span>
+            </a>
+                    <a href="https://www.metacritic.com/game/wii-u">
+                <span>
+                                            WiiU
+                                    </span>
+            </a>
+                    <a href="https://www.metacritic.com/game/3ds">
+                <span>
+                                            3DS
+                                    </span>
+            </a>
+                    <a href="https://www.metacritic.com/game/playstation-vita">
+                <span>
+                                            PS Vita
+                                    </span>
+            </a>
+                    <a href="https://www.metacritic.com/game/ios">
+                <span>
+                                            iOS
+                                    </span>
+            </a>
+                    <a href="https://www.metacritic.com/feature">
+                <span>
+                                            Reports
+                                    </span>
+            </a>
+                    <a href="https://www.metacritic.com/rss">
+                <span>
+                                            RSS Feeds
+                                    </span>
+            </a>
+                </div>
+    
+    <div class="pad_top1 pad_btm1">
+        <div class="social_round">
+            <a href="https://www.facebook.com/Metacritic" target="_blank" rel="noopener"><i class="fa fa-facebook"></i></a>
+            <a href="https://twitter.com/metacritic" target="_blank" rel="noopener"><i class="fa fa-twitter"></i></a>
+        </div>
+    </div>
+
+    <div class="about_cbs">
+        <div id="footer_about_links">
+            <a class="first" href="https://www.cbsinteractive.com" target="_blank">About CBS Interactive</a>
+            <span class="link_divider">|</span><a href="https://www.cbsinteractive.com/careers/" target="_blank">Jobs</a>
+            <span class="link_divider">|</span><a href="https://www.cbsinteractive.com/advertise/" target="_blank">Advertise</a>
+            <span class="link_divider">|</span><a href="https://www.metacritic.com/faq">FAQ</a>
+            <span class="link_divider">|</span><a href="https://www.metacritic.com/about-metacritic">About Metacritic</a>
+            <span class="link_divider">|</span><a href="https://www.metacritic.com/contact-us">Contact</a>
+            <span class="link_divider">|</span><span id="footer_privacy"><a href="https://legalterms.cbsinteractive.com/privacy" target="_blank">Privacy Policy</a></span>
+            <span class="link_divider">|</span><span id="footer_terms"><a href="https://cbsi.secure.force.com/CBSi/articles/FAQ/CBSi-Terms-of-Use?template=template_tougl&referer=tougl.com&data=&cfs=default" target="_blank">Terms of Use</a></span>
+                            <span class="link_divider">|</span><span id="footer_attribution"><a href="https://www.cnet.com/" target="_blank">CNET</a></span>
+                    </div>
+        <div id="footer_rights" class="pad_btm2">
+            &copy; 2018 CBS Interactive Inc. All rights reserved.
+        </div>
+    </div>
+</footer>
+
+
+    </div>
+
+
+    
+            
+<script type="text/javascript" src="/js/omniture/uuid.js"></script>
+<script type="text/javascript">
+    
+    if (self != top) {
+        top.location = self.location;
+    }
+    var MC_UUID = uuid.v1();
+</script>
+
+                                                                                                                                                                                                
+
+ 
+<script language="JavaScript" type="text/javascript">
+    
+    var utag_data = {
+        isDev:0,
+                            siteType:"desktop web",
+                deviceType:"desktop",
+                siteSection:"movies",
+                pageType:"product_overview",
+                pageFindingMethod:"Internal:Search",
+                session: MetaC.adSession() + ':' + MetaC.adSubses(),
+                userId:null,userState:"not authenticated",userType:"anon",movieId:"mc-movie-549479",movieTitle:"Vice",bkPath:"/8264/aw-metacritic/movies",_test:"redesign|movie|new",pageViewGuid:MC_UUID
+    };
+    
+                        
+            
+            window.om_lead_media = {
+                mediaType: "Movie",
+                mediaId: "mc-movie-549479",
+                mediaTitle: "Vice"
+            };
+            
+            
+    
+    
+    if ( window.eventAmazonBuyView ) {
+        utag_data.eventAmazonBuyView = 1;
+    }
+    if ( window.eventAmazonPivView ) {
+        utag_data.eventAmazonPivView = 1;
+    }
+    
+    
+    
+    if ( MetaC._utagAutoPlay != -1 ) {
+        utag_data.videoAutoPlay = MetaC._utagAutoPlay ? 'on' : 'off';
+    }
+    
+
+    
+</script>
+
+
+
+
+<script type="text/javascript">
+    
+    
+    var __pv = MetaC.handleGooglePageView();
+    googletag.cmd.push(function() {
+        
+        googletag.pubads().setTargeting("ptype", "product_overview");
+                    googletag.pubads().setTargeting("movieId", "movie-549479");
+                    googletag.pubads().setTargeting("movie", "vice-2018");
+                    googletag.pubads().setTargeting("genre", "biography, drama, history");
+                            googletag.pubads().setTargeting("test", "mcnew");
+                
+        googletag.pubads().setTargeting("vguid", MC_UUID);
+        googletag.pubads().setTargeting("session", MetaC.adSession());
+        googletag.pubads().setTargeting("subses", MetaC.adSubses());
+        googletag.pubads().setTargeting("env", "prod");
+                        var parts = window.location.hash.split("=");
+        if ( parts.length > 1 && parts[0] == '#ftag' ) {
+            googletag.pubads().setTargeting("ftag",parts[1]);
+        }
+        
+                
+        
+        if ( window.I11C) {
+            if (window.I11C.Morph && window.I11C.Morph === 1) {
+                utag_data.adBlockRecovery = "unblocked";
+                utag_data.adsAreBlocked = "true";
+
+                var geo = MetaC.Cookie.get('il_geo');
+                if ( geo ) {
+                    geo = MetaC.Cookie.ilParse(geo);
+                    if ( geo && geo.postal_code && geo.country_code ) {
+                        googletag.pubads().setLocation(geo.postal_code + ',' + geo.country_code)
+                    }
+                }
+            } else {
+                utag_data.adBlockRecovery = 'instart_noop';
+                utag_data.adsAreBlocked = "false";
+            }
+        } else {
+            utag_data.adBlockRecovery = 'no_instart';
+            utag_data.adsAreBlocked = "false";
+        }
+
+        googletag.pubads().setTargeting("pv", __pv+""); // must be a string
+
+        googletag.pubads().enableAsyncRendering();
+        googletag.pubads().enableSingleRequest();
+        googletag.pubads().collapseEmptyDivs();
+        if (window.metac_ads_push_progressive_display && window.metac_ads_push_progressive_display.length)
+            googletag.pubads().disableInitialLoad();
+        googletag.enableServices();
+    });
+    
+    
+
+    
+    
+    if ( MetaC && MetaC.Video ) {
+        
+                    MetaC.Video.setIMATargeting("movieId", "movie-549479");
+                    MetaC.Video.setIMATargeting("movie", "vice-2018");
+                    MetaC.Video.setIMATargeting("genre", "biography, drama, history");
+                    
+    }
+    
+</script>
+
+
+
+
+
+    <script type="text/javascript" src="https://urs.metacritic.com/sdk/urs.js"></script>
+
+
+    <script type="text/javascript">
+        if ( window.MetaC && MetaC.URS ) {
+            MetaC.URS.config(227, false);
+        }
+    </script>
+
+
+
+
+
+<script type="text/javascript">
+    (function(a,b,c,d){
+    a='//tags.tiqcdn.com/utag/cbsi/metacriticsite/prod/utag.js';
+    b=document;c='script';d=b.createElement(c);d.src=a;d.type='text/java'+c;d.async=true;
+    a=b.getElementsByTagName(c)[0];a.parentNode.insertBefore(d,a);
+    })();
+</script>
+
+
+
+
+    <script type="text/javascript">
+        $(document).ready(function(){
+            setTimeout(function(){
+                MetaC.checkOmniEvents();
+            }, 300);
+        });
+    </script>
+
+
+
+
+
+
+<script type="text/javascript">
+    
+    dwVars = {"siteId":"50","onId":"12456","ptId":"6346","ctype":"entitytype;entityid","cval":"movie;549479"};
+    if (typeof DW == "object"){
+        DW.pageParams = dwVars;
+        DW.regSilo = '12';
+        DW.clear();
+    }
+</script>
+
+
+
+
+<script>
+    var cbsiApexGlobal = {
+        'SITE': dwVars.siteId,
+        'NODE': dwVars.onId,
+        'PTYPE':dwVars.ptId
+    };
+</script>
+
+
+
+
+
+<script>
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-22577913-5']);
+    _gaq.push(['_setCustomVar',1,'PageType',dwVars.ptId,3]);
+    _gaq.push(['_trackPageview']);
+    _gaq.push(['_trackPageLoadTime']);
+    _gaq.push(['_setAllowLinker', true]);
+    _gaq.push(['nT._setAccount', 'UA-27653683-1']);
+    _gaq.push(['nT._setAllowLinker', true]);
+    _gaq.push(['nT._setSampleRate', '1']);
+    _gaq.push(['nT._trackPageview']);
+</script>
+
+
+
+<div id="fb-root"></div>
+<script>
+    window.fbAsyncInit = function() {
+        FB.init({
+            appId      : '123113677890173',
+            version    : 'v2.6',
+            channelUrl : 'https://www.metacritic.com/static/fbchannel.html',
+            status     : true,
+            xfbml      : true,
+            cookie     : true
+            });
+         MetaC.FB.initialized();
+        };
+    
+    (function(d, s, id){
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) {return;}
+        js = d.createElement(s); js.id = id;
+        js.src = "//connect.facebook.net/en_US/sdk.js";
+        fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));
+    
+</script>
+
+
+
+<script>
+    window.twttr = (function (d,s,id) {
+      var t, js, fjs = d.getElementsByTagName(s)[0];
+      if (d.getElementById(id)) return; js=d.createElement(s); js.id=id;
+      js.src="https://platform.twitter.com/widgets.js"; fjs.parentNode.insertBefore(js, fjs);
+      return window.twttr || (t = { _e: [], ready: function(f){ t._e.push(f) } });
+    }(document, "script", "twitter-wjs"));
+
+    twttr.ready(function (twttr) {
+        MetaC.Twitter.initialized();
+    });
+</script>
+
+
+
+
+
+<script>
+    /* display the google ads now that the html is finished processing */
+    googletag.cmd.push(function() {
+        MetaC.displayAds();
+        if (window.metac_ads_push_progressive_display && window.metac_ads_push_progressive_display.length)
+            MetaC._refreshWithLightSpeed(window.metac_ads_pushdisplay);
+    });
+</script>
+
+
+
+
+<script>
+    
+    
+    if ( window._taboola && window.mcwait_taboola == null ) {
+        _taboola.push({flush: true});
+    }
+    
+</script>
+
+
+    <div id="amzn-assoc-ad-23cf2fa7-c9fd-4908-97de-fbc48a779984"></div>
+    <script async src="//z-na.amazon-adsystem.com/widgets/onejs?MarketPlace=US&adInstanceId=23cf2fa7-c9fd-4908-97de-fbc48a779984"></script>
+    
+
+<script type="text/javascript">window.NREUM||(NREUM={});NREUM.info={"beacon":"bam.nr-data.net","licenseKey":"860f7644b8","applicationID":"2033002","transactionName":"MgQEZ0dYCxEAVRBbDQtOJUZGTQoPTnsLRAsAMRRcUUwGFlsMDVwGABk=","queueTime":0,"applicationTime":1260,"atts":"HkMTEQ9CGE5DV0YIGRgc","errorBeacon":"bam.nr-data.net","agent":""}</script></body>
+</html>
