@@ -1,6 +1,6 @@
 import { Request, Response } from "express";
 import { ISql } from "../modules/db/isql";
-import { MovieEarnings } from "../modules/earnings/movieEarnings";
+import { MovieEarnings } from "../modules/earnings/movie/movieEarnings";
 
 export class MovieController {
   private readonly sql: ISql;

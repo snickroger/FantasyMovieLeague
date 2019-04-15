@@ -118,9 +118,9 @@ export class MockSql implements ISql {
         { id: 2, player: player2, playerId: 11, numShares: 1, movie: {} as any },
       ],
       earnings: [
-        { id: 2, gross: 60000000, createdAt: new Date(2018, 1, 1), 
+        { id: 2, gross: 60000000, createdAt: new Date(2018, 1, 1),
           updatedAt: new Date(2018, 1, 1), movie: {} as any },
-        { id: 1, gross: 35000000, createdAt: new Date(2017, 12, 31), 
+        { id: 1, gross: 35000000, createdAt: new Date(2017, 12, 31),
           updatedAt: new Date(2017, 12, 31), movie: {} as any },
       ],
       season: season2,

@@ -1,6 +1,6 @@
 import { Request, Response } from "express";
 import { ISql } from "../modules/db/isql";
-import { Earnings } from "../modules/earnings/earnings";
+import { Earnings } from "../modules/earnings/home/earnings";
 import { Standings } from "../modules/standings/standings";
 
 export class HomeController {

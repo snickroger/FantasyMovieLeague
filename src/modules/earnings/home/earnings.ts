@@ -1,7 +1,7 @@
 import Enumerable from "linq";
-import { Movie } from "../../models/movie";
-import { Player } from "../../models/player";
-import { MovieHelpers } from "../helpers/movieHelpers";
+import { Movie } from "../../../models/movie";
+import { Player } from "../../../models/player";
+import { MovieHelpers } from "../../helpers/movieHelpers";
 import { EarningsDisplay } from "./earningsDisplay";
 
 export class Earnings {

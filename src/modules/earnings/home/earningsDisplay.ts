@@ -1,7 +1,7 @@
 import accounting from "accounting";
 import moment from "moment";
-import { Movie } from "../../models/movie";
-import { MovieHelpers } from "../helpers/movieHelpers";
+import { Movie } from "../../../models/movie";
+import { MovieHelpers } from "../../helpers/movieHelpers";
 
 export class EarningsDisplay {
   public id: number;
