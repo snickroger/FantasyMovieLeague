@@ -26,8 +26,8 @@ export class MovieEarnings {
 
       earningRows.push(new MovieEarningsDisplayRow(player.name, bonus1, bonus2, playerSharesNum, playerEarned));
     }
-    
-    earnings.rows = Enumerable.from(earningRows).orderByDescending(row => row.earned).toArray();
+
+    earnings.rows = Enumerable.from(earningRows).orderByDescending((row) => row.earned).toArray();
     return earnings;
   }
 
