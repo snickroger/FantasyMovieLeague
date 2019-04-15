@@ -49,6 +49,15 @@ export class Sql implements ISql {
     return team!;
   }
 
+  public async getMovie(id: number, team: Team): Promise<Movie | undefined> {
+    return await getManager().getRepository(Movie).createQueryBuilder("movie")
+      .leftJoinAndSelect("movie.earnings", "earnings")
+      .leftJoinAndSelect("movie.shares", "shares")
+      .where("movie.id = :id", { id })
+      .andWhere("shares.playerId IN (:...players)", { players: team.players.map((p) => p.id) })
+      .getOne();
+  }
+
   public async addPlayerToTeam(player: Player, team: Team): Promise<Player> {
     player.teams = [team];
 

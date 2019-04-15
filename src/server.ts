@@ -5,6 +5,7 @@ import "reflect-metadata";
 import favicon from "serve-favicon";
 import { createConnection } from "typeorm";
 import { HomeController } from "./controllers/homeController";
+import { MovieController } from "./controllers/movieController";
 import { NewController } from "./controllers/newController";
 import { Earning } from "./models/earning";
 import { Movie } from "./models/movie";
@@ -38,6 +39,7 @@ createConnection({
   // controller declarations
   const homeController = new HomeController(db);
   const newController = new NewController(db, emailSender);
+  const movieController = new MovieController(db);
 
   // server setup
   server.use(defaultParser);
@@ -51,6 +53,7 @@ createConnection({
   server.get("/", homeController.index.bind(homeController));
   server.get("/new", newController.index.bind(newController));
   server.post("/new", newController.postNew.bind(newController));
+  server.get("/movies/:id(\\d+)", movieController.get.bind(movieController));
   server.get("/:teamId", homeController.indexTeam.bind(homeController));
 
   server.listen(3000);

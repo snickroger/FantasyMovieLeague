@@ -28,6 +28,11 @@ export class MockSql implements ISql {
     }
     return new Promise(resolve => resolve(matchingTeams[0]));
   }
+  getMovie(id: number, team: Team): Promise<Movie | undefined> {
+    const season = MockSql.seasons[this.selectedIndex];
+    const matchingMovies = season.movies.filter(t => t.id === id);
+    return new Promise(resolve => resolve(matchingMovies[0]));
+  }
   addPlayerToTeam(player: Player, team: Team): Promise<Player> {
     throw new Error("Method not implemented.");
   }
