@@ -16,12 +16,12 @@ const earningsDownloader = new EarningsDownloader(http, sql);
 
 createConnection({
   type: "postgres",
-  host: "localhost",
-  port: 5432,
-  username: "movie",
-  password: "J8Vvs85tJ6exKw88",
-  database: "movie",
-  logging: ["query", "error"],
+  host: process.env.POSTGRES_HOST,
+  port: parseInt(process.env.POSTGRES_PORT!, 10),
+  username: process.env.POSTGRES_USER,
+  password: process.env.POSTGRES_PASSWORD,
+  database: process.env.POSTGRES_DB,
+  logging: ["warn", "error"],
   entities: [Earning, Movie, Player, Season, Share, Team, Url],
 }).then((conn) => {
   earningsDownloader.downloadEarnings().then(() => {

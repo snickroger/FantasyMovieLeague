@@ -23,12 +23,12 @@ import { IEmailSender } from "./modules/emailSender/iemailSender";
 // database setup
 createConnection({
   type: "postgres",
-  host: "db",
-  port: 5432,
-  username: "movie",
-  password: "J8Vvs85tJ6exKw88",
-  database: "movie",
-  logging: ["query", "error"],
+  host: process.env.POSTGRES_HOST,
+  port: parseInt(process.env.POSTGRES_PORT!, 10),
+  username: process.env.POSTGRES_USER,
+  password: process.env.POSTGRES_PASSWORD,
+  database: process.env.POSTGRES_DB,
+  logging: ["warn", "error"],
   entities: [Earning, Movie, Player, Season, Share, Team, Url],
 }).then((conn) => {
   const defaultParser = bodyParser.urlencoded({ extended: true });
