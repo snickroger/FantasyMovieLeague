@@ -5,9 +5,13 @@ import { IEmailSender } from "./iemailSender";
 
 export class EmailSender implements IEmailSender {
   public async sendMail(emailMessage: EmailMessage): Promise<void> {
+    if (process.env.MAILGUN_API_KEY === undefined) {
+      console.error("Mailgun API Key not set");
+      return;
+    }
     const apiKey: string = process.env.MAILGUN_API_KEY || "";
     const domain: string = process.env.MAILGUN_DOMAIN || "";
-    const mg = mailgun({apiKey, domain});
+    const mg = mailgun({ apiKey, domain });
 
     const mailgunEnvelope = {
       "from": emailMessage.from,
