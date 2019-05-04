@@ -12,7 +12,7 @@ export class PlayerEarningsDisplay {
   public bonusAmountDisp: string;
 
   constructor(rows: PlayerEarningsDisplayRow[], bonus1: boolean, bonus2: boolean, bonusAmount: number) {
-    let total = Enumerable.from(rows).sum((row) => row.earned) + 
+    const total = Enumerable.from(rows).sum((row) => row.earned) +
       (bonus1 ? bonusAmount : 0) + (bonus2 ? bonusAmount : 0);
     this.rows = rows;
     this.total = total;

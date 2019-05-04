@@ -21,7 +21,7 @@ export class EmailSender implements IEmailSender {
     try {
       await mg.messages().send(mailgunEnvelope);
     } catch (e) {
-
+      console.error(e);
     }
   }
 
