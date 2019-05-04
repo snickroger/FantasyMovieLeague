@@ -10,6 +10,7 @@ export interface ISql {
   getSelectedSeason(seasonSlug: string | undefined): Promise<Season | undefined>;
   getTeam(id: number): Promise<Team>;
   getMovie(id: number, team: Team): Promise<Movie | undefined>;
+  getPlayer(id: number): Promise<Player | undefined>;
   addPlayerToTeam(player: Player, team: Team): Promise<Player>;
   addEarningsForMovies(earning: Earning[]): Promise<void>;
   deleteEarningsForDate(dateStr: string): Promise<void>;

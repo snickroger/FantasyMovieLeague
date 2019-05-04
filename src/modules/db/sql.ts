@@ -43,6 +43,7 @@ export class Sql implements ISql {
   public async getTeam(id: number): Promise<Team> {
     const team = await getManager().getRepository(Team).createQueryBuilder("team")
       .innerJoinAndSelect("team.players", "players")
+      .innerJoinAndSelect("team.season", "season")
       .where("team.id = :id", { id })
       .getOne();
 
@@ -55,6 +56,12 @@ export class Sql implements ISql {
       .leftJoinAndSelect("movie.shares", "shares")
       .where("movie.id = :id", { id })
       .andWhere("shares.playerId IN (:...players)", { players: team.players.map((p) => p.id) })
+      .getOne();
+  }
+
+  public async getPlayer(id: number): Promise<Player | undefined> {
+    return await getManager().getRepository(Player).createQueryBuilder("player")
+      .where("player.id = :id", { id })
       .getOne();
   }
 

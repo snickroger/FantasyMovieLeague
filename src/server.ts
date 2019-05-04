@@ -7,6 +7,7 @@ import { createConnection } from "typeorm";
 import { HomeController } from "./controllers/homeController";
 import { MovieController } from "./controllers/movieController";
 import { NewController } from "./controllers/newController";
+import { PlayerController } from "./controllers/playerController";
 import { Earning } from "./models/earning";
 import { Movie } from "./models/movie";
 import { Player } from "./models/player";
@@ -40,6 +41,7 @@ createConnection({
   const homeController = new HomeController(db);
   const newController = new NewController(db, emailSender);
   const movieController = new MovieController(db);
+  const playerController = new PlayerController(db);
 
   // server setup
   server.use(defaultParser);
@@ -54,6 +56,7 @@ createConnection({
   server.get("/new", newController.index.bind(newController));
   server.post("/new", newController.postNew.bind(newController));
   server.get("/movies/:id(\\d+)", movieController.get.bind(movieController));
+  server.get("/players/:id(\\d+)", playerController.get.bind(playerController));
   server.get("/:teamId", homeController.indexTeam.bind(homeController));
 
   server.listen(3000);

@@ -205,6 +205,9 @@ export class MockSql implements ISql {
     const matchingMovies = season.movies.filter((t) => t.id === id);
     return new Promise((resolve) => resolve(matchingMovies[0]));
   }
+  public getPlayer(id: number): Promise<Player | undefined> {
+    throw new Error("Method not implemented.");
+  }
   public addPlayerToTeam(player: Player, team: Team): Promise<Player> {
     throw new Error("Method not implemented.");
   }
