@@ -4,7 +4,8 @@ services:
   app:
     build:
       context: .
-      dockerfile: Dockerfile-dev
+      args:
+        - NODE_ENV=dev
     command: npm run debug
     env_file: variables.env
     ports:

@@ -1,7 +1,0 @@
-FROM node:9.10
-ARG NODE_ENV=development
-WORKDIR /movie
-COPY ./package* ./
-RUN npm install
-COPY . .
-RUN npm run build
