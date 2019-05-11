@@ -6,7 +6,7 @@ RUN npm install
 COPY . .
 RUN npm run build
 
-# Step 2: Copy build and install packages (skips devDependencies in production)
+# Step 2: Copy build and install packages (skips devDependencies if NODE_ENV == "production")
 FROM node:9.10
 ARG NODE_ENV=development
 ENV NODE_ENV=${NODE_ENV}

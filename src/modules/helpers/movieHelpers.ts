@@ -37,8 +37,8 @@ export class MovieHelpers {
     if (!movies.any((m) => m.rating != null)) {
       return new BestAndWorstMovies([], []);
     }
-    const bestMovieRating = movies.where((m) => m.rating !== undefined).max((m) => m.rating || 0);
-    const worstMovieRating = movies.where((m) => m.rating !== undefined).min((m) => m.rating || 0);
+    const bestMovieRating = movies.where((m) => m.rating !== null).max((m) => m.rating || 0);
+    const worstMovieRating = movies.where((m) => m.rating !== null).min((m) => m.rating || 0);
     const bestMovies = movies.where((m) => m.rating === bestMovieRating).toArray();
     const worstMovies = movies.where((m) => m.rating === worstMovieRating).toArray();
 
