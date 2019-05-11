@@ -12,7 +12,7 @@ import { UrlDownloader } from "../modules/urlDownloader/urlDownloader";
 
 const http = new UrlDownloader();
 const sql = new Sql();
-const earningsDownloader = new EarningsDownloader(http, sql);
+const earningsDownloader = new EarningsDownloader(http, sql, process.stdout);
 
 createConnection({
   type: "postgres",

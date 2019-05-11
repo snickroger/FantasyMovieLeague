@@ -1,3 +1,4 @@
+import accounting from "accounting";
 import Enumerable from "linq";
 import moment from "moment-timezone";
 import { Earning } from "../../models/earning";
@@ -10,10 +11,12 @@ import { MojoParser } from "./mojoParser";
 export class EarningsDownloader implements IEarningsDownloader {
   private readonly http: IUrlDownloader;
   private readonly sql: ISql;
+  private readonly output: NodeJS.WriteStream;
 
-  constructor(http: IUrlDownloader, sql: ISql) {
+  constructor(http: IUrlDownloader, sql: ISql, output: NodeJS.WriteStream) {
     this.http = http;
     this.sql = sql;
+    this.output = output;
   }
 
   public async downloadEarnings(): Promise<void> {
@@ -21,7 +24,7 @@ export class EarningsDownloader implements IEarningsDownloader {
     const dateStr: string = moment().tz("America/New_York").format("YYYY-MM-DD");
     const dateThreshold: Date = moment().add(5, "days").tz("America/New_York").toDate();
     const currentSeason = await this.sql.getSelectedSeason(undefined);
-    if (currentSeason === undefined || currentSeason.getEndDate() >= date) {
+    if (currentSeason === undefined || currentSeason.getEndDate() < date) {
       return;
     }
 
@@ -38,8 +41,15 @@ export class EarningsDownloader implements IEarningsDownloader {
       earnings = earnings.concat(earningsToAdd);
     }
 
+    for (const earning of earnings) {
+      const value = accounting.formatMoney(earning.gross, "$", 0);
+      this.output.write(`${earning.movie.name}: ${value}\n`);
+    }
+
     await this.sql.deleteEarningsForDate(dateStr);
     const addPromise = this.sql.addEarningsForMovies(earnings);
+
+    this.output.write("\n");
 
     const ratingsPromises: Array<Promise<void>> = [];
     for (const movie of moviesToGet) {
@@ -51,6 +61,7 @@ export class EarningsDownloader implements IEarningsDownloader {
         continue;
       }
       ratingsPromises.push(this.sql.updateRatingForMovie(movie, rating));
+      this.output.write(`${movie.name}: ${rating}%\n`);
     }
 
     await addPromise;

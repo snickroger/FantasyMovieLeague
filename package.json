@@ -18,11 +18,7 @@
     "lint-fix": "tslint -p . --fix",
     "test": "mocha -r ts-node/register src/test/test.ts",
     "test-debug": "mocha --inspect-brk -r ts-node/register src/test/test.ts",
-    "add-season": "node ./scripts/addSeason.js",
-    "add-team": "node ./scripts/addTeam.js",
-    "add-movies": "node ./scripts/addMovies.js",
-    "add-url": "node ./scripts/addUrl.js",
-    "remove-player": "node ./scripts/removePlayer.js"
+    "get-earnings": "node ./dist/scripts/getEarnings.js"
   },
   "dependencies": {
     "accounting": "^0.4.1",
