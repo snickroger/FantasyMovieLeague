@@ -83,7 +83,7 @@ export class HomeController {
         earnings,
         teamSlug: selectedTeam.slug,
         seasonSlug: selectedSeason.slug,
-        usingMoneyPool: true,
+        usingMoneyPool: selectedTeam.moneyPool !== null,
         selectedTeamId,
         endDate,
       });

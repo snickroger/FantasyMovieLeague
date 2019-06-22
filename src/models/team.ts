@@ -16,6 +16,9 @@ export class Team {
   @ManyToOne(() => Season, (season) => season.teams)
   public season!: Season;
 
+  @Column()
+  public moneyPool?: string;
+
   @ManyToMany(() => Player, (player) => player.teams)
   @JoinTable({ name: "player_teams", joinColumn: { name: "teamId" }, inverseJoinColumn: { name: "playerId" }})
   public players!: Player[];
