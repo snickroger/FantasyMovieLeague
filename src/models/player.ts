@@ -7,7 +7,7 @@ import { Team } from "./team";
 @Entity({ name: "players"})
 export class Player {
 
-  public static fromPostBody(postBody: any, seasonMovies: Movie[]) {
+  public static fromPostBody(postBody: any, seasonMovies: Movie[]): Player {
     const movieIds = seasonMovies.map((m) => m.id);
     const movieShares = Object.keys(postBody).filter((k) => k.substr(0, 6) === "movie_");
     const playerName: string = postBody.whoareyou;

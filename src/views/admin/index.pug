@@ -13,21 +13,24 @@ block content
         h2 Admin Controls
       div.col-sm-2
         a.btn.btn-success(href="/admin/season/new") Create Season
-    table.table.table-striped
-      thead
-        tr
-          th(scope="col") Season
-          th
-          th
-      tbody
-        each season in seasons
-          tr
-            td
-              strong= season.name
-            td
-              a(href=`/admin/movies?season=${season.slug}`) Movies
-            td
-              a(href=`/admin/players?season=${season.slug}`) Players
-  
-block scripts
-  script(src='/javascripts/index.js')
+    div.row
+      div.col
+        if newSeason
+          div.alert.alert-success(role="alert") Season created!
+    div.row
+      div.col
+        table.table.table-striped
+          thead
+            tr
+              th(scope="col") Season
+              th
+              th
+          tbody
+            each season in seasons
+              tr
+                td
+                  strong= season.name
+                td
+                  a(href=`/admin/movies?season=${season.slug}`) Movies
+                td
+                  a(href=`/admin/players?season=${season.slug}`) Players

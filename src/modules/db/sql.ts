@@ -5,6 +5,7 @@ import { Player } from "../../models/player";
 import { Season } from "../../models/season";
 import { Share } from "../../models/share";
 import { Team } from "../../models/team";
+import { Url } from "../../models/url";
 import { ISql } from "./isql";
 import { SeasonMenuItem } from "./seasonMenuItem";
 
@@ -100,4 +101,17 @@ export class Sql implements ISql {
       .where({ id: movie.id })
       .execute();
   }
+
+  public async addSeason(season: Season): Promise<void> {
+    await getManager().getRepository(Season).save(season);
+    const urlPromises: Array<Promise<Url>> = [];
+
+    for (const url of season.urls) {
+      url.season = season;
+      urlPromises.push(getManager().getRepository(Url).save(url));
+    }
+
+    await Promise.all(urlPromises);
+  }
+
 }

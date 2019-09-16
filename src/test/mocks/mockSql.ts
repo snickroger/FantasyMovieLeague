@@ -220,4 +220,7 @@ export class MockSql implements ISql {
   public updateRatingForMovie(movie: Movie, rating: number): Promise<void> {
     throw new Error("Method not implemented.");
   }
+  public addSeason(season: Season): Promise<void> {
+    throw new Error("Method not implemented.");
+  }
 }

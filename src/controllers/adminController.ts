@@ -1,4 +1,5 @@
 import { Request, Response } from "express";
+import { Season } from "../models/season";
 import { ISql } from "../modules/db/isql";
 
 export class AdminController {
@@ -13,7 +14,8 @@ export class AdminController {
       const seasons = await this.sql.getAllSeasonsForMenu();
       res.render("admin/index", {
         title: "Admin Controls",
-        seasons
+        newSeason: !!req.query.newSeason,
+        seasons,
       });
     } catch (e) {
       next(e);
@@ -25,6 +27,17 @@ export class AdminController {
       res.render("admin/new_season", {
         title: "Admin Controls | Create Season",
       });
+    } catch (e) {
+      next(e);
+    }
+  }
+
+  public async createSeason(req: Request, res: Response, next: any) {
+    try {
+      const newSeason = Season.fromPostBody(req.body);
+      await this.sql.addSeason(newSeason);
+
+      res.redirect("/admin?newSeason=1");
     } catch (e) {
       next(e);
     }

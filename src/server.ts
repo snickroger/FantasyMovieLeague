@@ -47,7 +47,7 @@ createConnection({
   const adminController = new AdminController(db);
 
   // basic auth
-  const auth = basicAuth({users: { [process.env.ADMIN_USERNAME!]: process.env.ADMIN_PASSWORD! }, 
+  const auth = basicAuth({users: { [process.env.ADMIN_USERNAME!]: process.env.ADMIN_PASSWORD! },
     challenge: true, realm: "Fantasy Movie League"});
 
   // server setup
@@ -66,6 +66,7 @@ createConnection({
   server.get("/players/:id(\\d+)", playerController.get.bind(playerController));
   server.get("/admin", auth, adminController.index.bind(adminController));
   server.get("/admin/season/new", auth, adminController.newSeason.bind(adminController));
+  server.post("/admin/season/create", auth, adminController.createSeason.bind(adminController));
   server.get("/:teamId", homeController.indexTeam.bind(homeController));
 
   server.listen(3000);

@@ -8,32 +8,33 @@ block content
     a.navbar-brand(href="#") &#127909; Fantasy Movie League &mdash; Admin
       
   div.main: div.container
-    div.row(style={"padding":"2.2em 0"})
-      div.col
-        h2 Admin Controls &mdash; Create Season
-    div.row
-      div.col-sm-6: form(action="/admin/season/create" method="post")
-        div.form-group
-          label(for="season_name") Season Name:
-          input(type="text").form-control#season_name
-        div.form-group
-          label(for="page_title") Page Title:
-          input(type="text").form-control#page_title
-        div.form-group
-          label(for="slug") Slug:
-          input(type="text").form-control#slug
-        div.form-group
-          label(for="bonus_amount") Bonus Amount:
-          input(type="numeric").form-control#bonus_amount
-        div.form-group
-          label(for="header_content") Header HTML Content:
-          textarea.form-control#header_content
-        div.form-group
-          label(for="urls") URLs (one per line):
-          textarea.form-control#urls
-    div.row(style={"padding-bottom":"2.2em"})
-      div.col-sm-6
-        input(type="submit" value="Create").btn.btn-primary
+    form(action="/admin/season/create" method="post")
+      div.row(style={"padding":"2.2em 0"})
+        div.col
+          h2 Admin Controls &mdash; Create Season
+      div.row
+        div.col-sm-6
+          div.form-group
+            label(for="season_name") Season Name:
+            input(type="text" name="season_name").form-control#season_name
+          div.form-group
+            label(for="page_title") Page Title:
+            input(type="text" name="page_title").form-control#page_title
+          div.form-group
+            label(for="slug") Slug:
+            input(type="text" name="slug").form-control#slug
+          div.form-group
+            label(for="bonus_amount") Bonus Amount:
+            input(type="numeric" name="bonus_amount" value="5000000").form-control#bonus_amount
+          div.form-group
+            label(for="header_content") Header HTML Content:
+            textarea(name="header_content").form-control#header_content
+          div.form-group
+            label(for="urls") URLs (one per line):
+            textarea(name="urls").form-control#urls
+      div.row(style={"padding-bottom":"2.2em"})
+        div.col-sm-6
+          input(type="submit" value="Create").btn.btn-primary
         
 block scripts
   script(src='/javascripts/index.js')

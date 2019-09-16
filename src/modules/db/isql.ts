@@ -15,4 +15,5 @@ export interface ISql {
   addEarningsForMovies(earning: Earning[]): Promise<void>;
   deleteEarningsForDate(dateStr: string): Promise<void>;
   updateRatingForMovie(movie: Movie, rating: number): Promise<void>;
+  addSeason(season: Season): Promise<void>;
 }
