@@ -1,0 +1,37 @@
+extends ../_layout
+
+block styles
+  link(rel="stylesheet" href="/stylesheets/style.css")
+
+block content
+  nav.navbar.sticky-top.navbar-expand-lg.navbar-dark.bg-dark
+    a.navbar-brand(href="#") &#127909; Fantasy Movie League &mdash; Admin
+      
+  div.main: div.container
+    div.row(style={"padding":"2.2em 0"})
+      div.col-sm-10
+        h2=`${seasonName} Movies`
+      div.col-sm-2
+        a.btn.btn-success(href=`/admin/movies/new?season=${seasonSlug}`) Add Movie
+    div.row
+      div.col
+        if newMovie
+          div.alert.alert-success(role="alert") Movie added!
+    div.row
+      div.col
+        table.table.table-striped
+          thead
+            tr
+              th(scope="col") ID
+              th(scope="col") Name
+              th(scope="col") Release Date
+              th
+          tbody
+            each movie in movies
+              tr
+                td= movie.id
+                td= movie.name
+                td= movie.releaseDate
+                td
+                  a(href=`/admin/movies/${movie.id}`) Edit
+

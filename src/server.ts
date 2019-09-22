@@ -67,6 +67,7 @@ createConnection({
   server.get("/admin", auth, adminController.index.bind(adminController));
   server.get("/admin/season/new", auth, adminController.newSeason.bind(adminController));
   server.post("/admin/season/create", auth, adminController.createSeason.bind(adminController));
+  server.get("/admin/movies", auth, adminController.listMovies.bind(adminController));
   server.get("/:teamId", homeController.indexTeam.bind(homeController));
 
   server.listen(3000);
