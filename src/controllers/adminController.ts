@@ -122,7 +122,7 @@ export class AdminController {
         return;
       }
 
-      const movie = await this.sql.getMovieInfo(req.params.id);
+      const movie = await this.sql.getMovieInfo(parseInt(req.params.id, 10));
       if (movie === undefined) {
         // movie does not exist
         res.status(404).contentType("text/plain").send("Movie not found");
@@ -157,7 +157,7 @@ export class AdminController {
         // updating movie
         const editedMovie = Movie.fromPostBody(req.body);
 
-        const movie = await this.sql.getMovieInfo(req.params.id);
+        const movie = await this.sql.getMovieInfo(parseInt(req.params.id, 10));
         if (movie === undefined) {
           // movie does not exist
           res.status(404).contentType("text/plain").send("Movie not found");
