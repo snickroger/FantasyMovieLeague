@@ -199,6 +199,10 @@ export class MockSql implements ISql {
       throw new Error("Team not found");
     }
     return new Promise((resolve) => resolve(matchingTeams[0]));
+
+  }
+  public getMovieInfo(id: number): Promise<Movie | undefined> {
+    throw new Error("Method not implemented.");
   }
   public getMovie(id: number, team: Team): Promise<Movie | undefined> {
     const season = MockSql.seasons[this.selectedIndex];
@@ -218,6 +222,15 @@ export class MockSql implements ISql {
     throw new Error("Method not implemented.");
   }
   public updateRatingForMovie(movie: Movie, rating: number): Promise<void> {
+    throw new Error("Method not implemented.");
+  }
+  public addSeason(season: Season): Promise<void> {
+    throw new Error("Method not implemented.");
+  }
+  public addTeam(team: Team): Promise<void> {
+    throw new Error("Method not implemented.");
+  }
+  public saveMovie(movie: Movie): Promise<void> {
     throw new Error("Method not implemented.");
   }
 }

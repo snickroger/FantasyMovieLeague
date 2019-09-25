@@ -1,0 +1,36 @@
+extends ../_layout
+
+block styles
+  link(rel="stylesheet" href="/stylesheets/style.css")
+
+block content
+  nav.navbar.sticky-top.navbar-expand-lg.navbar-dark.bg-dark
+    a.navbar-brand(href="#") &#127909; Fantasy Movie League &mdash; Admin
+      
+  div.main: div.container
+    div.row(style={"padding":"2.2em 0"})
+      div.col-sm-10
+        h2 Admin Controls
+      div.col-sm-2
+        a.btn.btn-success(href="/admin/season/new") Create Season
+    div.row
+      div.col
+        if newSeason
+          div.alert.alert-success(role="alert") Season created!
+    div.row
+      div.col
+        table.table.table-striped
+          thead
+            tr
+              th(scope="col") Season
+              th
+              th
+          tbody
+            each season in seasons
+              tr
+                td
+                  strong= season.name
+                td
+                  a(href=`/admin/movies?season=${season.slug}`) Movies
+                td
+                  a(href=`/admin/players?season=${season.slug}`) Players

@@ -1,0 +1,53 @@
+extends ../_layout
+
+block styles
+  link(rel="stylesheet" href="/stylesheets/style.css")
+
+block content
+  nav.navbar.sticky-top.navbar-expand-lg.navbar-dark.bg-dark
+    a.navbar-brand(href="#") &#127909; Fantasy Movie League &mdash; Admin
+      
+  div.main: div.container
+    form(action=(isEditing ? `/admin/movies/${movie.id}?season=${seasonSlug}` : `/admin/movies?season=${seasonSlug}`) method="post")
+      div.row(style={"padding":"2.2em 0"})
+        div.col
+          if isEditing
+            h2 Admin Controls &mdash; Edit Movie
+          else
+            h2 Admin Controls &mdash; New Movie
+      div.row
+        div.col-sm-6
+          if isEditing
+            div.formGroup
+              label(for="id") ID:
+              input(type="text" readonly value=movie.id).form-control-plaintext#id
+          div.form-group
+            label(for="movie_name") Name:
+            input(type="text" name="movie_name" value=movie.name).form-control#movie_name
+          div.form-group
+            label(for="mapped_name") Mapped Name:
+            input(type="text" name="mapped_name" value=movie.mappedName).form-control#mapped_name
+          div.form-group
+            label(for="plot") Plot:
+            textarea(name="plot").form-control#plot= movie.plot
+          div.form-group
+            label(for="actors") Actors:
+            input(type="text" name="actors" value=movie.actors).form-control#actors
+          div.form-group
+            label(for="director") Director:
+            input(type="text" name="director" value=movie.director).form-control#director
+          div.form-group
+            label(for="release_date") Release Date:
+            input(type="date" name="release_date" value=releaseDate).form-control#release_date
+          div.form-group
+            label(for="imdb") IMDB Link:
+            input(type="url" name="imdb" value=movie.imdb).form-control#imdb
+          div.form-group
+            label(for="metacritic") Metacritic Link:
+            input(type="url" name="metacritic" value=movie.metacriticUrl).form-control#metacritic
+      div.row(style={"padding-bottom":"2.2em"})
+        div.col-sm-6
+          input(type="submit" value="Save").btn.btn-primary
+        
+block scripts
+  script(src='/javascripts/index.js')

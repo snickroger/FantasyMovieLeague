@@ -7,6 +7,25 @@ import { Url } from "./url";
 
 @Entity({ name: "seasons" })
 export class Season {
+  public static fromPostBody(postBody: any): Season {
+    const newSeason = new Season();
+    newSeason.name = postBody.season_name;
+    newSeason.pageTitle = postBody.page_title;
+    newSeason.slug = postBody.slug;
+    newSeason.bonusAmount = postBody.bonus_amount;
+    newSeason.newHeaderContent = postBody.header_content;
+    newSeason.urls = [];
+
+    const urls: string[] = postBody.urls.split("\n");
+    for (const url of urls) {
+      const urlObj = new Url();
+      urlObj.url = url.trim();
+      newSeason.urls.push(urlObj);
+    }
+
+    return newSeason;
+  }
+
   @PrimaryGeneratedColumn()
   public id!: number;
 

@@ -5,6 +5,7 @@ import { Player } from "../../models/player";
 import { Season } from "../../models/season";
 import { Share } from "../../models/share";
 import { Team } from "../../models/team";
+import { Url } from "../../models/url";
 import { ISql } from "./isql";
 import { SeasonMenuItem } from "./seasonMenuItem";
 
@@ -48,6 +49,12 @@ export class Sql implements ISql {
       .getOne();
 
     return team!;
+  }
+
+  public async getMovieInfo(id: number): Promise<Movie | undefined> {
+    return await getManager().getRepository(Movie).createQueryBuilder("movie")
+      .where("movie.id = :id", { id })
+      .getOne();
   }
 
   public async getMovie(id: number, team: Team): Promise<Movie | undefined> {
@@ -99,5 +106,25 @@ export class Sql implements ISql {
       .set({ rating })
       .where({ id: movie.id })
       .execute();
+  }
+
+  public async addSeason(season: Season): Promise<void> {
+    await getManager().getRepository(Season).save(season);
+    const urlPromises: Array<Promise<Url>> = [];
+
+    for (const url of season.urls) {
+      url.season = season;
+      urlPromises.push(getManager().getRepository(Url).save(url));
+    }
+
+    await Promise.all(urlPromises);
+  }
+
+  public async addTeam(team: Team): Promise<void> {
+    await getManager().getRepository(Team).save(team);
+  }
+
+  public async saveMovie(movie: Movie): Promise<void> {
+    await getManager().getRepository(Movie).save(movie);
   }
 }
