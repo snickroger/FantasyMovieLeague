@@ -51,6 +51,12 @@ export class Sql implements ISql {
     return team!;
   }
 
+  public async getMovieInfo(id: number): Promise<Movie | undefined> {
+    return await getManager().getRepository(Movie).createQueryBuilder("movie")
+      .where("movie.id = :id", { id })
+      .getOne();
+  }
+
   public async getMovie(id: number, team: Team): Promise<Movie | undefined> {
     return await getManager().getRepository(Movie).createQueryBuilder("movie")
       .leftJoinAndSelect("movie.earnings", "earnings")
@@ -114,4 +120,11 @@ export class Sql implements ISql {
     await Promise.all(urlPromises);
   }
 
+  public async addTeam(team: Team): Promise<void> {
+    await getManager().getRepository(Team).save(team);
+  }
+
+  public async saveMovie(movie: Movie): Promise<void> {
+    await getManager().getRepository(Movie).save(movie);
+  }
 }

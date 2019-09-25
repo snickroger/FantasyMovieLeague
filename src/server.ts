@@ -66,8 +66,12 @@ createConnection({
   server.get("/players/:id(\\d+)", playerController.get.bind(playerController));
   server.get("/admin", auth, adminController.index.bind(adminController));
   server.get("/admin/season/new", auth, adminController.newSeason.bind(adminController));
-  server.post("/admin/season/create", auth, adminController.createSeason.bind(adminController));
+  server.post("/admin/season", auth, adminController.createSeason.bind(adminController));
   server.get("/admin/movies", auth, adminController.listMovies.bind(adminController));
+  server.post("/admin/movies", auth, adminController.createOrUpdateMovie.bind(adminController));
+  server.get("/admin/movies/:id(\\d+)", auth, adminController.editMovie.bind(adminController));
+  server.post("/admin/movies/:id(\\d+)", auth, adminController.createOrUpdateMovie.bind(adminController));
+  server.get("/admin/movies/new", auth, adminController.newMovie.bind(adminController));
   server.get("/:teamId", homeController.indexTeam.bind(homeController));
 
   server.listen(3000);

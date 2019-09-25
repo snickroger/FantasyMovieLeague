@@ -5,6 +5,20 @@ import { Share } from "./share";
 
 @Entity({ name: "movies" })
 export class Movie {
+  public static fromPostBody(postBody: any): Movie {
+    const newMovie = new Movie();
+    newMovie.name = postBody.movie_name;
+    newMovie.mappedName = postBody.mapped_name;
+    newMovie.plot = postBody.plot;
+    newMovie.actors = postBody.actors;
+    newMovie.director = postBody.director;
+    newMovie.releaseDate = postBody.release_date;
+    newMovie.imdb = postBody.imdb;
+    newMovie.metacriticUrl = postBody.metacritic;
+    newMovie.limited = false;
+    return newMovie;
+  }
+
   @PrimaryGeneratedColumn()
   public id!: number;
 
