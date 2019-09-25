@@ -51,7 +51,7 @@
     "@types/pg": "^7.11.1",
     "@types/request-promise-native": "^1.0.17",
     "@types/serve-favicon": "^2.2.31",
-    "assert": "^1.4.1",
+    "assert": "^2.0.0",
     "express-basic-auth": "^1.2.0",
     "grunt": "^1.0.4",
     "grunt-contrib-copy": "^1.0.0",
