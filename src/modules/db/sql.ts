@@ -80,7 +80,6 @@ export class Sql implements ISql {
 
     for (const share of player.shares) {
       share.player = player;
-      player.shares.push(share);
       sharePromises.push(getManager().getRepository(Share).save(share));
     }
 

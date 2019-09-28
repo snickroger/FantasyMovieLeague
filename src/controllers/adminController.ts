@@ -15,6 +15,7 @@ export class AdminController {
 
   public async index(req: Request, res: Response, next: any) {
     try {
+      res.header("Cache-Control", "no-cache");
       const seasons = await this.sql.getAllSeasonsForMenu();
       res.render("admin/index", {
         title: "Admin Controls",
@@ -28,6 +29,7 @@ export class AdminController {
 
   public async newSeason(req: Request, res: Response, next: any) {
     try {
+      res.header("Cache-Control", "no-cache");
       res.render("admin/new_season", {
         title: "Admin Controls | Create Season",
       });
@@ -63,6 +65,7 @@ export class AdminController {
 
   public async listMovies(req: Request, res: Response, next: any) {
     try {
+      res.header("Cache-Control", "no-cache");
       const selectedSeason = await this.sql.getSelectedSeason(req.query.season);
 
       if (selectedSeason === undefined) {
@@ -93,6 +96,7 @@ export class AdminController {
 
   public async newMovie(req: Request, res: Response, next: any) {
     try {
+      res.header("Cache-Control", "no-cache");
       const selectedSeason = await this.sql.getSelectedSeason(req.query.season);
 
       if (selectedSeason === undefined) {
@@ -114,6 +118,7 @@ export class AdminController {
 
   public async editMovie(req: Request, res: Response, next: any) {
     try {
+      res.header("Cache-Control", "no-cache");
       const selectedSeason = await this.sql.getSelectedSeason(req.query.season);
 
       if (selectedSeason === undefined) {
