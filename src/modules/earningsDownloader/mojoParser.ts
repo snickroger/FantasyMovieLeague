@@ -5,18 +5,18 @@ import { Movie } from "../../models/movie";
 export class MojoParser {
   public static parse(html: string): Array<{ name: string, gross: number }> {
     const $ = cheerio.load(html);
-    const rows = $("form[name='MojoDropDown1']").parents("table").last().find("tr");
+    const rows = $("table.mojo-body-table").last().find("tr");
     const movies = [];
 
-    for (let i = 2; i < rows.length; i++) {
+    for (let i = 0; i < rows.length; i++) {
       const row = rows.eq(i);
-      const gross = this.currencyToInt(row.find("td").eq(4).text());
+      const gross = this.currencyToInt(row.find("td").eq(6).text());
       if (isNaN(gross)) {
         continue;
       }
 
       movies.push({
-        name: row.find("td").eq(2).text(),
+        name: row.find("td").eq(1).text(),
         gross,
       });
     }
