@@ -72,6 +72,7 @@ createConnection({
   server.get("/admin/movies/:id(\\d+)", auth, adminController.editMovie.bind(adminController));
   server.post("/admin/movies/:id(\\d+)", auth, adminController.createOrUpdateMovie.bind(adminController));
   server.get("/admin/movies/new", auth, adminController.newMovie.bind(adminController));
+  server.get("/:teamId.txt", homeController.indexTeamText.bind(homeController));
   server.get("/:teamId", homeController.indexTeam.bind(homeController));
 
   server.listen(3000);

@@ -62,4 +62,9 @@ export class Standings {
 
     return sortedStandings;
   }
+
+  public static getStandingsDisplayText(standings: StandingsDisplay[], teamSlug: string): string {
+    let result: string = standings.map(s => `${s.rank}. ${s.name}: ${s.totalDisp}`).join("\n");
+    return result + `\n\nhttp://movie.nickroge.rs/${teamSlug}`;
+  }
 }
