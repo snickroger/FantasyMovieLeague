@@ -91,5 +91,42 @@ export class HomeController {
       next(e);
     }
   }
+  public async indexTeamText(req: Request, res: Response, next: any) {
+    try {
+      // returns latest/current season if ?season= not given:
+      const selectedSeason = await this.sql.getSelectedSeason(req.query.season);
 
+      if (selectedSeason === undefined) {
+        res.status(404).send("Season not found");
+        return;
+      }
+
+      const startDate = selectedSeason.getStartDate();
+      if (startDate > new Date() && req.query.skip !== "1") {
+        res.redirect(307, "/new");
+        return;
+      }
+
+      const selectedTeamArr = selectedSeason.teams.filter((t) => t.slug === req.params.teamId);
+      if (selectedTeamArr.length === 0) {
+        res.status(404).send("Team not found");
+        return;
+      }
+
+      const selectedTeamId: number = selectedTeamArr[0].id;
+      const selectedTeam = await this.sql.getTeam(selectedTeamId);
+      if (selectedTeam === undefined) {
+        res.status(404).send("Team not found");
+        return;
+      }
+
+      const standings = Standings.getStandingsDisplay(selectedSeason.movies, selectedTeam.players,
+        selectedSeason.bonusAmount);
+      const standingsText = Standings.getStandingsDisplayText(standings, selectedTeam.slug);
+
+      res.contentType("text/plain").send(standingsText);
+    } catch (e) {
+      next(e);
+    }
+  }
 }
