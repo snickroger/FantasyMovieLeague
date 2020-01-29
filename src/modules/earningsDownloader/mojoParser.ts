@@ -10,7 +10,7 @@ export class MojoParser {
 
     for (let i = 0; i < rows.length; i++) {
       const row = rows.eq(i);
-      const gross = this.currencyToInt(row.find("td").eq(6).text());
+      const gross = this.currencyToInt(row.find("td").eq(5).text());
       if (isNaN(gross)) {
         continue;
       }
