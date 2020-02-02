@@ -2,6 +2,7 @@ import { Request, Response } from "express";
 import Enumerable from "linq";
 import moment = require("moment");
 import { Movie } from "../models/movie";
+import { Player } from "../models/player";
 import { Season } from "../models/season";
 import { Team } from "../models/team";
 import { ISql } from "../modules/db/isql";
@@ -52,7 +53,6 @@ export class AdminController {
       dealeron.name = "DealerOn";
       dealeron.slug = "dealeron";
       dealeron.season = newSeason;
-      dealeron.moneyPool = "https://paypal.me/pools/c/8iwcK4ntga";
 
       await this.sql.addTeam(friends);
       await this.sql.addTeam(dealeron);
@@ -180,6 +180,39 @@ export class AdminController {
 
         res.redirect(`/admin/movies?season=${selectedSeason.slug}&newMovie=1`);
       }
+    } catch (e) {
+      next(e);
+    }
+  }
+
+  public async listPlayers(req: Request, res: Response, next: any) {
+    try {
+      res.header("Cache-Control", "no-cache");
+      const selectedSeason = await this.sql.getSelectedSeason(req.query.season);
+
+      if (selectedSeason === undefined) {
+        // season does not exist
+        res.status(404).contentType("text/plain").send("Season not found");
+        return;
+      }
+
+      const teams = Enumerable.from(selectedSeason.teams).selectMany((t: Team) =>
+        Enumerable.from(t.players).select((p: Player) => ({
+          playerId: p.id,
+          name: p.name,
+          enteredDate: p.createdAt,
+          teamId: t.id,
+        }))).toArray();
+
+      debugger;
+
+      res.render("admin/list_players", {
+        title: `Admin Controls | Players | ${selectedSeason.name}`,
+        seasonName: selectedSeason.name,
+        seasonSlug: selectedSeason.slug,
+        teams,
+      });
+
     } catch (e) {
       next(e);
     }
