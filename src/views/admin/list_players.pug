@@ -26,3 +26,8 @@ block content
               th(scope="col") Entered Date
               th
           tbody
+            each player in players
+              tr
+                td= player.id
+                td= player.name
+                td= player.createdAt

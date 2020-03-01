@@ -1,6 +1,6 @@
 import { Request, Response } from "express";
 import Enumerable from "linq";
-import moment = require("moment");
+import moment = require("moment-timezone");
 import { Movie } from "../models/movie";
 import { Player } from "../models/player";
 import { Season } from "../models/season";
@@ -77,7 +77,7 @@ export class AdminController {
       const movies = Enumerable.from(selectedSeason.movies).orderBy((m: Movie) => m.releaseDate).select((m: Movie) => ({
         id: m.id,
         name: m.name,
-        releaseDate: moment(m.releaseDate).format("ll"),
+        releaseDate: moment(m.releaseDate).tz("America/New_York").format("ll"),
       })).toArray();
 
       res.render("admin/list_movies", {
@@ -196,23 +196,29 @@ export class AdminController {
         return;
       }
 
-      const teams = Enumerable.from(selectedSeason.teams).selectMany((t: Team) =>
-        Enumerable.from(t.players).select((p: Player) => ({
-          playerId: p.id,
-          name: p.name,
-          enteredDate: p.createdAt,
-          teamId: t.id,
-        }))).toArray();
+      const teamIds = Enumerable.from(selectedSeason.teams).select((team) => team.id).toArray();
+      const teams: Team[] = [];
 
-      debugger;
+      for (const teamId of teamIds) {
+        const team = (await this.sql.getTeam(teamId));
+        teams.push(team);
+      }
+
+      const players = Enumerable.from(teams).selectMany((team) => team.players)
+        .distinct((player) => player.id)
+        .orderByDescending((player) => player.id)
+        .select((player: Player) => ({
+            id: player.id,
+            name: player.name,
+            createdAt: moment(player.createdAt).tz("America/New_York").format("lll"),
+        })).toArray();
 
       res.render("admin/list_players", {
         title: `Admin Controls | Players | ${selectedSeason.name}`,
         seasonName: selectedSeason.name,
         seasonSlug: selectedSeason.slug,
-        teams,
+        players
       });
-
     } catch (e) {
       next(e);
     }
