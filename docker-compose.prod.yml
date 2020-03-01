@@ -2,22 +2,23 @@
 version: '3'
 services:
   app:
-    build:
-      context: .
-      args:
-        - NODE_ENV=dev
-    command: npm run debug
+    image: node:9.10
+    command: sh -c "npm install && npm run build && node ./dist/server.js"
     env_file: variables.env
+    environment:
+      - NODE_ENV=production
     ports:
       - "3000:3000"
-      - "9229:9229"
+    working_dir: /movie
+    volumes:
+      - .:/movie
+    container_name: movie_app
+    restart: unless-stopped
   db:
     image: postgres:9.6.12
     volumes:
       - postgres:/var/lib/postgresql/data
-      - ./dist:/movie/dist
     env_file: variables.env
-    ports:
-      - "5432:5432"
+    container_name: movie_db
 volumes:
   postgres:
