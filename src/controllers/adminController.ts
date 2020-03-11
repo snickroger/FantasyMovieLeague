@@ -198,10 +198,19 @@ export class AdminController {
 
       const teamIds = Enumerable.from(selectedSeason.teams).select((team) => team.id).toArray();
       const teams: Team[] = [];
+      const playersToTeams: any = {};
 
       for (const teamId of teamIds) {
         const team = (await this.sql.getTeam(teamId));
         teams.push(team);
+
+        for (const player of team.players) {
+          const playerId = player.id;
+          if (playersToTeams[playerId] === undefined) {
+            playersToTeams[playerId] = [];
+          }
+          playersToTeams[playerId].push(teamId);
+        }
       }
 
       const players = Enumerable.from(teams).selectMany((team) => team.players)
@@ -210,6 +219,7 @@ export class AdminController {
         .select((player: Player) => ({
             id: player.id,
             name: player.name,
+            teams: playersToTeams[player.id],
             createdAt: moment(player.createdAt).tz("America/New_York").format("lll"),
         })).toArray();
 
@@ -217,6 +227,7 @@ export class AdminController {
         title: `Admin Controls | Players | ${selectedSeason.name}`,
         seasonName: selectedSeason.name,
         seasonSlug: selectedSeason.slug,
+        teams: Enumerable.from(teams).select(team => ({ id: team.id, name: team.name })).toArray(),
         players
       });
     } catch (e) {

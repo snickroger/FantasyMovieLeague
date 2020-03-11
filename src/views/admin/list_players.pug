@@ -23,6 +23,8 @@ block content
             tr
               th(scope="col") ID
               th(scope="col") Name
+              each team in teams
+                th(scope="col")= team.name
               th(scope="col") Entered Date
               th
           tbody
@@ -30,4 +32,10 @@ block content
               tr
                 td= player.id
                 td= player.name
+                each team in teams
+                  td: input(type="checkbox" id=`${team.id}_${player.id}` checked=(player.teams.indexOf(team.id) >= 0))
                 td= player.createdAt
+                td
+                  button(type="button").btn.btn-primary Update
+                  | &nbsp;
+                  button(type="button").btn.btn-danger Delete
