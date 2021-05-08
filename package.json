@@ -37,7 +37,7 @@
     "request": "^2.88.0",
     "request-promise-native": "^1.0.7",
     "serve-favicon": "^2.5.0",
-    "typeorm": "^0.2.19"
+    "typeorm": "^0.2.25"
   },
   "devDependencies": {
     "@types/accounting": "^0.4.1",
