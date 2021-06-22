@@ -124,7 +124,7 @@ export class HomeController {
         selectedSeason.bonusAmount);
       const standingsText = Standings.getStandingsDisplayText(standings, selectedTeam.slug);
 
-      res.contentType("text/plain").send(standingsText);
+      res.header("Cache-Control", "no-cache").contentType("text/plain").send(standingsText);
     } catch (e) {
       next(e);
     }
