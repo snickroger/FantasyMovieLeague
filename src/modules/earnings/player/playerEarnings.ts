@@ -24,6 +24,7 @@ export class PlayerEarnings {
       let playerEarned = 0;
       const shares = Enumerable.from(movie.shares);
       const playerShares = shares.firstOrDefault((s) => s.playerId === player.id);
+      const playerSharesNum = playerShares !== undefined ? playerShares.numShares : 0;
       const movieEarned = movieEarnings.get(movie.id);
       const sharesTotal = totalShares.get(movie.id);
 
@@ -34,7 +35,7 @@ export class PlayerEarnings {
       bonus1 = bonus1 || bestAndWorstMovies.bestMovies.any((m) => m.id === movie.id) && player.bonus1Id === movie.id;
       bonus2 = bonus2 || bestAndWorstMovies.worstMovies.any((m) => m.id === movie.id) && player.bonus2Id === movie.id;
 
-      earningRows.push(new PlayerEarningsDisplayRow(movie, playerShares.numShares, playerEarned,
+      earningRows.push(new PlayerEarningsDisplayRow(movie, playerSharesNum, playerEarned,
         player.bonus1Id === movie.id, player.bonus2Id === movie.id));
     }
 
