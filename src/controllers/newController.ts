@@ -18,7 +18,8 @@ export class NewController {
   public async index(req: Request, res: Response, next: any) {
     try {
       const seasons = await this.sql.getAllSeasonsForMenu();
-      const selectedSeason = await this.sql.getSelectedSeason(req.query.season);
+      const seasonId = req.query.season as (string | undefined);
+      const selectedSeason = await this.sql.getSelectedSeason(seasonId);
       const thanks: boolean = req.query.thanks === "1";
 
       if (selectedSeason === undefined) {
@@ -49,7 +50,7 @@ export class NewController {
 
       const movies = MovieHelpers.moviesForNewPage(Enumerable.from(selectedSeason.movies));
 
-      let seasonStart: string = "";
+      let seasonStart = "";
       if (movies.length > 0) {
         seasonStart = movies[0].releaseDateTimestamp;
       }

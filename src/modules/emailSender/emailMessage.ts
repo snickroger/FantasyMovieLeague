@@ -1,5 +1,5 @@
 export class EmailMessage {
-  public from: string = "Fantasy Movie League <movie@nickroge.rs>";
+  public from = "Fantasy Movie League <movie@nickroge.rs>";
   public to: string;
   public bcc: string;
   public subject: string;

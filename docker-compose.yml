@@ -2,7 +2,7 @@
 version: '3'
 services:
   app:
-    image: node:9.10
+    image: node:16.10
     command: sh -c "npm install && npm run build && ./node_modules/.bin/nodemon --legacy-watch --watch ./dist --inspect=0.0.0.0:9229 --nolazy ./dist/server.js"
     env_file: variables.env
     ports:
@@ -13,7 +13,7 @@ services:
       - .:/movie
     container_name: movie_app
   db:
-    image: postgres:9.6.12
+    image: postgres:9.6.22
     volumes:
       - postgres:/var/lib/postgresql/data
     env_file: variables.env

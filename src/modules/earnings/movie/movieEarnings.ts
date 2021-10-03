@@ -16,7 +16,7 @@ export class MovieEarnings {
 
     for (const player of players) {
       const playerShares = movieShares.firstOrDefault((s) => s.playerId === player.id);
-      const playerSharesNum = playerShares !== null ? playerShares.numShares : 0;
+      const playerSharesNum = playerShares !== undefined ? playerShares.numShares : 0;
       const playerEarned = playerSharesNum > 0 && movieSharesTotal > 0
         ? (playerSharesNum / movieSharesTotal) * movieEarned
         : 0;

@@ -6,17 +6,8 @@ module.exports = function (grunt) {
         tsconfig: './tsconfig.json'
       }
     },
-    tslint: {
-      options: {
-        configuration: './tslint.json',
-        project: './tsconfig.json',
-        force: true
-      },
-      files: {
-        src: [
-          "src/**/*.{ts,tsx}"
-        ]
-      }
+    eslint: {
+      target: ["src/**/*.{ts,tsx}"]
     },
     copy: {
       default: {
@@ -28,7 +19,7 @@ module.exports = function (grunt) {
     }
   });
   grunt.loadNpmTasks("grunt-ts");
-  grunt.loadNpmTasks("grunt-tslint");
+  grunt.loadNpmTasks("grunt-eslint");
   grunt.loadNpmTasks('grunt-contrib-copy');
-  grunt.registerTask("default", ["ts", "tslint", "copy"]);
+  grunt.registerTask("default", ["ts", "eslint", "copy"]);
 };

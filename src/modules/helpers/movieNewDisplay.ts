@@ -1,4 +1,4 @@
-import moment = require("moment");
+import moment from "moment";
 import { Movie } from "../../models/movie";
 
 export class MovieNewDisplay {

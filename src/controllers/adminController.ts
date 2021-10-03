@@ -1,6 +1,6 @@
 import { Request, Response } from "express";
 import Enumerable from "linq";
-import moment = require("moment");
+import moment from "moment";
 import { Movie } from "../models/movie";
 import { Season } from "../models/season";
 import { Team } from "../models/team";
@@ -66,7 +66,8 @@ export class AdminController {
   public async listMovies(req: Request, res: Response, next: any) {
     try {
       res.header("Cache-Control", "no-cache");
-      const selectedSeason = await this.sql.getSelectedSeason(req.query.season);
+      const seasonId = req.query.season as (string | undefined);
+      const selectedSeason = await this.sql.getSelectedSeason(seasonId);
 
       if (selectedSeason === undefined) {
         // season does not exist
@@ -97,7 +98,8 @@ export class AdminController {
   public async newMovie(req: Request, res: Response, next: any) {
     try {
       res.header("Cache-Control", "no-cache");
-      const selectedSeason = await this.sql.getSelectedSeason(req.query.season);
+      const seasonId = req.query.season as (string | undefined);
+      const selectedSeason = await this.sql.getSelectedSeason(seasonId);
 
       if (selectedSeason === undefined) {
         // season does not exist
@@ -119,7 +121,8 @@ export class AdminController {
   public async editMovie(req: Request, res: Response, next: any) {
     try {
       res.header("Cache-Control", "no-cache");
-      const selectedSeason = await this.sql.getSelectedSeason(req.query.season);
+      const seasonId = req.query.season as (string | undefined);
+      const selectedSeason = await this.sql.getSelectedSeason(seasonId);
 
       if (selectedSeason === undefined) {
         // season does not exist
@@ -150,7 +153,8 @@ export class AdminController {
 
   public async createOrUpdateMovie(req: Request, res: Response, next: any) {
     try {
-      const selectedSeason = await this.sql.getSelectedSeason(req.query.season);
+      const seasonId = req.query.season as (string | undefined);
+      const selectedSeason = await this.sql.getSelectedSeason(seasonId);
 
       if (selectedSeason === undefined) {
         // season does not exist

@@ -1,4 +1,4 @@
-import { IEnumerable } from "linq";
+import Enumerable from "linq";
 import { Earning } from "../../models/earning";
 import { Movie } from "../../models/movie";
 import { Player } from "../../models/player";
@@ -7,14 +7,15 @@ import { BestAndWorstMovies } from "./bestAndWorstMovies";
 import { MovieNewDisplay } from "./movieNewDisplay";
 
 export class MovieHelpers {
-  public static totalSharesByMovie(shares: IEnumerable<Share>, players: IEnumerable<Player>): number {
+  public static totalSharesByMovie(shares: Enumerable.IEnumerable<Share>,
+    players: Enumerable.IEnumerable<Player>): number {
     return shares
       .where((s) => players.any((p) => p.id === s.playerId))
       .select((v) => v.numShares)
       .sum();
   }
 
-  public static maxEarningByMovie(earnings: IEnumerable<Earning>): number {
+  public static maxEarningByMovie(earnings: Enumerable.IEnumerable<Earning>): number {
     const maxEarning = earnings.count() === 0 ? 0 :
       earnings.orderByDescending((e) => e.createdAt).first().gross;
     return maxEarning;
@@ -33,7 +34,7 @@ export class MovieHelpers {
     return "";
   }
 
-  public static bestAndWorstMovies(movies: IEnumerable<Movie>): BestAndWorstMovies {
+  public static bestAndWorstMovies(movies: Enumerable.IEnumerable<Movie>): BestAndWorstMovies {
     if (!movies.any((m) => m.rating != null)) {
       return new BestAndWorstMovies([], []);
     }
@@ -45,7 +46,7 @@ export class MovieHelpers {
     return new BestAndWorstMovies(bestMovies, worstMovies);
   }
 
-  public static moviesForNewPage(movies: IEnumerable<Movie>): MovieNewDisplay[] {
+  public static moviesForNewPage(movies: Enumerable.IEnumerable<Movie>): MovieNewDisplay[] {
     return movies.orderBy((movie) => movie.releaseDate).thenBy((movie) => movie.id).select(
       (movie) => new MovieNewDisplay(movie)).toArray();
   }

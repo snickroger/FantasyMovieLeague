@@ -1,11 +1,10 @@
-import request from "request-promise-native";
+import axios from "axios";
 import { IUrlDownloader } from "./iurlDownloader";
 
 export class UrlDownloader implements IUrlDownloader {
   public async download(url: string, options: any): Promise<string> {
-    options.uri = options.uri || url;
-    const response = await request(options);
+    const response = await axios.get(url);
 
-    return response.toString();
+    return response.data;
   }
 }
