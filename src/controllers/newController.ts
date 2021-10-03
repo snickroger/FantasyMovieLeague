@@ -18,7 +18,8 @@ export class NewController {
   public async index(req: Request, res: Response, next: any) {
     try {
       const seasons = await this.sql.getAllSeasonsForMenu();
-      const selectedSeason = await this.sql.getSelectedSeason(req.query.season);
+      const seasonId = req.query.season as (string | undefined);
+      const selectedSeason = await this.sql.getSelectedSeason(seasonId);
       const thanks: boolean = req.query.thanks === "1";
 
       if (selectedSeason === undefined) {

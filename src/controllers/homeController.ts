@@ -13,7 +13,8 @@ export class HomeController {
   public async index(req: Request, res: Response, next: any) {
     try {
       const seasons = await this.sql.getAllSeasonsForMenu();
-      const selectedSeason = await this.sql.getSelectedSeason(req.query.season);
+      const seasonId = req.query.season as (string | undefined);
+      const selectedSeason = await this.sql.getSelectedSeason(seasonId);
 
       if (selectedSeason === undefined) {
         // season does not exist
@@ -42,7 +43,8 @@ export class HomeController {
     try {
       const seasons = await this.sql.getAllSeasonsForMenu();
       // returns latest/current season if ?season= not given:
-      const selectedSeason = await this.sql.getSelectedSeason(req.query.season);
+      const seasonId = req.query.season as (string | undefined);
+      const selectedSeason = await this.sql.getSelectedSeason(seasonId);
 
       if (selectedSeason === undefined) {
         res.status(404).send("Season not found");
@@ -94,7 +96,8 @@ export class HomeController {
   public async indexTeamText(req: Request, res: Response, next: any) {
     try {
       // returns latest/current season if ?season= not given:
-      const selectedSeason = await this.sql.getSelectedSeason(req.query.season);
+      const seasonId = req.query.season as (string | undefined);
+      const selectedSeason = await this.sql.getSelectedSeason(seasonId);
 
       if (selectedSeason === undefined) {
         res.status(404).send("Season not found");

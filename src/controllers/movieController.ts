@@ -12,7 +12,7 @@ export class MovieController {
   public async get(req: Request, res: Response, next: any) {
     try {
       const movieId = parseInt(req.params.id, 10);
-      const teamId = parseInt(req.query.team, 10);
+      const teamId = parseInt(req.query.team as string, 10);
       const team = await this.sql.getTeam(teamId);
       if (team === undefined) {
         res.status(404).send("Team not found");
