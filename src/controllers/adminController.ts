@@ -1,6 +1,6 @@
 import { Request, Response } from "express";
 import Enumerable from "linq";
-import moment = require("moment");
+import moment from "moment";
 import { Movie } from "../models/movie";
 import { Season } from "../models/season";
 import { Team } from "../models/team";

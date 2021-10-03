@@ -9,8 +9,8 @@ export class EmailSender implements IEmailSender {
       console.error("Mailgun API Key not set");
       return;
     }
-    const apiKey: string = process.env.MAILGUN_API_KEY || "";
-    const domain: string = process.env.MAILGUN_DOMAIN || "";
+    const apiKey = process.env.MAILGUN_API_KEY || "";
+    const domain = process.env.MAILGUN_DOMAIN || "";
     const mg = mailgun({ apiKey, domain });
 
     const mailgunEnvelope = {
@@ -37,8 +37,8 @@ export class EmailSender implements IEmailSender {
   }
 
   private getText(player: Player, seasonName: string): string {
-    let bonus1Movie: string = "";
-    let bonus2Movie: string = "";
+    let bonus1Movie = "";
+    let bonus2Movie = "";
     let messageBody = `Hey ${player.name},
 
     Here are the share selections you just made for the Fantasy Movie League (${seasonName}):

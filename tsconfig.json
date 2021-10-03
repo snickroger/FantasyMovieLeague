@@ -1,9 +1,10 @@
 {
   "version": "4.4.3",
   "compilerOptions": {
-    "target": "es2015",
-    "module": "commonjs",
+    "target": "esnext",
+    "module": "esnext",
     "sourceMap": true,
+    "moduleResolution": "node",
     "outDir": "./dist",
     "rootDir": "./src",
     "strict": true,

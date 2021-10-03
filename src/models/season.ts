@@ -1,5 +1,5 @@
 import accounting from "accounting";
-import moment = require("moment");
+import moment from "moment";
 import { Column, Entity, JoinTable, OneToMany, PrimaryGeneratedColumn } from "typeorm";
 import { Movie } from "./movie";
 import { Team } from "./team";

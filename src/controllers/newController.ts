@@ -50,7 +50,7 @@ export class NewController {
 
       const movies = MovieHelpers.moviesForNewPage(Enumerable.from(selectedSeason.movies));
 
-      let seasonStart: string = "";
+      let seasonStart = "";
       if (movies.length > 0) {
         seasonStart = movies[0].releaseDateTimestamp;
       }
