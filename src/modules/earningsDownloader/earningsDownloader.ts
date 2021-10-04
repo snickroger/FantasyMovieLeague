@@ -35,7 +35,7 @@ export class EarningsDownloader implements IEarningsDownloader {
 
     let earnings: Earning[] = [];
     for (const url of currentSeason.urls) {
-      const html = await this.http.download(url.url, {});
+      const html = await this.http.download(url.url);
       const rows = MojoParser.parse(html);
       const earningsToAdd = MojoParser.getEarnings(rows, moviesToGet);
       earnings = earnings.concat(earningsToAdd);
@@ -76,7 +76,7 @@ export class EarningsDownloader implements IEarningsDownloader {
     await sleep(1000 * 2 ** attempt);
 
     try {
-      const html = await this.http.download(url, {});
+      const html = await this.http.download(url);
       return MetacriticParser.getRating(html);
     } catch (e) {
       return await this.getRating(url, attempt + 1);
