@@ -1,3 +1,3 @@
 export interface IPostersDownloader {
-  downloadPosters(): Promise<void>;
+  downloadPosters(slug: string): Promise<void>;
 }

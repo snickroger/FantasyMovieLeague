@@ -3,8 +3,8 @@ import fs from "fs";
 import { IUrlDownloader } from "./iurlDownloader";
 
 export class UrlDownloader implements IUrlDownloader {
-  public async download(url: string): Promise<string> {
-    const response = await axios.get(url);
+  public async download<T>(url: string): Promise<T> {
+    const response = await axios.get<T>(url);
 
     return response.data;
   }
@@ -16,7 +16,7 @@ export class UrlDownloader implements IUrlDownloader {
     });
 
     const writer = fs.createWriteStream(target);
-    // (response.data as ReadableStream).pipeTo(writer);
+    (response.data as any).pipe(writer);
 
     return new Promise((resolve, reject) => {
       writer.on('finish', resolve)

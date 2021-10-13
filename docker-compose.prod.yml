@@ -3,7 +3,7 @@ version: '3'
 services:
   app:
     image: node:16.10
-    command: sh -c "npm install && npm run build && node ./dist/server.js"
+    command: sh -c "npm install --include=dev && npm run build && node ./dist/server.js"
     env_file: variables.env
     environment:
       - NODE_ENV=production

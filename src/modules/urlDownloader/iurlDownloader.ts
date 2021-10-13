@@ -1,4 +1,4 @@
 export interface IUrlDownloader {
-  download(url: string): Promise<string>;
+  download<T>(url: string): Promise<T>;
   downloadFile(url: string, target: string): Promise<void>;
 }

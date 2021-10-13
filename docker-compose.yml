@@ -8,6 +8,7 @@ services:
     ports:
       - "3000:3000"
       - "9229:9229"
+      - "9228:9228"
     working_dir: /movie
     volumes:
       - .:/movie
