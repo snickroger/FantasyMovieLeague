@@ -18,7 +18,8 @@
     "lint-fix": "eslint --fix -c .eslintrc.js --ext .ts src",
     "test": "mocha -r ts-node/register src/test/test.ts",
     "test-debug": "mocha --inspect-brk -r ts-node/register src/test/test.ts",
-    "get-earnings": "node ./dist/scripts/getEarnings.js"
+    "get-earnings": "node ./dist/scripts/getEarnings.js",
+    "get-posters": "node ./dist/scripts/getPosters.js"
   },
   "dependencies": {
     "accounting": "^0.4.1",
