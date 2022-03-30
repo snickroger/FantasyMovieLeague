@@ -52,7 +52,6 @@ export class AdminController {
       dealeron.name = "DealerOn";
       dealeron.slug = "dealeron";
       dealeron.season = newSeason;
-      dealeron.moneyPool = "https://paypal.me/pools/c/8iwcK4ntga";
 
       await this.sql.addTeam(friends);
       await this.sql.addTeam(dealeron);

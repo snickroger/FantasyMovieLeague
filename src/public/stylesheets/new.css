@@ -42,8 +42,9 @@
   height: 100%;
 }
 .card-img-top {
-  width: auto;
+  min-width: 200px;
   height: 300px;
+  object-fit: cover;
 }
 .card-body_wrapper {
   display: flex;
