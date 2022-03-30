@@ -37,7 +37,7 @@ function sort(s) {
   } else {
     dir = s.dir;
   }
-  
+
   tinysort('#movies div.movie-box', {data: s.attr, order: dir});
   SORT.selectedAttr = s.attr;
   SORT.selectedDir = dir;
@@ -49,7 +49,7 @@ function rankingSort(index) {
   var dir;
   if (index === RANKING_SORT.selectedIndex && RANKING_SORT.selectedDir === "asc") {
     dir = "desc";
-  } else { 
+  } else {
     dir = "asc";
   }
 

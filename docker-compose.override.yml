@@ -1,0 +1,13 @@
+version: '3'
+services:
+  app:
+    command: sh -c "npm install && npm run build && ./node_modules/.bin/nodemon --legacy-watch --watch ./dist --inspect=0.0.0.0:9229 --nolazy ./dist/server.js"
+    ports:
+      - "3000:3000"
+      - "9229:9229"
+      - "9228:9228"
+    volumes:
+      - .:/movie
+    env_file: ./variables.env
+  db:
+    env_file: ./variables.env
