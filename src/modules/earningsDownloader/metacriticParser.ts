@@ -1,19 +1,27 @@
 import cheerio from "cheerio";
 
 export class MetacriticParser {
+
+  private static cssPaths: string[] = ["div.c-siteReviewScore span", "a.metascore_anchor span"];
+
   public static getRating(html: string): number | undefined {
     const $ = cheerio.load(html);
-    const metascoreElement = $("a.metascore_anchor span");
+    for (const cssPath of this.cssPaths)
+    {
+      const metascoreElement = $(cssPath);
 
-    if (!metascoreElement || metascoreElement.length === 0) {
-      return undefined;
+      if (!metascoreElement || metascoreElement.length === 0) {
+        continue;
+      }
+  
+      const score = parseInt(metascoreElement.eq(0).text(), 10);
+      if (isNaN(score)) {
+        continue;
+      }
+  
+      return score;
     }
 
-    const score = parseInt(metascoreElement.eq(0).text(), 10);
-    if (isNaN(score)) {
-      return undefined;
-    }
-
-    return score;
+    return undefined;
   }
 }
