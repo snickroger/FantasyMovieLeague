@@ -15,8 +15,9 @@
   height: 100%;
 }
 .card-img-top {
-  width: auto;
+  width: 200px;
   height: 300px;
+  object-fit: fill;
 }
 .card-body_wrapper {
   display: flex;
