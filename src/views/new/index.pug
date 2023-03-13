@@ -18,17 +18,10 @@ block content
           select.form-control#selected-season(onchange="changeSeason(event)")
             each season in seasons
               option(value=season.slug selected= selectedSeasonSlug === season.slug)= season.name
-      button.navbar-toggler(type="button" data-toggle="collapse" data-target="#navbarsExample04" aria-controls="navbarsExample04" aria-expanded="false" aria-label="Toggle navigation")
-        span.navbar-toggler-icon
       div#navbarsExample04.collapse.navbar-collapse
         ul.navbar-nav.mr-auto
-      div
-        input#whoareyou(required type="text" name="whoareyou" placeholder="First & Last Name")
-      div
-        input#email(type="email" name="email" placeholder="Email (optional)")
       div#remaining
         span 100 remaining
-      button#save.btn.btn-primary(type="submit") Submit
     div.main
       div.jumbotron
         div.container
@@ -38,7 +31,7 @@ block content
                 img(src="https://media.giphy.com/media/KJ1f5iTl4Oo7u/giphy.gif" alt="Thanks!")
                 hr
           h1.display-4= title
-          p Enter the shares for each movie and select the bonus options you choose below, then enter your First and Last name (required) and your email (optional, only used for sending you a copy of your submissions) above.
+          p Enter the shares for each movie and select the bonus options you choose below, then enter your First and Last name (required) and your email (optional, only used for sending you a copy of your submissions).
           h2.mb-5 Deadline: 
             span#deadline 
             span &nbsp;|&nbsp;
@@ -66,6 +59,15 @@ block content
             +new_movie_box(movie)
           +new_bonus_box(1, bonusAmount, movies)
           +new_bonus_box(2, bonusAmount, movies)
+        div#submit-panel.alert.alert-primary
+          div.form-group
+            label(for="whoareyou") First and last name
+            input#whoareyou.form-control(required type="text" name="whoareyou" placeholder="Enter your first and last name")
+          div.form-group
+            label(for="email") Email address (optional)
+            input#email.form-control(type="email" name="email" placeholder="Enter your email address")
+            small#emailHelp.form-text.text-muted Your email is used only to send a copy of your submissions.
+          button#save.btn.btn-primary(type="submit") Submit
 block scripts
   script=`var seasonStart = '${seasonStart}';`
   script(src='https://cdnjs.cloudflare.com/ajax/libs/jquery.countdown/2.2.0/jquery.countdown.js', integrity='sha256-2HAs3lxuJSrA/bAbF2bgaV55gSuX8vVsj2pCcWYqmY4=', crossorigin='anonymous')
