@@ -58,3 +58,6 @@
 .card-body_wrapper hr {
   width: 100%;
 }
+select {
+  width: 100%;
+}
