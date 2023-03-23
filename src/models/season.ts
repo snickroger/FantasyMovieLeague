@@ -44,6 +44,9 @@ export class Season {
   @Column()
   public newHeaderContent?: string;
 
+  @Column()
+  public active!: boolean;
+
   @OneToMany(() => Url, (url) => url.season, { cascade: ["remove"], nullable: false })
   @JoinTable()
   public urls!: Url[];

@@ -22,6 +22,7 @@ export class Sql implements ISql {
     let slug: string;
     if (seasonSlug === undefined) {
       const maxSeason = await getManager().getRepository(Season).createQueryBuilder("season")
+        .where("active = true")
         .orderBy("id", "DESC")
         .getOne();
       slug = maxSeason!.slug;
