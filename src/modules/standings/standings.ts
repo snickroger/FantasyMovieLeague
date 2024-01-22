@@ -65,6 +65,6 @@ export class Standings {
 
   public static getStandingsDisplayText(standings: StandingsDisplay[], teamSlug: string): string {
     const result: string = standings.map((s) => `${s.rank}. ${s.name}: ${s.totalDisp}`).join("\n");
-    return result + `\n\nhttp://movie.nickroge.rs/${teamSlug}`;
+    return result + `\n\nhttps://movie.nickroge.rs/${teamSlug}`;
   }
 }
