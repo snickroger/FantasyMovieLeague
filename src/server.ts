@@ -2,7 +2,6 @@ import bodyParser from "body-parser";
 import express from "express";
 import basicAuth from "express-basic-auth";
 import path from "path";
-import "reflect-metadata";
 import favicon from "serve-favicon";
 import { createConnection } from "typeorm";
 import { AdminController } from "./controllers/adminController";
