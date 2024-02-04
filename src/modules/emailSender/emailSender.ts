@@ -1,4 +1,5 @@
-import mailgun from "mailgun-js";
+import FormData from 'form-data';
+import Mailgun from "mailgun.js";
 import { Player } from "../../models/player";
 import { EmailMessage } from "./emailMessage";
 import { IEmailSender } from "./iemailSender";
@@ -11,7 +12,8 @@ export class EmailSender implements IEmailSender {
     }
     const apiKey = process.env.MAILGUN_API_KEY || "";
     const domain = process.env.MAILGUN_DOMAIN || "";
-    const mg = mailgun({ apiKey, domain });
+    const mailgun = new Mailgun(FormData);
+    const mg = mailgun.client({ username: 'api', key: apiKey });
 
     const mailgunEnvelope = {
       "from": emailMessage.from,
@@ -23,7 +25,7 @@ export class EmailSender implements IEmailSender {
     };
 
     try {
-      await mg.messages().send(mailgunEnvelope);
+      await mg.messages.create(domain, mailgunEnvelope);
     } catch (e) {
       console.error(e);
     }
