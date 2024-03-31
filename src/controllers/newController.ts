@@ -22,7 +22,7 @@ export class NewController {
       const selectedSeason = await this.sql.getSelectedSeason(seasonId);
       const thanks: boolean = req.query.thanks === "1";
 
-      if (selectedSeason === undefined) {
+      if (selectedSeason === null) {
         // season does not exist
         res.status(404).contentType("text/plain").send("Season not found");
         return;
@@ -38,7 +38,7 @@ export class NewController {
       let selectedTeam: Team;
       if (req.query.team) {
         const teams = selectedTeamArr.filter((t) => t.slug === req.query.team);
-
+ 
         if (teams.length === 0) {
           res.status(404).contentType("text/plain").send("Team not found");
           return;
@@ -74,7 +74,7 @@ export class NewController {
   public async postNew(req: Request, res: Response, next: any) {
     try {
       const currentSeason = await this.sql.getSelectedSeason(undefined);
-      if (currentSeason === undefined) {
+      if (currentSeason === null) {
         res.status(404);
         return;
       }

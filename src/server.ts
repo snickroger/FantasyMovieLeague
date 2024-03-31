@@ -3,35 +3,19 @@ import express from "express";
 import basicAuth from "express-basic-auth";
 import path from "path";
 import favicon from "serve-favicon";
-import { createConnection } from "typeorm";
 import { AdminController } from "./controllers/adminController";
 import { HomeController } from "./controllers/homeController";
 import { MovieController } from "./controllers/movieController";
 import { NewController } from "./controllers/newController";
 import { PlayerController } from "./controllers/playerController";
-import { Earning } from "./models/earning";
-import { Movie } from "./models/movie";
-import { Player } from "./models/player";
-import { Season } from "./models/season";
-import { Share } from "./models/share";
-import { Team } from "./models/team";
-import { Url } from "./models/url";
-import { ISql } from "./modules/db/isql";
-import { Sql } from "./modules/db/sql";
 import { EmailSender } from "./modules/emailSender/emailSender";
 import { IEmailSender } from "./modules/emailSender/iemailSender";
+import { MovieDataSource } from "./modules/db/sqlDataSource";
+import { ISql } from "./modules/db/isql";
+import { Sql } from "./modules/db/sql";
 
 // database setup
-createConnection({
-  type: "postgres",
-  host: process.env.POSTGRES_HOST,
-  port: parseInt(process.env.POSTGRES_PORT!, 10),
-  username: process.env.POSTGRES_USER,
-  password: process.env.POSTGRES_PASSWORD,
-  database: process.env.POSTGRES_DB,
-  logging: ["warn", "error"],
-  entities: [Earning, Movie, Player, Season, Share, Team, Url],
-}).then((conn) => {
+MovieDataSource.initialize().then((conn) => {
   const defaultParser = bodyParser.urlencoded({ extended: true });
   const server = express();
 

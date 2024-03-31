@@ -19,7 +19,7 @@ export class PostersDownloader implements IPostersDownloader {
 
   public async downloadPosters(slug: string): Promise<void> {
     const currentSeason = await this.sql.getSelectedSeason(slug);
-    if (currentSeason === undefined) {
+    if (currentSeason === null) {
       return;
     }
 

@@ -24,7 +24,7 @@ export class EarningsDownloader implements IEarningsDownloader {
     const dateStr: string = moment().tz("America/New_York").format("YYYY-MM-DD");
     const dateThreshold: Date = moment().add(5, "days").tz("America/New_York").toDate();
     const currentSeason = await this.sql.getSelectedSeason(undefined);
-    if (currentSeason === undefined || currentSeason.getEndDate() < date) {
+    if (currentSeason === null || currentSeason.getEndDate() < date) {
       return;
     }
 

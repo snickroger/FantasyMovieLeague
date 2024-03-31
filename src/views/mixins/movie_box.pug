@@ -2,7 +2,7 @@ include worst_movie_icon.pug
 include best_movie_icon.pug
 
 mixin movie_box(movie, teamId)
-  div.col-lg-4.my-3.movie-box(data-title=movie.name data-release-date=movie.releaseDateInt data-shares=movie.shares data-gross=movie.gross data-rating=movie.rating data-value=movie.value)
+  div.col-lg-6.my-3.movie-box(data-title=movie.name data-release-date=movie.releaseDateInt data-shares=movie.shares data-gross=movie.gross data-rating=movie.rating data-value=movie.value)
     div.card
       a(href=`/movies/${movie.id}?team=${teamId}`): img.card-img-top(src=movie.posterUrl alt=movie.name)
       div.card-body

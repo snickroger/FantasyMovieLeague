@@ -201,15 +201,15 @@ export class MockSql implements ISql {
     return new Promise((resolve) => resolve(matchingTeams[0]));
 
   }
-  public getMovieInfo(id: number): Promise<Movie | undefined> {
+  public getMovieInfo(id: number): Promise<Movie | null> {
     throw new Error("Method not implemented.");
   }
-  public getMovie(id: number, team: Team): Promise<Movie | undefined> {
+  public getMovie(id: number, team: Team): Promise<Movie | null> {
     const season = MockSql.seasons[this.selectedIndex];
     const matchingMovies = season.movies.filter((t) => t.id === id);
     return new Promise((resolve) => resolve(matchingMovies[0]));
   }
-  public getPlayer(id: number): Promise<Player | undefined> {
+  public getPlayer(id: number): Promise<Player | null> {
     throw new Error("Method not implemented.");
   }
   public addPlayerToTeam(player: Player, team: Team): Promise<Player> {
