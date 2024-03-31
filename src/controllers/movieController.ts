@@ -14,13 +14,13 @@ export class MovieController {
       const movieId = parseInt(req.params.id, 10);
       const teamId = parseInt(req.query.team as string, 10);
       const team = await this.sql.getTeam(teamId);
-      if (team === undefined) {
+      if (team === null) {
         res.status(404).send("Team not found");
         return;
       }
 
       const movie = await this.sql.getMovie(movieId, team);
-      if (movie === undefined) {
+      if (movie === null) {
         res.status(404).send("Movie not found");
         return;
       }

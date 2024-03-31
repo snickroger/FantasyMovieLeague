@@ -7,11 +7,11 @@ import { SeasonMenuItem } from "./seasonMenuItem";
 
 export interface ISql {
   getAllSeasonsForMenu(): Promise<SeasonMenuItem[]>;
-  getSelectedSeason(seasonSlug: string | undefined): Promise<Season | undefined>;
+  getSelectedSeason(seasonSlug: string | undefined): Promise<Season | null>;
   getTeam(id: number): Promise<Team>;
-  getMovieInfo(id: number): Promise<Movie | undefined>;
-  getMovie(id: number, team: Team): Promise<Movie | undefined>;
-  getPlayer(id: number): Promise<Player | undefined>;
+  getMovieInfo(id: number): Promise<Movie | null>;
+  getMovie(id: number, team: Team): Promise<Movie | null>;
+  getPlayer(id: number): Promise<Player | null>;
   addPlayerToTeam(player: Player, team: Team): Promise<Player>;
   addEarningsForMovies(earning: Earning[]): Promise<void>;
   deleteEarningsForDate(dateStr: string): Promise<void>;

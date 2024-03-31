@@ -68,7 +68,7 @@ export class AdminController {
       const seasonId = req.query.season as (string | undefined);
       const selectedSeason = await this.sql.getSelectedSeason(seasonId);
 
-      if (selectedSeason === undefined) {
+      if (selectedSeason === null) {
         // season does not exist
         res.status(404).contentType("text/plain").send("Season not found");
         return;
@@ -100,7 +100,7 @@ export class AdminController {
       const seasonId = req.query.season as (string | undefined);
       const selectedSeason = await this.sql.getSelectedSeason(seasonId);
 
-      if (selectedSeason === undefined) {
+      if (selectedSeason === null) {
         // season does not exist
         res.status(404).contentType("text/plain").send("Season not found");
         return;
@@ -123,14 +123,14 @@ export class AdminController {
       const seasonId = req.query.season as (string | undefined);
       const selectedSeason = await this.sql.getSelectedSeason(seasonId);
 
-      if (selectedSeason === undefined) {
+      if (selectedSeason === null) {
         // season does not exist
         res.status(404).contentType("text/plain").send("Season not found");
         return;
       }
 
       const movie = await this.sql.getMovieInfo(parseInt(req.params.id, 10));
-      if (movie === undefined) {
+      if (movie === null) {
         // movie does not exist
         res.status(404).contentType("text/plain").send("Movie not found");
         return;
@@ -155,7 +155,7 @@ export class AdminController {
       const seasonId = req.query.season as (string | undefined);
       const selectedSeason = await this.sql.getSelectedSeason(seasonId);
 
-      if (selectedSeason === undefined) {
+      if (selectedSeason === null) {
         // season does not exist
         res.status(404).contentType("text/plain").send("Season not found");
         return;
@@ -166,7 +166,7 @@ export class AdminController {
         const editedMovie = Movie.fromPostBody(req.body);
 
         const movie = await this.sql.getMovieInfo(parseInt(req.params.id, 10));
-        if (movie === undefined) {
+        if (movie === null) {
           // movie does not exist
           res.status(404).contentType("text/plain").send("Movie not found");
           return;

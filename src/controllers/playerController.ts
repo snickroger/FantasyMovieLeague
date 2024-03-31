@@ -14,19 +14,19 @@ export class PlayerController {
       const playerId = parseInt(req.params.id, 10);
       const teamId = parseInt(req.query.team as string, 10);
       const team = await this.sql.getTeam(teamId);
-      if (team === undefined) {
+      if (team === null) {
         res.status(404).send("Team not found");
         return;
       }
 
       const player = await this.sql.getPlayer(playerId);
-      if (player === undefined) {
+      if (player === null) {
         res.status(404).send("Player not found");
         return;
       }
 
       const season = await this.sql.getSelectedSeason(team.season.slug);
-      if (season === undefined) {
+      if (season === null) {
         res.status(404).send("Season not found for team");
         return;
       }

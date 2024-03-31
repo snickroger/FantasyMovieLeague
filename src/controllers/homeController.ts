@@ -16,7 +16,7 @@ export class HomeController {
       const seasonId = req.query.season as (string | undefined);
       const selectedSeason = await this.sql.getSelectedSeason(seasonId);
 
-      if (selectedSeason === undefined) {
+      if (selectedSeason === null) {
         // season does not exist
         res.status(404).send("Season not found");
         return;
@@ -46,7 +46,7 @@ export class HomeController {
       const seasonId = req.query.season as (string | undefined);
       const selectedSeason = await this.sql.getSelectedSeason(seasonId);
 
-      if (selectedSeason === undefined) {
+      if (selectedSeason === null) {
         res.status(404).send("Season not found");
         return;
       }
@@ -99,7 +99,7 @@ export class HomeController {
       const seasonId = req.query.season as (string | undefined);
       const selectedSeason = await this.sql.getSelectedSeason(seasonId);
 
-      if (selectedSeason === undefined) {
+      if (selectedSeason === null) {
         res.status(404).send("Season not found");
         return;
       }
