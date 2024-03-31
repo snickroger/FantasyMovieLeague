@@ -12,10 +12,11 @@ export class Movie {
     newMovie.plot = postBody.plot;
     newMovie.actors = postBody.actors;
     newMovie.director = postBody.director;
-    newMovie.releaseDate = postBody.release_date;
+    newMovie.releaseDate = new Date(postBody.release_date  + "T12:00:00-0400");
     newMovie.imdb = postBody.imdb;
     newMovie.metacriticUrl = postBody.metacritic;
     newMovie.limited = false;
+
     return newMovie;
   }
 
