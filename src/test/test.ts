@@ -16,16 +16,16 @@ describe("revenues", () => {
     const html = fs.readFileSync(filePath).toString();
     const movies = MojoParser.parse(html);
 
-    it("has 101 movies", () => {
-      assert.equal(movies.length, 101);
+    it("has 200 movies", () => {
+      assert.equal(movies.length, 200);
     });
 
-    it("has Thor in position 96", () => {
-      assert.equal(movies[96].name, "Thor: Ragnarok");
+    it("has Thor in position 88", () => {
+      assert.equal(movies[88].name, "Thor: Ragnarok");
     });
 
     it("has Star Wars with a $620M gross", () => {
-      assert.equal(movies[24].gross, 620181382);
+      assert.equal(movies[18].gross, 620181382);
     });
 
     it("has 3 movies after filtering", () => {
