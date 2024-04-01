@@ -1,29 +1,13 @@
-import { createConnection } from "typeorm";
-import { Earning } from "../models/earning";
-import { Movie } from "../models/movie";
-import { Player } from "../models/player";
-import { Season } from "../models/season";
-import { Share } from "../models/share";
-import { Team } from "../models/team";
-import { Url } from "../models/url";
-import { Sql } from "../modules/db/sql";
+import { MovieDataSource } from "../modules/db/sqlDataSource";
 import { EarningsDownloader } from "../modules/earningsDownloader/earningsDownloader";
 import { UrlDownloader } from "../modules/urlDownloader/urlDownloader";
+import { ISql } from "../modules/db/isql";
+import { Sql } from "../modules/db/sql";
 
-const http = new UrlDownloader();
-const sql = new Sql();
-const earningsDownloader = new EarningsDownloader(http, sql, process.stdout);
-
-createConnection({
-  type: "postgres",
-  host: process.env.POSTGRES_HOST,
-  port: parseInt(process.env.POSTGRES_PORT!, 10),
-  username: process.env.POSTGRES_USER,
-  password: process.env.POSTGRES_PASSWORD,
-  database: process.env.POSTGRES_DB,
-  logging: ["warn", "error"],
-  entities: [Earning, Movie, Player, Season, Share, Team, Url],
-}).then((conn) => {
+MovieDataSource.initialize().then((conn) => {
+  const http = new UrlDownloader();
+  const db: ISql = new Sql();
+  const earningsDownloader = new EarningsDownloader(http, db, process.stdout);
   earningsDownloader.downloadEarnings().then(() => {
     process.exit(0);
   }).catch((err) => {
