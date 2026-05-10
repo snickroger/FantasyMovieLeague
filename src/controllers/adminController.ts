@@ -129,7 +129,12 @@ export class AdminController {
         return;
       }
 
-      const movie = await this.sql.getMovieInfo(parseInt(req.params.id, 10));
+      const movieId = parseInt(req.params.id as string, 10);
+      if (isNaN(movieId)) {
+        res.status(404).contentType("text/plain").send("Movie not found");
+        return;
+      }
+      const movie = await this.sql.getMovieInfo(movieId);
       if (movie === null) {
         // movie does not exist
         res.status(404).contentType("text/plain").send("Movie not found");
@@ -165,7 +170,12 @@ export class AdminController {
         // updating movie
         const editedMovie = Movie.fromPostBody(req.body);
 
-        const movie = await this.sql.getMovieInfo(parseInt(req.params.id, 10));
+        const movieId = parseInt(req.params.id as string, 10);
+        if (isNaN(movieId)) {
+          res.status(404).contentType("text/plain").send("Movie not found");
+          return;
+        }
+        const movie = await this.sql.getMovieInfo(movieId);
         if (movie === null) {
           // movie does not exist
           res.status(404).contentType("text/plain").send("Movie not found");

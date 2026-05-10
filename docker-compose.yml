@@ -1,11 +1,10 @@
 # To restore database backup: Get-Content db\movie.bak | docker exec -i movie-ts_db_1 psql movie -U movie
-version: '3.8'
 services:
   app:
-    image: node:20.11
+    image: node:24.15
     working_dir: /movie
     container_name: movie_app
-    command: sh -c "yarn && yarn build && ./node_modules/.bin/nodemon -e js,pug --legacy-watch --watch ./dist --inspect=0.0.0.0:9229 --nolazy ./dist/server.js"
+    command: sh -c "npm install && npm run build && ./node_modules/.bin/nodemon -e js,pug --legacy-watch --watch ./dist --inspect=0.0.0.0:9229 --nolazy ./dist/server.js"
     ports:
       - "3000:3000"
       - "9229:9229"

@@ -11,7 +11,11 @@ export class MovieController {
 
   public async get(req: Request, res: Response, next: any) {
     try {
-      const movieId = parseInt(req.params.id, 10);
+      const movieId = parseInt(req.params.id as string, 10);
+      if (isNaN(movieId)) {
+        res.status(404).send("Movie not found");
+        return;
+      }
       const teamId = parseInt(req.query.team as string, 10);
       const team = await this.sql.getTeam(teamId);
       if (team === null) {

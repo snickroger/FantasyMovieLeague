@@ -1,5 +1,5 @@
 import bodyParser from "body-parser";
-import express from "express";
+import express, { RequestHandler } from "express";
 import basicAuth from "express-basic-auth";
 import path from "path";
 import favicon from "serve-favicon";
@@ -36,7 +36,7 @@ MovieDataSource.initialize().then((conn) => {
   // server setup
   server.use(defaultParser);
   server.use(express.static("dist/public"));
-  server.use(favicon(path.join(__dirname, "public", "favicon.ico")));
+  server.use(favicon(path.join(__dirname, "public", "favicon.ico")) as unknown as RequestHandler);
 
   server.set("view engine", "pug");
   server.set("views", "dist/views");
@@ -45,16 +45,16 @@ MovieDataSource.initialize().then((conn) => {
   server.get("/", homeController.index.bind(homeController));
   server.get("/new", newController.index.bind(newController));
   server.post("/new", newController.postNew.bind(newController));
-  server.get("/movies/:id(\\d+)", movieController.get.bind(movieController));
-  server.get("/players/:id(\\d+)", playerController.get.bind(playerController));
+  server.get("/movies/:id", movieController.get.bind(movieController));
+  server.get("/players/:id", playerController.get.bind(playerController));
   server.get("/admin", auth, adminController.index.bind(adminController));
   server.get("/admin/season/new", auth, adminController.newSeason.bind(adminController));
   server.post("/admin/season", auth, adminController.createSeason.bind(adminController));
   server.get("/admin/movies", auth, adminController.listMovies.bind(adminController));
   server.post("/admin/movies", auth, adminController.createOrUpdateMovie.bind(adminController));
-  server.get("/admin/movies/:id(\\d+)", auth, adminController.editMovie.bind(adminController));
-  server.post("/admin/movies/:id(\\d+)", auth, adminController.createOrUpdateMovie.bind(adminController));
   server.get("/admin/movies/new", auth, adminController.newMovie.bind(adminController));
+  server.get("/admin/movies/:id", auth, adminController.editMovie.bind(adminController));
+  server.post("/admin/movies/:id", auth, adminController.createOrUpdateMovie.bind(adminController));
   server.get("/:teamId.txt", homeController.indexTeamText.bind(homeController));
   server.get("/:teamId", homeController.indexTeam.bind(homeController));
 

@@ -1,4 +1,4 @@
-import cheerio from "cheerio";
+import * as cheerio from "cheerio";
 import { Earning } from "../../models/earning";
 import { Movie } from "../../models/movie";
 

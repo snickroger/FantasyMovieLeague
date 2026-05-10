@@ -1,4 +1,4 @@
-yarn && yarn run tsc
+npm install && npx tsc
 if [ $? -ne 0 ]; 
 then
   mkdir -p dist/views
