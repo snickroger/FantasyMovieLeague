@@ -11,7 +11,11 @@ export class PlayerController {
 
   public async get(req: Request, res: Response, next: any) {
     try {
-      const playerId = parseInt(req.params.id, 10);
+      const playerId = parseInt(req.params.id as string, 10);
+      if (isNaN(playerId)) {
+        res.status(404).send("Player not found");
+        return;
+      }
       const teamId = parseInt(req.query.team as string, 10);
       const team = await this.sql.getTeam(teamId);
       if (team === null) {
