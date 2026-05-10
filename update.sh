@@ -1,3 +1,3 @@
 #!/bin/bash
-docker compose exec app yarn run get-earnings
+docker compose exec app npm run get-earnings
 find /cache -type f -delete
