@@ -43,11 +43,11 @@ describe("revenues", () => {
     const html = fs.readFileSync(filePath).toString();
     const noRatingHtml = fs.readFileSync(noRatingfilePath).toString();
 
-    it("has Widows with a 86% rating", () => {
+    it("has Predator: Badlands with a 71% rating", () => {
       const rating = MetacriticParser.getRating(html);
-      assert.equal(rating, 86);
+      assert.equal(rating, 71);
     });
-    it("has Vice with no rating", () => {
+    it("has Mandalorian & Grogu with no rating", () => {
       const rating = MetacriticParser.getRating(noRatingHtml);
       assert.equal(rating, null);
     });

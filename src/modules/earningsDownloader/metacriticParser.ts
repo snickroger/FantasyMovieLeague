@@ -2,7 +2,7 @@ import * as cheerio from "cheerio";
 
 export class MetacriticParser {
 
-  private static cssPaths: string[] = ["div.c-siteReviewScore span", "a.metascore_anchor span"];
+  private static cssPaths: string[] = ["div.hero-scores div[data-testid='product-score']:first-child span"];
 
   public static getRating(html: string): number | undefined {
     const $ = cheerio.load(html);
